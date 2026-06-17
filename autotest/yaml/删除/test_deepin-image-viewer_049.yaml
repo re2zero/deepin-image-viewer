@@ -1,0 +1,34 @@
+name: "[018][smoke][acp1]删除-右键菜单删除"
+app: deepin-image-viewer
+screenshot: true
+description: |
+  前置条件:
+
+  测试步骤:
+  1. 在图片查看区域点击【鼠标右键】
+  2. 点击选择右键菜单中的【删除】选项
+
+  预期结果:
+  1. 唤起右键菜单
+  2. 该图片被删除，自动切换到下一张
+module: 删除
+feature: ''
+tags:
+  - L2
+
+vars:
+  XLSX_ID: "1652213"
+setup:
+  - action: session_start
+    command: "deepin-image-viewer ${TEST_FILES_DIR}/2.png"
+    wait: 1.0
+steps:
+  - name: "右键菜单点击删除"
+    action: context_menu_comb
+    items:
+      - "删除"
+    x: 960
+    y: 540
+    wait_after: 2000
+teardown:
+  - action: session_stop

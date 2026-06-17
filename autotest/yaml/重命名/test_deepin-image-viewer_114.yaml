@@ -1,0 +1,41 @@
+name: "重命名-文件名字符类型检查"
+app: deepin-image-viewer
+screenshot: true
+description: |
+  前置条件:
+
+  测试步骤:
+  1. 输入任意名称，包含所有的大小写字母、数字、符号、特殊符号、空格等
+  2. 点击【确定】按钮
+
+  预期结果:
+  1. 文件名可以输入大小写字母、数字、符号、特殊符号、空格等内容
+  2. 文件名修改成功
+module: 重命名
+feature: ''
+tags:
+  - L3
+
+vars:
+  XLSX_ID: "1652343"
+setup:
+  - action: session_start
+    command: "deepin-image-viewer ${TEST_FILES_DIR}/1.png"
+    wait: 1.0
+steps:
+  - name: "右键菜单选择重命名"
+    action: context_menu_comb
+    x: 960
+    y: 540
+    items: ["重命名"]
+    wait_after: 1500
+  - name: "输入包含各种字符类型的名称"
+    action: keyboard_type
+    value: "Test123!@# test"
+    wait_after: 500
+  - name: "点击确认按钮"
+    action: keyboard_press
+    keys: "Return"
+    wait_after: 1000
+teardown:
+  - action: session_stop

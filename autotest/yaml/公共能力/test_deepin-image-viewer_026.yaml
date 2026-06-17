@@ -1,0 +1,31 @@
+# UNSUPPORTED: 相册查看图片格式支持需要启动相册应用并从相册中打开图片，无法直接模拟
+name: "公共能力-相册查看图片格式支持"
+app: deepin-image-viewer
+screenshot: true
+description: |
+  前置条件:
+
+  测试步骤:
+  1. 相册调用看图打开第一张
+  2. 逐张切换图片，检查各图片支持的情况
+
+  预期结果:
+  1.
+  2. 各图片支持情况与看图保持一致（可参考看图支持格式用例）
+module: 公共能力
+feature: ''
+tags:
+  - L2
+
+vars:
+  XLSX_ID: "1652393"
+setup:
+  - action: session_start
+    command: "deepin-image-viewer ${TEST_FILES_DIR}/1.png"
+    wait: 1.0
+steps:
+  - name: "SKIP-相册查看图片格式支持检查"
+    action: noop
+    wait_after: 1000
+teardown:
+  - action: session_stop

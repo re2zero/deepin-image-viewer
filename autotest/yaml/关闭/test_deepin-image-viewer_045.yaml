@@ -1,0 +1,32 @@
+name: "关闭-窗口关闭按钮"
+app: deepin-image-viewer
+screenshot: true
+description: |
+  前置条件:
+
+  测试步骤:
+  1. 启动看图
+  2. 点击看图窗口右上角的【X】关闭按钮
+
+  预期结果:
+  1.
+  2. 关闭当前看图窗口
+module: 关闭
+feature: ''
+tags:
+  - L3
+
+vars:
+  XLSX_ID: "1652437"
+setup:
+  - action: session_start
+    command: "deepin-image-viewer ${TEST_FILES_DIR}/1.png"
+    wait: 1.0
+steps:
+  - name: "点击看图窗口右上角的X关闭按钮"
+    action: element_action
+    selector:
+      role: "close button"
+    wait_after: 1000
+teardown:
+  - action: session_stop

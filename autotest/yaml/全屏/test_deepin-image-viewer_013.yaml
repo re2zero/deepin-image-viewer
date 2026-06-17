@@ -1,0 +1,49 @@
+name: "工具栏-全屏唤出工具栏"
+app: deepin-image-viewer
+screenshot: true
+description: |
+  前置条件:
+
+  测试步骤:
+  1. 看图打开图片，双击看图全屏，将鼠标移动到图片下方
+  2. 鼠标移出工具栏
+
+  预期结果:
+  1. 工具栏以鼠标移入区域方式唤出工具栏
+  2. 工具栏收起
+module: 工具栏
+feature: ''
+tags:
+  - L3
+
+vars:
+  XLSX_ID: "1651997"
+setup:
+  - action: session_start
+    command: "deepin-image-viewer ${TEST_FILES_DIR}/1.png ${TEST_FILES_DIR}/2.png ${TEST_FILES_DIR}/3.png"
+    wait: 1.0
+steps:
+  - name: "双击图片进入全屏"
+    action: mouse_double_click
+    wait_after: 1000
+    x: 960
+    y: 540
+  - name: "等待全屏切换完成"
+    action: wait
+    wait: 1.0
+  - name: "将鼠标移动到图片下方唤出工具栏"
+    action: mouse_click
+    x: 500
+    y: 700
+    wait_after: 1000
+  - name: "noop-检查工具栏以鼠标移入区域方式唤出"
+    action: noop
+  - name: "将鼠标移出工具栏"
+    action: mouse_click
+    x: 500
+    y: 100
+    wait_after: 1000
+  - name: "noop-检查工具栏收起"
+    action: noop
+teardown:
+  - action: session_stop

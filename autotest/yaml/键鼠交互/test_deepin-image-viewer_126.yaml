@@ -1,0 +1,37 @@
+name: "键鼠交互-鼠标滚轮放大缩小图片"
+app: deepin-image-viewer
+screenshot: true
+description: |
+  前置条件:
+
+  测试步骤:
+  1. 使用【鼠标滚轮】
+
+  预期结果:
+  1. 来回放大缩小图片
+module: 键鼠交互
+feature: ''
+tags:
+  - L3
+
+vars:
+  XLSX_ID: "1652663"
+setup:
+  - action: session_start
+    command: "deepin-image-viewer ${TEST_FILES_DIR}/1.png ${TEST_FILES_DIR}/2.png ${TEST_FILES_DIR}/3.png"
+    wait: 1.0
+steps:
+  - name: "鼠标滚轮向上滚动放大图片"
+    action: mouse_scroll
+    x: 960
+    y: 540
+    dy: 3
+    wait_after: 1000
+  - name: "鼠标滚轮向下滚动缩小图片"
+    action: mouse_scroll
+    x: 960
+    y: 540
+    dy: -3
+    wait_after: 1000
+teardown:
+  - action: session_stop

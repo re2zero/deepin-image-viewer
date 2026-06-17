@@ -1,0 +1,31 @@
+# UNSUPPORTED: 需要在鼠标滚动缩放过程中精确按下Ctrl键，时序依赖无法可靠自动化
+name: "[256][smoke]键鼠切换-鼠标滚动缩放图片过程中按下ctrl键"
+app: deepin-image-viewer
+screenshot: true
+description: |
+  前置条件:
+
+  测试步骤:
+  1. 在图片预览区域来回滚动鼠标滚轮
+  2. 在滚动过程中按下快捷键【Ctrl】
+
+  预期结果:
+  1. 图片来回缩放
+  2. 看图响应切换图片，开始切换图片
+module: 工具栏
+feature: ''
+tags:
+  - L2
+
+vars:
+  XLSX_ID: "1652119"
+setup:
+  - action: session_start
+    command: "deepin-image-viewer ${TEST_FILES_DIR}/1.png ${TEST_FILES_DIR}/2.png ${TEST_FILES_DIR}/3.png"
+    wait: 1.0
+steps:
+  - name: "verify app starts"
+    action: wait
+    wait: 1.0
+teardown:
+  - action: session_stop

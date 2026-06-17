@@ -1,0 +1,29 @@
+name: "键鼠交互-快捷键Alt+D文件管理器定位"
+app: deepin-image-viewer
+screenshot: true
+description: |
+  前置条件:
+
+  测试步骤:
+  1. 使用快捷键【Alt+D】
+
+  预期结果:
+  1. 调起文件管理器，并定位当前打开的图片
+module: 键鼠交互
+feature: ''
+tags:
+  - L3
+
+vars:
+  XLSX_ID: "1652649"
+setup:
+  - action: session_start
+    command: "deepin-image-viewer ${TEST_FILES_DIR}/1.png ${TEST_FILES_DIR}/2.png ${TEST_FILES_DIR}/3.png"
+    wait: 1.0
+steps:
+  - name: "按下Alt+D调起文件管理器定位图片"
+    action: keyboard_press
+    keys: "alt+d"
+    wait_after: 1000
+teardown:
+  - action: session_stop

@@ -1,0 +1,42 @@
+name: "键鼠切换-光标在标题栏时检查图片切换功能"
+app: deepin-image-viewer
+screenshot: true
+description: |
+  前置条件:
+
+  测试步骤:
+  1. 移动光标至标题栏任意位置
+  2. 按住快捷键【Ctrl】，同时滚动鼠标滚轮
+
+  预期结果:
+  1. 鼠标移动至标题栏
+  2. 看图无响应，不会切换图片或缩放图片
+module: 工具栏
+feature: ''
+tags:
+  - L3
+
+vars:
+  XLSX_ID: "1652077"
+setup:
+  - action: session_start
+    command: "deepin-image-viewer ${TEST_FILES_DIR}/1.png ${TEST_FILES_DIR}/2.png ${TEST_FILES_DIR}/3.png"
+    wait: 1.0
+steps:
+  - name: "将鼠标移动至标题栏区域"
+    action: mouse_click
+    selector:
+      role: "page tab list"
+  - name: "按住Ctrl键"
+    action: keyboard_press
+    keys: "Control_L"
+  - name: "滚动鼠标滚轮"
+    action: mouse_scroll
+    direction: "down"
+    delta: 1
+    wait_after: 1000
+  - name: "验证看图无响应不会切换图片"
+    action: wait
+    wait: 1.0
+teardown:
+  - action: session_stop

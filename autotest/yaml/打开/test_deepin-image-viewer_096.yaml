@@ -1,0 +1,33 @@
+# UNSUPPORTED: 需要连续拖动图片到看图窗口，拖拽操作无法通过 AT-SPI 自动化
+name: "[067][core][acp1]加载图片-连续拖动图片到看图窗口"
+app: deepin-image-viewer
+screenshot: true
+description: |
+  前置条件:
+
+  测试步骤:
+  1. 启动看图
+  2. 快速选中目录中的任意数量的图片拖动到看图窗口中
+  3. 快速且多次重复步骤2（至少15到20次）
+
+  预期结果:
+  1.
+  2. 看图正常加载图片
+  3. 看图始终可以正常加载图片
+module: 打开
+feature: ''
+tags:
+  - L2
+
+vars:
+  XLSX_ID: "1652379"
+setup:
+  - action: session_start
+    command: "deepin-image-viewer ${TEST_FILES_DIR}/1.png"
+    wait: 1.0
+steps:
+  - name: "verify app starts"
+    action: wait
+    wait: 1.0
+teardown:
+  - action: session_stop

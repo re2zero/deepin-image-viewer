@@ -1,0 +1,35 @@
+name: "键鼠交互-快捷键Ctrl+Shift+slash快捷键预览"
+app: deepin-image-viewer
+screenshot: true
+description: |
+  前置条件:
+
+  测试步骤:
+  1. 打开看图
+  2. 使用快捷键【Ctrl+Shift+/】
+
+  预期结果:
+  1.
+  2. 显示快捷键预览
+module: 键鼠交互
+feature: ''
+tags:
+  - L3
+
+vars:
+  XLSX_ID: "1652643"
+setup:
+  - action: session_start
+    command: "deepin-image-viewer ${TEST_FILES_DIR}/1.png ${TEST_FILES_DIR}/2.png ${TEST_FILES_DIR}/3.png"
+    wait: 1.0
+steps:
+  - name: "按下Ctrl+Shift+slash显示快捷键预览"
+    action: keyboard_press
+    keys: "ctrl+shift+slash"
+    wait_after: 1000
+  - name: "按Escape关闭快捷键预览"
+    action: keyboard_press
+    keys: "Escape"
+    wait_after: 500
+teardown:
+  - action: session_stop

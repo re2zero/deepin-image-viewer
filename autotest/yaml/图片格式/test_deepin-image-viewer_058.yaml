@@ -1,0 +1,61 @@
+name: "图片格式-图片支持检查"
+app: deepin-image-viewer
+screenshot: true
+description: |
+  前置条件:
+
+  测试步骤:
+  1. 打开此目录中第一张图片
+  2. 逐张切换图片，检查这些图片是否均支持打开，没有撕裂图
+
+  预期结果:
+  1.
+  2. 都可以正常打开并渲染图片，且缩略图跟随变化
+module: 图片格式
+feature: ''
+tags:
+  - L1
+
+vars:
+  XLSX_ID: "1652737"
+setup:
+  - action: session_start
+    command: "deepin-image-viewer ${TEST_FILES_DIR}/1.png"
+    wait: 1.0
+steps:
+  - name: "验证图片正常显示"
+    action: noop
+    assert:
+      - type: screenshot_changed
+        negate: false
+    wait_after: 1000
+  - name: "切换至下一张图片并验证显示"
+    action: keyboard_press
+    keys: "Right"
+    wait_after: 800
+    assert:
+      - type: screenshot_changed
+        negate: false
+  - name: "继续切换至下一张图片并验证显示"
+    action: keyboard_press
+    keys: "Right"
+    wait_after: 800
+    assert:
+      - type: screenshot_changed
+        negate: false
+  - name: "继续切换至下一张图片并验证显示"
+    action: keyboard_press
+    keys: "Right"
+    wait_after: 800
+    assert:
+      - type: screenshot_changed
+        negate: false
+  - name: "继续切换至下一张图片并验证显示"
+    action: keyboard_press
+    keys: "Right"
+    wait_after: 800
+    assert:
+      - type: screenshot_changed
+        negate: false
+teardown:
+  - action: session_stop

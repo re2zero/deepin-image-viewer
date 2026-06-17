@@ -1,0 +1,37 @@
+name: "壁纸-窗口下不能设置壁纸"
+app: deepin-image-viewer
+screenshot: true
+description: |
+  前置条件:
+
+  测试步骤:
+  1. 使用看图打开任意不支持设置壁纸的图片，如：svg格式
+  2. 在图片查看区域点击【鼠标右键】
+
+  预期结果:
+  1.
+  2. 唤起右键菜单，右键菜单中没有“设置壁纸”这个选项
+module: 设为壁纸
+feature: ''
+tags:
+  - L2
+
+vars:
+  XLSX_ID: "1652215"
+setup:
+  - action: session_start
+    command: "deepin-image-viewer ${TEST_FILES_DIR}/1.png"
+    wait: 1.0
+steps:
+  - name: "右键唤起菜单检查无设置壁纸选项"
+    action: context_menu_comb
+    x: 960
+    y: 540
+    items: []
+    wait_after: 1500
+  - name: "按Escape关闭菜单"
+    action: keyboard_press
+    keys: "Escape"
+    wait_after: 500
+teardown:
+  - action: session_stop

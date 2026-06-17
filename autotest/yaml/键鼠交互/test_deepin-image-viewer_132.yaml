@@ -1,0 +1,29 @@
+name: "键鼠交互-快捷键Ctrl+F9设置壁纸"
+app: deepin-image-viewer
+screenshot: true
+description: |
+  前置条件:
+
+  测试步骤:
+  1. 使用快捷键【Ctrl+F9】
+
+  预期结果:
+  1. 设置当前图片为壁纸
+module: 键鼠交互
+feature: ''
+tags:
+  - L3
+
+vars:
+  XLSX_ID: "1652673"
+setup:
+  - action: session_start
+    command: "deepin-image-viewer ${TEST_FILES_DIR}/1.png ${TEST_FILES_DIR}/2.png ${TEST_FILES_DIR}/3.png"
+    wait: 1.0
+steps:
+  - name: "按下Ctrl+F9设置当前图片为壁纸"
+    action: keyboard_press
+    keys: "ctrl+F9"
+    wait_after: 1000
+teardown:
+  - action: session_stop

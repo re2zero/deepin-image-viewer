@@ -1,0 +1,37 @@
+name: "键鼠交互-快捷键Down缩小图片"
+app: deepin-image-viewer
+screenshot: true
+description: |
+  前置条件:
+
+  测试步骤:
+  1. 使用快捷键【down】
+
+  预期结果:
+  1. 缩小图片，最小可缩小至2%
+module: 键鼠交互
+feature: ''
+tags:
+  - L3
+
+vars:
+  XLSX_ID: "1652677"
+setup:
+  - action: session_start
+    command: "deepin-image-viewer ${TEST_FILES_DIR}/1.png ${TEST_FILES_DIR}/2.png ${TEST_FILES_DIR}/3.png"
+    wait: 1.0
+steps:
+  - name: "按下Down键缩小图片"
+    action: keyboard_press
+    keys: "Down"
+    wait_after: 500
+  - name: "再次按下Down键缩小图片"
+    action: keyboard_press
+    keys: "Down"
+    wait_after: 500
+  - name: "连续按Down键缩小至最小"
+    action: keyboard_press
+    keys: "Down"
+    wait_after: 500
+teardown:
+  - action: session_stop

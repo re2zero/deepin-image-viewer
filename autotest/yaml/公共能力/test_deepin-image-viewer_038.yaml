@@ -1,0 +1,33 @@
+# UNSUPPORTED: 相册右键菜单导出需要启动相册应用并从相册中打开图片，无法直接模拟
+name: "公共能力-相册右键菜单导出"
+app: deepin-image-viewer
+screenshot: true
+description: |
+  前置条件:
+
+  测试步骤:
+  1. 相册调用看图打开任意图片
+  2. 在图片查看区域任意位置点击鼠标右键
+  3. 点击【导出】
+
+  预期结果:
+  1.
+  2. 唤起右键菜单
+  3. 唤起相册的导出窗口，且可成功导出图片
+module: 公共能力
+feature: ''
+tags:
+  - L3
+
+vars:
+  XLSX_ID: "1652399"
+setup:
+  - action: session_start
+    command: "deepin-image-viewer ${TEST_FILES_DIR}/1.png"
+    wait: 1.0
+steps:
+  - name: "SKIP-相册右键菜单导出操作"
+    action: noop
+    wait_after: 1000
+teardown:
+  - action: session_stop

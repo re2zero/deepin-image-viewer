@@ -1,0 +1,35 @@
+name: "幻灯片-ESC退出幻灯片放映"
+app: deepin-image-viewer
+screenshot: true
+description: |
+  前置条件:
+
+  测试步骤:
+  1. 使用快捷键【ESC】
+
+  预期结果:
+  1. 退出播放，回到看图界面
+module: 灯幻片放映
+feature: ''
+tags:
+  - L2
+
+vars:
+  XLSX_ID: "1652197"
+setup:
+  - action: session_start
+    command: "deepin-image-viewer ${TEST_FILES_DIR}/1.png"
+    wait: 1.0
+steps:
+  - name: "右键菜单启动幻灯片放映"
+    action: context_menu_comb
+    x: 960
+    y: 540
+    items: ["幻灯片放映"]
+    wait_after: 3000
+  - name: "按ESC退出幻灯片放映"
+    action: keyboard_press
+    keys: "Escape"
+    wait_after: 2000
+teardown:
+  - action: session_stop

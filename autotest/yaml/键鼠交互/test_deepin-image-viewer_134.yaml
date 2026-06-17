@@ -1,0 +1,33 @@
+# UNSUPPORTED: 需要快速来回滚动鼠标滚轮并精确时序移动鼠标至标题栏区域，时序依赖无法可靠自动化
+name: "键鼠切换-切换过程中移动鼠标至标题栏区域"
+app: deepin-image-viewer
+screenshot: true
+description: |
+  前置条件:
+
+  测试步骤:
+  1. 在图片预览区域按住快捷键【Ctrl】，同时不停的来回快速滚动鼠标滚轮
+  2. 在滚动过程中，移动鼠标至标题栏区域
+  3. 再次将鼠标移动至图片预览区域
+
+  预期结果:
+  1. 看图正常切换图片
+  2. 当鼠标移动到标题栏上时，看图立马停止切换图片
+  3. 看图继续切换图片
+module: 工具栏
+feature: ''
+tags:
+  - L3
+
+vars:
+  XLSX_ID: "1652055"
+setup:
+  - action: session_start
+    command: "deepin-image-viewer ${TEST_FILES_DIR}/1.png ${TEST_FILES_DIR}/2.png ${TEST_FILES_DIR}/3.png"
+    wait: 1.0
+steps:
+  - name: "verify app starts"
+    action: wait
+    wait: 1.0
+teardown:
+  - action: session_stop

@@ -1,0 +1,37 @@
+name: "复制-右键菜单复制"
+app: deepin-image-viewer
+screenshot: true
+description: |
+  前置条件:
+
+  测试步骤:
+  1. 使用看图打开任意一张本地图片
+  2. 在图片查看任意区域点击鼠标右键
+  3. 点击【复制】选项
+  4. 在文件管理器任意目录中进行粘贴
+
+  预期结果:
+  1.
+  2. 唤起右键菜单
+  3. 复制当前图片
+  4. 粘贴图片到文管中，且图片与原图一致
+module: 复制
+feature: ''
+tags:
+  - L1
+
+vars:
+  XLSX_ID: "1652147"
+setup:
+  - action: session_start
+    command: "deepin-image-viewer ${TEST_FILES_DIR}/1.png"
+    wait: 1.0
+steps:
+  - name: "右键菜单选择复制"
+    action: context_menu_comb
+    x: 960
+    y: 540
+    items: ["复制"]
+    wait_after: 1500
+teardown:
+  - action: session_stop

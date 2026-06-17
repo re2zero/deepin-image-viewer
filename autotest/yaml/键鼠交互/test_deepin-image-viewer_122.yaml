@@ -1,0 +1,33 @@
+name: "键鼠交互-快捷键Ctrl+I图片详细信息"
+app: deepin-image-viewer
+screenshot: true
+description: |
+  前置条件:
+
+  测试步骤:
+  1. 使用快捷键【Ctrl+I】
+
+  预期结果:
+  1. 唤起图片详细信息弹窗
+module: 键鼠交互
+feature: ''
+tags:
+  - L3
+
+vars:
+  XLSX_ID: "1652659"
+setup:
+  - action: session_start
+    command: "deepin-image-viewer ${TEST_FILES_DIR}/1.png ${TEST_FILES_DIR}/2.png ${TEST_FILES_DIR}/3.png"
+    wait: 1.0
+steps:
+  - name: "按下Ctrl+I唤起图片详细信息弹窗"
+    action: keyboard_press
+    keys: "ctrl+i"
+    wait_after: 1000
+  - name: "按Escape关闭弹窗"
+    action: keyboard_press
+    keys: "Escape"
+    wait_after: 500
+teardown:
+  - action: session_stop

@@ -1,0 +1,75 @@
+name: "用户场景-格式支持"
+app: deepin-image-viewer
+screenshot: true
+description: |
+  前置条件:
+
+  测试步骤:
+  1. 打开看图应用
+  2. 点击打开图片按钮，依次打开png、bmp、trf、trff、heic、avif格式的图片，检查能否打开，打开后是否可以正常浏览查看
+
+  预期结果:
+  1.
+  2. 图片都可以正常被打开，浏览查看正常
+module: 用户场景
+feature: ''
+tags:
+  - L3
+
+vars:
+  XLSX_ID: "1652773"
+setup:
+  - action: session_start
+    command: "deepin-image-viewer ${TEST_FILES_DIR}/1.png"
+    wait: 1.0
+steps:
+  - name: "验证图片正常显示"
+    action: noop
+    assert:
+      - type: screenshot_changed
+        negate: false
+    wait_after: 1000
+  - name: "切换至下一张图片并验证显示"
+    action: keyboard_press
+    keys: "Right"
+    wait_after: 800
+    assert:
+      - type: screenshot_changed
+        negate: false
+  - name: "继续切换并验证"
+    action: keyboard_press
+    keys: "Right"
+    wait_after: 800
+    assert:
+      - type: screenshot_changed
+        negate: false
+  - name: "继续切换并验证"
+    action: keyboard_press
+    keys: "Right"
+    wait_after: 800
+    assert:
+      - type: screenshot_changed
+        negate: false
+  - name: "继续切换并验证"
+    action: keyboard_press
+    keys: "Right"
+    wait_after: 800
+    assert:
+      - type: screenshot_changed
+        negate: false
+  - name: "继续切换并验证"
+    action: keyboard_press
+    keys: "Right"
+    wait_after: 800
+    assert:
+      - type: screenshot_changed
+        negate: false
+  - name: "继续切换并验证"
+    action: keyboard_press
+    keys: "Right"
+    wait_after: 800
+    assert:
+      - type: screenshot_changed
+        negate: false
+teardown:
+  - action: session_stop

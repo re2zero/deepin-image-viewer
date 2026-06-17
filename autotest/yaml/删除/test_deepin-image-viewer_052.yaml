@@ -1,0 +1,29 @@
+name: "[087][smoke][acp1]删除-删除单张图片后看图界面展示"
+app: deepin-image-viewer
+screenshot: true
+description: |
+  前置条件:
+
+  测试步骤:
+  1. 使用快捷键【Delete】
+
+  预期结果:
+  1. 单张图片删除后，直接返回看图首页
+module: 删除
+feature: ''
+tags:
+  - L1
+
+vars:
+  XLSX_ID: "1652211"
+setup:
+  - action: session_start
+    command: "deepin-image-viewer ${TEST_FILES_DIR}/1.png"
+    wait: 1.0
+steps:
+  - name: "按下Delete删除单张图片"
+    action: keyboard_press
+    keys: "Delete"
+    wait_after: 2000
+teardown:
+  - action: session_stop

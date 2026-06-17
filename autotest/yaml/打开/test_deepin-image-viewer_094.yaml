@@ -1,0 +1,29 @@
+# UNSUPPORTED: 需要拖拽图片到dock栏看图图标，无法通过 AT-SPI 自动化
+name: "[015\\063\\109重复][smoke][acp1]加载图片-拖拽图片到dock栏看图打开"
+app: deepin-image-viewer
+screenshot: true
+description: |
+  前置条件:
+
+  测试步骤:
+  1. 拖拽目录中的任意图片至dock栏看图应用图标上
+
+  预期结果:
+  1. 正常使用看图打开图片
+module: 打开
+feature: ''
+tags:
+  - L2
+
+vars:
+  XLSX_ID: "1652385"
+setup:
+  - action: session_start
+    command: "deepin-image-viewer ${TEST_FILES_DIR}/1.png"
+    wait: 1.0
+steps:
+  - name: "verify app starts"
+    action: wait
+    wait: 1.0
+teardown:
+  - action: session_stop

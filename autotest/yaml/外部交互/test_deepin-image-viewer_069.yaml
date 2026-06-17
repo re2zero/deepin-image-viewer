@@ -1,0 +1,31 @@
+# UNSUPPORTED: 需要与WPS等多软件交互，无法通过 AT-SPI 自动化
+name: "外部交互-与常用软件交互"
+app: deepin-image-viewer
+screenshot: true
+description: |
+  前置条件:
+
+  测试步骤:
+  1. 在使用wps编辑文字、表格等情况的时候，使用看图查看图片、播放幻灯片、设置壁纸等
+  2. 在使用多种日常软件时，使用看图查看图片、播放幻灯片、设置壁纸等
+
+  预期结果:
+  1. 看图和wps都可正常独立操作，且功能正常互不影响，看图复制图片可以正常粘贴在WPS中
+  2. 看图和其他软件可正常独立操作，且功能正常互不影响
+module: 其他应用
+feature: ''
+tags:
+  - L3
+
+vars:
+  XLSX_ID: "1652761"
+setup:
+  - action: session_start
+    command: "deepin-image-viewer ${TEST_FILES_DIR}/1.png"
+    wait: 1.0
+steps:
+  - name: "verify app starts"
+    action: wait
+    wait: 1.0
+teardown:
+  - action: session_stop

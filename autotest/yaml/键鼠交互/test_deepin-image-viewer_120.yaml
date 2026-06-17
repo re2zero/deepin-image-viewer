@@ -1,0 +1,33 @@
+# UNSUPPORTED: 需要在文管中删除图片后返回看图，跨应用交互无法通过 AT-SPI 自动化
+name: "[339]键鼠切换-未发现图片文件页面检查图片切换功能"
+app: deepin-image-viewer
+screenshot: true
+description: |
+  前置条件:
+
+  测试步骤:
+  1. 在文管中删除当前看图查看的图片
+  2. 返回看图应用
+  3. 按住快捷键【Ctrl】，同时滚动鼠标滚轮
+
+  预期结果:
+  1. 图片删除成功
+  2. 看图页面展示“未发现图片文件”的提示语
+  3. 看图跟随鼠标滚动切换图片
+module: 工具栏
+feature: ''
+tags:
+  - L3
+
+vars:
+  XLSX_ID: "1652121"
+setup:
+  - action: session_start
+    command: "deepin-image-viewer ${TEST_FILES_DIR}/1.png ${TEST_FILES_DIR}/2.png ${TEST_FILES_DIR}/3.png"
+    wait: 1.0
+steps:
+  - name: "verify app starts"
+    action: wait
+    wait: 1.0
+teardown:
+  - action: session_stop

@@ -1,0 +1,33 @@
+name: "[002][acp1][smoke]工具栏-下一张按钮"
+app: deepin-image-viewer
+screenshot: true
+description: |
+  前置条件:
+
+  测试步骤:
+  1. 点击工具栏的【下一张】按钮
+
+  预期结果:
+  1. 正常切换到下一张图片
+module: 工具栏
+feature: ''
+tags:
+  - L3
+
+vars:
+  XLSX_ID: "1652135"
+setup:
+  - action: session_start
+    command: "deepin-image-viewer ${TEST_FILES_DIR}/1.png ${TEST_FILES_DIR}/2.png ${TEST_FILES_DIR}/3.png"
+    wait: 1.0
+steps:
+  - name: "点击工具栏下一张按钮"
+    action: element_action
+    selector:
+      role: "push button"
+      name: "下一张"
+    wait_after: 1000
+  - name: "noop-验证切换到下一张图片"
+    action: noop
+teardown:
+  - action: session_stop

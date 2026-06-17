@@ -1,0 +1,31 @@
+# UNSUPPORTED: 相册调用看图的导航窗口检查需要启动相册应用并从相册中打开图片，无法直接模拟
+name: "公共能力-相册调用看图的导航窗口检查"
+app: deepin-image-viewer
+screenshot: true
+description: |
+  前置条件:
+
+  测试步骤:
+  1. 相册调用看图打开任意图片
+  2. 来回缩放图片，检查导航窗口
+
+  预期结果:
+  1.
+  2. 缩放窗口展示与看图一致（可参考导航窗口用例）
+module: 公共能力
+feature: ''
+tags:
+  - L2
+
+vars:
+  XLSX_ID: "1652411"
+setup:
+  - action: session_start
+    command: "deepin-image-viewer ${TEST_FILES_DIR}/1.png"
+    wait: 1.0
+steps:
+  - name: "SKIP-相册调用看图导航窗口检查"
+    action: noop
+    wait_after: 1000
+teardown:
+  - action: session_stop

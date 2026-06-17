@@ -1,0 +1,30 @@
+name: "[044\\074重复][acp1]全屏-双击图片全屏"
+app: deepin-image-viewer
+screenshot: true
+description: |
+  前置条件:
+
+  测试步骤:
+  1. 双击看图界面
+
+  预期结果:
+  1. 全屏显示该图，且隐藏工具栏
+module: 全屏
+feature: ''
+tags:
+  - L1
+
+vars:
+  XLSX_ID: "1652207"
+setup:
+  - action: session_start
+    command: "deepin-image-viewer ${TEST_FILES_DIR}/1.png"
+    wait: 1.0
+steps:
+  - name: "双击图片查看区域进入全屏"
+    action: mouse_double_click
+    x: 960
+    y: 540
+    wait_after: 1000
+teardown:
+  - action: session_stop

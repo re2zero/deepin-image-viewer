@@ -1,0 +1,48 @@
+name: "工具栏-全屏旋转按钮"
+app: deepin-image-viewer
+screenshot: true
+description: |
+  前置条件:
+
+  测试步骤:
+  1. 移动鼠标至底部
+  2. 点击工具栏的【顺时针旋转/逆时针旋转】按钮
+
+  预期结果:
+  1.
+  2. 图片顺时针或逆时针旋转90度
+module: 工具栏
+feature: ''
+tags:
+  - L3
+
+vars:
+  XLSX_ID: "1651975"
+setup:
+  - action: session_start
+    command: "deepin-image-viewer ${TEST_FILES_DIR}/1.png ${TEST_FILES_DIR}/2.png ${TEST_FILES_DIR}/3.png"
+    wait: 1.0
+steps:
+  - name: "移动鼠标至底部唤出工具栏"
+    action: mouse_click
+    x: 500
+    y: 700
+    wait_after: 1000
+  - name: "点击工具栏顺时针旋转按钮"
+    action: element_action
+    selector:
+      role: "push button"
+      name: "顺时针旋转"
+    wait_after: 1000
+  - name: "noop-检查图片顺时针旋转90度"
+    action: noop
+  - name: "点击工具栏逆时针旋转按钮"
+    action: element_action
+    selector:
+      role: "push button"
+      name: "逆时针旋转"
+    wait_after: 1000
+  - name: "noop-检查图片逆时针旋转90度"
+    action: noop
+teardown:
+  - action: session_stop

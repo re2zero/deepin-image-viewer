@@ -1,0 +1,33 @@
+name: "键鼠交互-快捷键F1帮助窗口"
+app: deepin-image-viewer
+screenshot: true
+description: |
+  前置条件:
+
+  测试步骤:
+  1. 使用快捷键【F1】
+
+  预期结果:
+  1. 唤起帮助窗口
+module: 键鼠交互
+feature: ''
+tags:
+  - L3
+
+vars:
+  XLSX_ID: "1652657"
+setup:
+  - action: session_start
+    command: "deepin-image-viewer ${TEST_FILES_DIR}/1.png ${TEST_FILES_DIR}/2.png ${TEST_FILES_DIR}/3.png"
+    wait: 1.0
+steps:
+  - name: "按下F1唤起帮助窗口"
+    action: keyboard_press
+    keys: "F1"
+    wait_after: 1000
+  - name: "关闭帮助窗口"
+    action: keyboard_press
+    keys: "Escape"
+    wait_after: 500
+teardown:
+  - action: session_stop

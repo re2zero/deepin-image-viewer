@@ -1,0 +1,45 @@
+name: "重命名-文件名字符长度检查"
+app: deepin-image-viewer
+screenshot: true
+description: |
+  前置条件:
+
+  测试步骤:
+  1. 输入任意名称，且输入229个字符
+  2. 点击【确定】按钮
+
+  预期结果:
+  1. 第229个字符无法输入，最大长度为228个字符
+  2. 文件名修改成功
+module: 重命名
+feature: ''
+tags:
+  - L4
+
+vars:
+  XLSX_ID: "1652285"
+setup:
+  - action: session_start
+    command: "deepin-image-viewer ${TEST_FILES_DIR}/1.png"
+    wait: 1.0
+steps:
+  - name: "右键菜单选择重命名"
+    action: context_menu_comb
+    x: 960
+    y: 540
+    items: ["重命名"]
+    wait_after: 1500
+  - name: "清除当前名称"
+    action: keyboard_press
+    keys: "Control+A"
+    wait_after: 200
+  - name: "输入228个字符（最大长度）"
+    action: keyboard_type
+    value: "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+    wait_after: 500
+  - name: "点击确认"
+    action: keyboard_press
+    keys: "Return"
+    wait_after: 1000
+teardown:
+  - action: session_stop

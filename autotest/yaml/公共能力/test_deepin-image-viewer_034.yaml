@@ -1,0 +1,29 @@
+# UNSUPPORTED: 相册调用看图需要启动相册应用并从相册中打开图片，无法直接通过看图命令行模拟
+name: "公共能力-相册调用看图工具栏单张图片检查"
+app: deepin-image-viewer
+screenshot: true
+description: |
+  前置条件:
+
+  测试步骤:
+  1. 相册调用看图打开单张图片，检查工具栏
+
+  预期结果:
+  1. 工具栏增加：返回、收藏/取消收藏按钮，删除为将图片删除至相册的最近删除中
+module: 公共能力
+feature: ''
+tags:
+  - L3
+
+vars:
+  XLSX_ID: "1652425"
+setup:
+  - action: session_start
+    command: "deepin-image-viewer ${TEST_FILES_DIR}/1.png"
+    wait: 1.0
+steps:
+  - name: "SKIP-相册调用看图单张图片工具栏检查"
+    action: noop
+    wait_after: 1000
+teardown:
+  - action: session_stop

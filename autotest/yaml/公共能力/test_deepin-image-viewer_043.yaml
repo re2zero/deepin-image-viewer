@@ -1,0 +1,31 @@
+# UNSUPPORTED: 自适应第三方窗口尺寸需要启动相册应用调整其窗口后调起看图，无法直接模拟
+name: "公共能力-自适应第三方窗口尺寸"
+app: deepin-image-viewer
+screenshot: true
+description: |
+  前置条件:
+
+  测试步骤:
+  1. 调整相册尺寸，然后打开任意图片
+  2. 关闭看图后，重复步骤1
+
+  预期结果:
+  1. 调起的看图窗口与相册窗口大小保持一致
+  2. 调起的看图窗口始终与当前相册窗口大小保持一致
+module: 公共能力
+feature: ''
+tags:
+  - L2
+
+vars:
+  XLSX_ID: "1652417"
+setup:
+  - action: session_start
+    command: "deepin-image-viewer ${TEST_FILES_DIR}/1.png"
+    wait: 1.0
+steps:
+  - name: "SKIP-自适应第三方窗口尺寸检查"
+    action: noop
+    wait_after: 1000
+teardown:
+  - action: session_stop

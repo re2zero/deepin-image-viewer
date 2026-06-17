@@ -1,0 +1,29 @@
+# UNSUPPORTED: 需要终端命令执行(ll-cli run)，无法通过 AT-SPI 自动化
+name: "玲珑-运行玲珑应用"
+app: deepin-image-viewer
+screenshot: true
+description: |
+  前置条件:
+
+  测试步骤:
+  1. 在终端执行命令：ll-cli run deepin-image-viewer
+
+  预期结果:
+  1. 打开运行【看图】应用
+module: 看图
+feature: 'SR-01196：【玲珑】【看图】构建玲珑包(#35845)'
+tags:
+  - L2
+
+vars:
+  XLSX_ID: "1705091"
+setup:
+  - action: session_start
+    command: "deepin-image-viewer ${TEST_FILES_DIR}/1.png"
+    wait: 1.0
+steps:
+  - name: "verify app starts"
+    action: wait
+    wait: 1.0
+teardown:
+  - action: session_stop

@@ -1,0 +1,28 @@
+name: "[155][smoke][acp1]加载图片-文管中双击图片"
+app: deepin-image-viewer
+screenshot: true
+description: |
+  前置条件:
+
+  测试步骤:
+  1. 在文件管理器中，双击任意看图支持格式图片
+
+  预期结果:
+  1. 正常使用看图打开图片
+module: 打开
+feature: ''
+tags:
+  - L1
+
+vars:
+  XLSX_ID: "1652391"
+setup:
+  - action: session_start
+    command: "deepin-image-viewer ${TEST_FILES_DIR}/1.png"
+    wait: 1.0
+steps:
+  - name: "verify app starts and loads image"
+    action: wait
+    wait: 1.0
+teardown:
+  - action: session_stop

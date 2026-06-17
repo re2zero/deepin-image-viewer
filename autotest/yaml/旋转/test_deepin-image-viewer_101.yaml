@@ -1,0 +1,68 @@
+name: "图片格式-支持旋转格式图片检查"
+app: deepin-image-viewer
+screenshot: true
+description: |
+  前置条件:
+
+  测试步骤:
+  1. 打开此目录中第一张图片
+  2. 点击工具栏旋转按钮或右键菜单旋转或快捷键旋转，旋转后切换至下一张，重复此步骤
+
+  预期结果:
+  1.
+  2. 每一张图片都可以旋转，且保存旋转状态
+module: 图片格式
+feature: ''
+tags:
+  - L2
+
+vars:
+  XLSX_ID: "1652745"
+setup:
+  - action: session_start
+    command: "deepin-image-viewer ${TEST_FILES_DIR}/1.png"
+    wait: 1.0
+steps:
+  - name: "验证图片正常显示"
+    action: noop
+    assert:
+      - type: screenshot_changed
+        negate: false
+    wait_after: 1000
+  - name: "旋转当前图片"
+    action: keyboard_press
+    keys: "Ctrl+R"
+    wait_after: 800
+    assert:
+      - type: screenshot_changed
+        negate: false
+  - name: "切换至下一张图片"
+    action: keyboard_press
+    keys: "Right"
+    wait_after: 800
+    assert:
+      - type: screenshot_changed
+        negate: false
+  - name: "旋转下一张图片"
+    action: keyboard_press
+    keys: "Ctrl+R"
+    wait_after: 800
+    assert:
+      - type: screenshot_changed
+        negate: false
+  - name: "切换至下一张图片"
+    action: keyboard_press
+    keys: "Right"
+    wait_after: 800
+    assert:
+      - type: screenshot_changed
+        negate: false
+  - name: "旋转下一张图片"
+    action: keyboard_press
+    keys: "Ctrl+R"
+    wait_after: 800
+    assert:
+      - type: screenshot_changed
+        negate: false
+teardown:
+  - action: session_stop

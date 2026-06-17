@@ -1,0 +1,33 @@
+name: "键鼠交互-快捷键Ctrl+minus缩小图片"
+app: deepin-image-viewer
+screenshot: true
+description: |
+  前置条件:
+
+  测试步骤:
+  1. 使用快捷键【Ctrl+“-”】
+
+  预期结果:
+  1. 缩小图片
+module: 键鼠交互
+feature: ''
+tags:
+  - L3
+
+vars:
+  XLSX_ID: "1652675"
+setup:
+  - action: session_start
+    command: "deepin-image-viewer ${TEST_FILES_DIR}/1.png ${TEST_FILES_DIR}/2.png ${TEST_FILES_DIR}/3.png"
+    wait: 1.0
+steps:
+  - name: "按下Ctrl+minus缩小图片"
+    action: keyboard_press
+    keys: "ctrl+minus"
+    wait_after: 500
+  - name: "再次按下Ctrl+minus缩小图片"
+    action: keyboard_press
+    keys: "ctrl+minus"
+    wait_after: 500
+teardown:
+  - action: session_stop

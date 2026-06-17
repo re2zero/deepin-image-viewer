@@ -1,0 +1,32 @@
+name: "导航窗口-移动显示区域"
+app: deepin-image-viewer
+screenshot: true
+description: |
+  前置条件:
+
+  测试步骤:
+  1. 点击拖拽移动看图展示区域
+
+  预期结果:
+  1. 图片展示区域移动，导航窗口定位器跟随图片实时更新位置
+module: 导航窗口
+feature: ''
+tags:
+  - L1
+
+vars:
+  XLSX_ID: "1651955"
+setup:
+  - action: session_start
+    command: "deepin-image-viewer ${TEST_FILES_DIR}/4k150.png"
+    wait: 1.0
+steps:
+  - name: "拖拽移动图片展示区域"
+    action: mouse_drag
+    start_x: 480
+    start_y: 270
+    end_x: 960
+    end_y: 540
+    wait_after: 1000
+teardown:
+  - action: session_stop

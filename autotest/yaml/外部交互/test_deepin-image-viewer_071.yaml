@@ -1,0 +1,33 @@
+name: "OCR-入口检查-窗口下点击工具栏按钮"
+app: deepin-image-viewer
+screenshot: true
+description: |
+  前置条件:
+
+  测试步骤:
+  1. 点击工具栏【识别文字】按钮
+
+  预期结果:
+  1. 调起OCR识别窗口
+module: OCR
+feature: ''
+tags:
+  - L1
+
+vars:
+  XLSX_ID: "1651809"
+setup:
+  - action: session_start
+    command: "deepin-image-viewer ${TEST_FILES_DIR}/1.png"
+    wait: 1.0
+steps:
+  - name: "点击工具栏识别文字按钮"
+    action: element_action
+    selector:
+      name: "识别文字"
+    wait_after: 1500
+    assert:
+      - type: screenshot_changed
+        negate: false
+teardown:
+  - action: session_stop

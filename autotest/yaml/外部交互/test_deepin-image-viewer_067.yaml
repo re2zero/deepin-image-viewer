@@ -1,0 +1,35 @@
+# UNSUPPORTED: 需要与WPS粘贴交互，无法通过 AT-SPI 自动化
+name: "外部交互-复制图片到WPS中"
+app: deepin-image-viewer
+screenshot: true
+description: |
+  前置条件:
+
+  测试步骤:
+  1. 使用看图打开任意一张本地图片
+  2. 在图片查看任意区域点击鼠标右键
+  3. 点击【复制】选项
+  4. 在WPS中进行粘贴
+
+  预期结果:
+  1.
+  2. 唤起右键菜单
+  3. 复制当前图片
+  4. 粘贴图片到WPS中
+module: 其他应用
+feature: ''
+tags:
+  - L2
+
+vars:
+  XLSX_ID: "1652757"
+setup:
+  - action: session_start
+    command: "deepin-image-viewer ${TEST_FILES_DIR}/1.png"
+    wait: 1.0
+steps:
+  - name: "verify app starts"
+    action: wait
+    wait: 1.0
+teardown:
+  - action: session_stop

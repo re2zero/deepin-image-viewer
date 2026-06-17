@@ -1,0 +1,57 @@
+name: "看图动效-缩略图"
+app: deepin-image-viewer
+screenshot: true
+description: |
+  前置条件:
+
+  测试步骤:
+  1. 拖动缩略图，缩略图左右滑动,拖动缩略图滑动后松开
+  2. 点击缩略图，切换选中缩略图
+  3. 点击选中后面的缩略图，查看预览区图片切换效果
+  4. 点击选中前面的缩略图
+
+  预期结果:
+  1. 期间阅览区图片不变化，选中的缩略图不变化
+  2. 预览区图片切换，缩略图条滑动
+  3. 当前图向左快速移出消失（向左移动至左侧窗口边缘消失，透明度100-0变化），后一张向左快速移入出现（由右侧窗口边缘移入，透明度0-100变化），图片移进移出的范围不超过窗口（图片左侧移动至左侧窗口消失，图片右侧由右侧窗口边缘移入），持续时间366ms，速度加速-平缓
+  4. 预览区图片切换效果同上，方向为向右
+module: 看图动效
+feature: '【变更】【新增】看图动效(#36401)'
+tags:
+  - L3
+
+vars:
+  XLSX_ID: "1695351"
+setup:
+  - action: session_start
+    command: "deepin-image-viewer ${TEST_FILES_DIR}/1.png"
+    wait: 1.0
+steps:
+  - name: "拖动缩略图条"
+    action: mouse_drag
+    start_x: 760
+    start_y: 950
+    end_x: 1160
+    end_y: 950
+    wait_after: 500
+  - name: "点击缩略图切换选中"
+    action: mouse_click
+    x: 760
+    y: 950
+    wait_after: 500
+  - name: "切换至下一张缩略图"
+    action: keyboard_press
+    keys: "Right"
+    wait_after: 800
+    assert:
+      - type: screenshot_changed
+        negate: false
+  - name: "切换至上一张缩略图"
+    action: keyboard_press
+    keys: "Left"
+    wait_after: 800
+    assert:
+      - type: screenshot_changed
+        negate: false
+teardown:
+  - action: session_stop

@@ -1,0 +1,29 @@
+# UNSUPPORTED: 相册调用看图查看多页图需要启动相册应用并从相册中打开图片，无法直接通过看图命令行模拟
+name: "公共能力-相册调用看图查看多页图"
+app: deepin-image-viewer
+screenshot: true
+description: |
+  前置条件:
+
+  测试步骤:
+  1. 相册调用看图打开任意多页图片
+
+  预期结果:
+  1. 多页图支持与看图一致（可参考tif多页图用例）
+module: 公共能力
+feature: ''
+tags:
+  - L3
+
+vars:
+  XLSX_ID: "1652421"
+setup:
+  - action: session_start
+    command: "deepin-image-viewer ${TEST_FILES_DIR}/1.png"
+    wait: 1.0
+steps:
+  - name: "SKIP-相册调用看图多页图检查"
+    action: noop
+    wait_after: 1000
+teardown:
+  - action: session_stop

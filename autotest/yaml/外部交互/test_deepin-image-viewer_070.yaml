@@ -1,0 +1,37 @@
+# UNSUPPORTED: 需要截图工具和OCR识别交互，无法通过 AT-SPI 自动化
+name: "用户场景-OCR识别长图成功"
+app: deepin-image-viewer
+screenshot: true
+description: |
+  前置条件:
+
+  测试步骤:
+  1. 打开test.docx文档, 使用截图工具滚动截取长图并保存到桌面
+  2. 双击打开保存的图片
+  3. 点击OCR识别按钮
+  4. 打开看图, 拖动截图保存的文件到看图窗口
+  5. 点击OCR识别按钮
+
+  预期结果:
+  1. 桌面上出现截取的图片
+  2. 截取的图片在看图中正常显示
+  3. 识别结果与test.docx中的文字内容一致, 识别时间不超过5分钟
+  4. 截取的图片在看图中正常显示
+  5. 识别结果与test.docx中的文字内容一致, 识别时间不超过5分钟
+module: 用户场景
+feature: ''
+tags:
+  - L2
+
+vars:
+  XLSX_ID: "1652781"
+setup:
+  - action: session_start
+    command: "deepin-image-viewer ${TEST_FILES_DIR}/1.png"
+    wait: 1.0
+steps:
+  - name: "verify app starts"
+    action: wait
+    wait: 1.0
+teardown:
+  - action: session_stop

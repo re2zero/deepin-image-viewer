@@ -1,0 +1,34 @@
+name: "[026][acp1][smoke]主菜单-帮助"
+app: deepin-image-viewer
+screenshot: true
+description: |
+  前置条件:
+
+  测试步骤:
+  1. 启动看图
+  2. 点击看图窗口右上角的【主菜单】按钮
+  3. 点击【帮助】
+
+  预期结果:
+  1.
+  2. 唤起主菜单
+  3. 打开帮助文档
+module: 主菜单
+feature: ''
+tags:
+  - L1
+
+vars:
+  XLSX_ID: "1652347"
+setup:
+  - action: session_start
+    command: "deepin-image-viewer ${TEST_FILES_DIR}/1.png"
+    wait: 1.0
+steps:
+  - name: "open help via main menu"
+    action: main_menu_comb
+    items:
+      - "帮助"
+    wait_after: 2000
+teardown:
+  - action: session_stop

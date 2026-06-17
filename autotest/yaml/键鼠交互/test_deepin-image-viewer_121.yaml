@@ -1,0 +1,33 @@
+name: "键鼠交互-快捷键Right切换下一张"
+app: deepin-image-viewer
+screenshot: true
+description: |
+  前置条件:
+
+  测试步骤:
+  1. 使用快捷键【right】
+
+  预期结果:
+  1. 切换至下一张图片
+module: 键鼠交互
+feature: ''
+tags:
+  - L3
+
+vars:
+  XLSX_ID: "1652671"
+setup:
+  - action: session_start
+    command: "deepin-image-viewer ${TEST_FILES_DIR}/1.png ${TEST_FILES_DIR}/2.png ${TEST_FILES_DIR}/3.png"
+    wait: 1.0
+steps:
+  - name: "按下Right键切换至下一张图片"
+    action: keyboard_press
+    keys: "Right"
+    wait_after: 500
+  - name: "再次按下Right键切换至下一张"
+    action: keyboard_press
+    keys: "Right"
+    wait_after: 500
+teardown:
+  - action: session_stop

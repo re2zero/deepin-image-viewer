@@ -1,0 +1,51 @@
+name: "键鼠切换-tif多页图检查图片切换功能"
+app: deepin-image-viewer
+screenshot: true
+description: |
+  前置条件:
+
+  测试步骤:
+  1. 点击看图右侧的【下一页】按钮
+  2. 移动鼠标至图片预览区域上
+  3. 按住快捷键【Ctrl】，同时滚动鼠标滚轮
+
+  预期结果:
+  1. 切换至tif的第二页图
+  2. 鼠标在图片预览区域上
+  3. 看图跟随鼠标滚动切换图片
+module: 工具栏
+feature: ''
+tags:
+  - L3
+
+vars:
+  XLSX_ID: "1652067"
+setup:
+  - action: session_start
+    command: "deepin-image-viewer ${TEST_FILES_DIR}/1.png ${TEST_FILES_DIR}/2.png ${TEST_FILES_DIR}/3.png"
+    wait: 1.0
+steps:
+  - name: "点击下一页按钮切换至第二页"
+    action: element_action
+    selector:
+      role: "push button"
+      name: "下一张"
+    wait_after: 1000
+  - name: "将鼠标移动至图片预览区域"
+    action: mouse_click
+    selector:
+      role: "image"
+      name: "Image View"
+  - name: "按住Ctrl键"
+    action: keyboard_press
+    keys: "Control_L"
+  - name: "滚动鼠标滚轮"
+    action: mouse_scroll
+    direction: "down"
+    delta: 1
+    wait_after: 1000
+  - name: "验证看图跟随鼠标滚动切换图片"
+    action: wait
+    wait: 1.0
+teardown:
+  - action: session_stop

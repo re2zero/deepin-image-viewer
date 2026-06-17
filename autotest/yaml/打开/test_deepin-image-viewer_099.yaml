@@ -1,0 +1,40 @@
+name: "图片信息-右键菜单打开图片信息"
+app: deepin-image-viewer
+screenshot: true
+description: |
+  前置条件:
+
+  测试步骤:
+  1. 在图片查看区域点击【鼠标右键】
+  2. 点击选择右键菜单中的【图片信息】选项
+  3. 点击图片信息上【X】按钮
+
+  预期结果:
+  1.
+  2. 弹出图片信息弹窗
+  3. 图片信息弹窗关闭
+module: 图片信息
+feature: ''
+tags:
+  - L1
+
+vars:
+  XLSX_ID: "1652221"
+setup:
+  - action: session_start
+    command: "deepin-image-viewer ${TEST_FILES_DIR}/1.png"
+    wait: 1.0
+steps:
+  - name: "右键菜单选择图片信息"
+    action: context_menu_comb
+    x: 960
+    y: 540
+    items: ["图片信息"]
+    wait_after: 1500
+  - name: "点击图片信息弹窗X按钮关闭"
+    action: mouse_click
+    x: 1280
+    y: 150
+    wait_after: 500
+teardown:
+  - action: session_stop

@@ -1,0 +1,15 @@
+# Shared element registry for deepin-image-viewer YAML test cases
+# All test steps reference these entries via 'ref'.
+
+app: deepin-image-viewer
+vars:
+  BUILD_DIR: "${PROJECT_ROOT}/build"
+  APP_PATH: "deepin-image-viewer"
+  TEST_FILES_DIR: ${PROJECT_ROOT}/autotest/files
+elements:
+  main_frame:
+    name: Form_DMainWindow
+    role: form
+  main_window:
+    name: Form_DMainWindow
+    role: form

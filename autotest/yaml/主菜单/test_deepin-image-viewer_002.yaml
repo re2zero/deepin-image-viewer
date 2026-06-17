@@ -1,0 +1,31 @@
+name: "复制-复制大分辨率图片"
+app: deepin-image-viewer
+screenshot: true
+description: |
+  前置条件:
+
+  测试步骤:
+  1. 选择任意图片使用快捷键【Ctrl+C】
+  2. 在文管或桌面任意位置粘贴图片
+
+  预期结果:
+  1. 复制图片成功，看图无异常
+  2. 正常粘贴图片
+module: 复制
+feature: ''
+tags:
+  - L3
+
+vars:
+  XLSX_ID: "1652149"
+setup:
+  - action: session_start
+    command: "deepin-image-viewer ${TEST_FILES_DIR}/4k150.png"
+    wait: 1.0
+steps:
+  - name: "Ctrl+C复制大分辨率图片"
+    action: keyboard_press
+    keys: "Control+C"
+    wait_after: 1000
+teardown:
+  - action: session_stop

@@ -1,0 +1,33 @@
+name: "工具栏-tif多页图-缩略图切换图片"
+app: deepin-image-viewer
+screenshot: true
+description: |
+  前置条件:
+
+  测试步骤:
+  1. 任意点击缩略图
+
+  预期结果:
+  1. 看图界面切换至所点击的缩略图图片
+module: 工具栏
+feature: ''
+tags:
+  - L1
+
+vars:
+  XLSX_ID: "1652039"
+setup:
+  - action: session_start
+    command: "deepin-image-viewer ${TEST_FILES_DIR}/1.png"
+    wait: 1.0
+steps:
+  - name: "点击缩略图"
+    action: element_action
+    selector:
+      role: "push button"
+      name: "2"
+    wait_after: 1000
+  - name: "noop-检查看图界面切换至所点击的缩略图图片"
+    action: noop
+teardown:
+  - action: session_stop

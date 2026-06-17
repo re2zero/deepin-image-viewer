@@ -1,0 +1,35 @@
+# UNSUPPORTED: 需要同时启动相册和看图两个应用进行交互对比，无法通过单个应用测试框架模拟
+name: "公共能力-看图窗口与第三方应用调用看图窗口"
+app: deepin-image-viewer
+screenshot: true
+description: |
+  前置条件:
+
+  测试步骤:
+  1. 在相册中，使用看图打开任意图片
+  2. 在文管中找到步骤1中的图片，使用看图打开
+  3. 在相册的看图窗口中顺时针旋转图片
+  4. 在看图中顺时针旋转图片
+
+  预期结果:
+  1. 调起看图打开此图片
+  2. 看图也可正常打开此图片
+  3. 图片顺时针旋转90度
+  4. 图片再次顺时针旋转90度，较原图旋转了180度
+module: 公共能力
+feature: ''
+tags:
+  - L2
+
+vars:
+  XLSX_ID: "1652419"
+setup:
+  - action: session_start
+    command: "deepin-image-viewer ${TEST_FILES_DIR}/1.png"
+    wait: 1.0
+steps:
+  - name: "SKIP-第三方应用调用看图窗口对比"
+    action: noop
+    wait_after: 1000
+teardown:
+  - action: session_stop

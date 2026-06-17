@@ -1,0 +1,35 @@
+name: "主菜单-关于看图应用"
+app: deepin-image-viewer
+screenshot: true
+description: |
+  前置条件:
+
+  测试步骤:
+  1. 点击主菜单中关于菜单
+  2. 查看关于窗口内容
+
+  预期结果:
+  1. 弹出关于窗口
+  2. 显示应用名字、版本，关于等相关信息
+module: 看图
+feature: ''
+tags:
+  - L3
+
+vars:
+  XLSX_ID: "2003949"
+setup:
+  - action: session_start
+    command: "deepin-image-viewer ${TEST_FILES_DIR}/1.png ${TEST_FILES_DIR}/2.png ${TEST_FILES_DIR}/3.png"
+    wait: 1.0
+steps:
+  - name: "点击主菜单按钮"
+    action: main_menu_comb
+    value: "about"
+    wait_after: 1000
+  - name: "按Escape关闭关于窗口"
+    action: keyboard_press
+    keys: "Escape"
+    wait_after: 500
+teardown:
+  - action: session_stop

@@ -1,0 +1,41 @@
+name: "看图动效-图片显示方式（1:1显示 适应窗口）"
+app: deepin-image-viewer
+screenshot: true
+description: |
+  前置条件:
+
+  测试步骤:
+  1. 看图中，点击1：1显示
+  2. 看图中，点击适应窗口
+
+  预期结果:
+  1. 图片放大缩小至原图大小，持续时间366ms，速度加速-平缓
+  2. 图片放大缩小至上方持平工具栏下方，持续时间366ms，速度加速-平缓
+module: 看图动效
+feature: '【变更】【新增】看图动效(#36401)'
+tags:
+  - L3
+
+vars:
+  XLSX_ID: "1695355"
+setup:
+  - action: session_start
+    command: "deepin-image-viewer ${TEST_FILES_DIR}/1.png"
+    wait: 1.0
+steps:
+  - name: "切换至1:1显示"
+    action: keyboard_press
+    keys: "Ctrl+1"
+    wait_after: 800
+    assert:
+      - type: screenshot_changed
+        negate: false
+  - name: "切换至适应窗口显示"
+    action: keyboard_press
+    keys: "Ctrl+0"
+    wait_after: 800
+    assert:
+      - type: screenshot_changed
+        negate: false
+teardown:
+  - action: session_stop

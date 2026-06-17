@@ -1,0 +1,60 @@
+name: "图片格式-右键菜单检查"
+app: deepin-image-viewer
+screenshot: true
+description: |
+  前置条件:
+
+  测试步骤:
+  1. 进入此目录
+  2. 使用快捷键【Ctrl+A】
+  3. 从第一张图片开始，每张图片均点击【鼠标右键】，查看右键菜单展示情况
+
+  预期结果:
+  1.
+  2. 全选了所有图片
+  3. 每一张图片的右键菜单展示正常，打开和打开方式均未置灰
+module: 图片格式
+feature: ''
+tags:
+  - L2
+
+vars:
+  XLSX_ID: "1652747"
+setup:
+  - action: session_start
+    command: "deepin-image-viewer ${TEST_FILES_DIR}/1.png"
+    wait: 1.0
+steps:
+  - name: "全选所有图片"
+    action: keyboard_press
+    keys: "Ctrl+A"
+    wait_after: 800
+  - name: "弹出右键菜单"
+    action: mouse_right_click
+    wait_after: 500
+    assert:
+      - type: screenshot_changed
+        negate: false
+    x: 960
+    y: 540
+  - name: "关闭右键菜单"
+    action: keyboard_press
+    keys: "Escape"
+    wait_after: 300
+  - name: "切换至下一张图片"
+    action: keyboard_press
+    keys: "Right"
+    wait_after: 800
+    assert:
+      - type: screenshot_changed
+        negate: false
+  - name: "弹出右键菜单检查第二张图片"
+    action: mouse_right_click
+    wait_after: 500
+    assert:
+      - type: screenshot_changed
+        negate: false
+    x: 960
+    y: 540
+teardown:
+  - action: session_stop

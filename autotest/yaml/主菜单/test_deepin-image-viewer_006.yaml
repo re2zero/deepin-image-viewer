@@ -1,0 +1,40 @@
+name: "打印预览-图片右键唤起打印"
+app: deepin-image-viewer
+screenshot: true
+description: |
+  前置条件:
+
+  测试步骤:
+  1. 使用看图打开任意一张本地图片
+  2. 在图片查看任意区域点击鼠标右键
+  3. 点击【打印】选项
+  4. 查看图像设置的默认显示方式
+
+  预期结果:
+  1. 打开成功
+  2. 唤起右键菜单
+  3. 调起打印预览窗口
+  4. 图像设置的默认显示方式为“图像适应页面”
+module: 打印
+feature: ''
+tags:
+  - L3
+
+vars:
+  XLSX_ID: "1652143"
+setup:
+  - action: session_start
+    command: "deepin-image-viewer ${TEST_FILES_DIR}/打印验证.jpg"
+    wait: 1.0
+steps:
+  - name: "右键菜单选择打印"
+    action: context_menu_comb
+    x: 960
+    y: 540
+    items: ["打印"]
+    wait_after: 3000
+  - name: "截图查看打印预览窗口"
+    action: noop
+    wait_after: 1000
+teardown:
+  - action: session_stop

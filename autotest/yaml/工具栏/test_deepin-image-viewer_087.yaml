@@ -1,0 +1,63 @@
+name: "[156][acp1][smoke]工具栏-多张图片时检查工具栏"
+app: deepin-image-viewer
+screenshot: true
+description: |
+  前置条件:
+
+  测试步骤:
+  1. 使用看图打开多张图片，检查工具栏展示
+
+  预期结果:
+  1. 图片适应窗口，工具栏居中，上一张（首张置灰）、下一张（尾张置灰）、1：1视图、适应窗口、旋转（只读或不支持旋转格式置灰）、缩略图显示、删除（只读图片置灰）
+module: 工具栏
+feature: ''
+tags:
+  - L1
+
+vars:
+  XLSX_ID: "1652123"
+setup:
+  - action: session_start
+    command: "deepin-image-viewer ${TEST_FILES_DIR}/1.png ${TEST_FILES_DIR}/2.png ${TEST_FILES_DIR}/3.png"
+    wait: 1.0
+steps:
+  - name: "验证工具栏上一张按钮存在"
+    action: element_action
+    selector:
+      role: "push button"
+      name: "上一张"
+  - name: "验证工具栏下一张按钮存在"
+    action: element_action
+    selector:
+      role: "push button"
+      name: "下一张"
+  - name: "验证工具栏1:1视图按钮存在"
+    action: element_action
+    selector:
+      role: "push button"
+      name: "1:1显示"
+  - name: "验证工具栏适应窗口按钮存在"
+    action: element_action
+    selector:
+      role: "push button"
+      name: "适应窗口"
+  - name: "验证工具栏旋转按钮存在"
+    action: element_action
+    selector:
+      role: "push button"
+      name: "旋转"
+  - name: "验证工具栏缩略图显示"
+    action: element_action
+    selector:
+      role: "panel"
+      name: "缩略图"
+  - name: "验证工具栏删除按钮存在"
+    action: element_action
+    selector:
+      role: "push button"
+      name: "删除"
+  - name: "验证首张图片时上一张按钮置灰"
+    action: wait
+    wait: 1.0
+teardown:
+  - action: session_stop

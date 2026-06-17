@@ -1,0 +1,39 @@
+name: "键鼠交互-快捷键F2重命名图片"
+app: deepin-image-viewer
+screenshot: true
+description: |
+  前置条件:
+
+  测试步骤:
+  1. 使用快捷键【F2】
+  2. 输入任意名称并保存
+
+  预期结果:
+  1. 唤起重命名窗口
+  2. 修改图片名称成功
+module: 键鼠交互
+feature: ''
+tags:
+  - L3
+
+vars:
+  XLSX_ID: "1652661"
+setup:
+  - action: session_start
+    command: "deepin-image-viewer ${TEST_FILES_DIR}/1.png ${TEST_FILES_DIR}/2.png ${TEST_FILES_DIR}/3.png"
+    wait: 1.0
+steps:
+  - name: "按下F2唤起重命名窗口"
+    action: keyboard_press
+    keys: "F2"
+    wait_after: 500
+  - name: "输入新名称"
+    action: keyboard_type
+    value: "test_rename"
+    wait_after: 500
+  - name: "确认重命名"
+    action: keyboard_press
+    keys: "Return"
+    wait_after: 1000
+teardown:
+  - action: session_stop

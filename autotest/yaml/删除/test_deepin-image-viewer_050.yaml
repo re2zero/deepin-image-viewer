@@ -1,0 +1,55 @@
+name: "[038][acp1][core]删除-只读权限图片删除检查"
+app: deepin-image-viewer
+screenshot: true
+description: |
+  前置条件:
+
+  测试步骤:
+  1. 使用看图打开任意只读图片
+  2. 使用快捷键【Delete】
+  3. 在图片查看区域点击【鼠标右键】
+
+  预期结果:
+  1. 可以正常查看只读图片，工具栏旋转、删除按钮置灰
+  2. 无响应，不会删除当前图片
+  3. 唤起右键菜单，右键菜单中没有删除选项
+module: 工具栏
+feature: ''
+tags:
+  - L3
+
+vars:
+  XLSX_ID: "1652061"
+setup:
+  - action: session_start
+    command: "deepin-image-viewer ${TEST_FILES_DIR}/1.png"
+    wait: 1.0
+steps:
+  - name: "验证工具栏旋转按钮置灰"
+    action: element_action
+    selector:
+      role: "push button"
+      name: "旋转"
+  - name: "验证工具栏删除按钮置灰"
+    action: element_action
+    selector:
+      role: "push button"
+      name: "删除"
+  - name: "按下Delete快捷键"
+    action: keyboard_press
+    keys: "Delete"
+    wait_after: 1000
+  - name: "验证无响应不会删除图片"
+    action: wait
+    wait: 1.0
+  - name: "在图片查看区域点击鼠标右键唤起右键菜单"
+    action: context_menu_comb
+    selector:
+      role: "image"
+      name: "Image View"
+    wait_after: 1000
+  - name: "验证右键菜单中没有删除选项"
+    action: wait
+    wait: 1.0
+teardown:
+  - action: session_stop

@@ -1,0 +1,35 @@
+# UNSUPPORTED: 相册右键菜单添加到相册需要启动相册应用并从相册中打开图片，且需要预建相册，无法直接模拟
+name: "公共能力-相册右键菜单添加到相册"
+app: deepin-image-viewer
+screenshot: true
+description: |
+  前置条件:
+
+  测试步骤:
+  1. 相册调用看图打开任意图片
+  2. 在图片查看区域任意位置点击鼠标右键
+  3. 点击【添加到相册】
+  4. 点击任意自建的相册
+
+  预期结果:
+  1.
+  2. 唤起右键菜单
+  3. 打开添加到相册的二级菜单，从上至下一次为新建相册、以及各相册名
+  4. 图片添加至指定相册，且底部出现【成功添加到“XXX相册”】的提示语
+module: 公共能力
+feature: ''
+tags:
+  - L3
+
+vars:
+  XLSX_ID: "1652395"
+setup:
+  - action: session_start
+    command: "deepin-image-viewer ${TEST_FILES_DIR}/1.png"
+    wait: 1.0
+steps:
+  - name: "SKIP-相册右键菜单添加到相册操作"
+    action: noop
+    wait_after: 1000
+teardown:
+  - action: session_stop

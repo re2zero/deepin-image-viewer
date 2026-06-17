@@ -1,0 +1,47 @@
+name: "重命名-读写图片重命名"
+app: deepin-image-viewer
+screenshot: true
+description: |
+  前置条件:
+
+  测试步骤:
+  1. 使用看图打开一张可读写的图片
+  2. 在图片查看任意区域点击【鼠标右键】
+  3. 点击【重命名】选项
+  4. 输入任意名称
+  5. 点击【确定】按钮
+
+  预期结果:
+  1.
+  2. 唤起右键菜单
+  3. 弹出重命名窗口
+  4. 修改为任意名称
+  5. 图片名称修改成功
+module: 重命名
+feature: ''
+tags:
+  - L2
+
+vars:
+  XLSX_ID: "1652281"
+setup:
+  - action: session_start
+    command: "deepin-image-viewer ${TEST_FILES_DIR}/1.png"
+    wait: 1.0
+steps:
+  - name: "右键菜单选择重命名"
+    action: context_menu_comb
+    x: 960
+    y: 540
+    items: ["重命名"]
+    wait_after: 1500
+  - name: "输入新名称"
+    action: keyboard_type
+    value: "test_image"
+    wait_after: 500
+  - name: "确认重命名"
+    action: keyboard_press
+    keys: "Return"
+    wait_after: 1000
+teardown:
+  - action: session_stop

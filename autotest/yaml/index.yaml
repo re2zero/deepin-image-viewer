@@ -1,0 +1,3765 @@
+version: 1
+generated_at: '2026-06-18T12:15:44'
+tests:
+- id: test_deepin-image-viewer_001
+  file: 主菜单/test_deepin-image-viewer_001.yaml
+  name: 主菜单-关于与看图窗口关闭后打开交互
+  description: '前置条件:
+
+
+    测试步骤:
+
+    1. 点击看图右上角的【X】关闭按钮
+
+    2. 再次启动看图
+
+
+    预期结果:
+
+    1. 关于弹窗跟随看图关闭
+
+    2. 看图正常启动，不会展示关于弹窗
+
+    '
+  module: 主菜单
+  feature: ''
+  tags:
+  - L4
+  app: deepin-image-viewer
+  skip: null
+- id: test_deepin-image-viewer_002
+  file: 主菜单/test_deepin-image-viewer_002.yaml
+  name: 复制-复制大分辨率图片
+  description: '前置条件:
+
+
+    测试步骤:
+
+    1. 选择任意图片使用快捷键【Ctrl+C】
+
+    2. 在文管或桌面任意位置粘贴图片
+
+
+    预期结果:
+
+    1. 复制图片成功，看图无异常
+
+    2. 正常粘贴图片
+
+    '
+  module: 复制
+  feature: ''
+  tags:
+  - L3
+  app: deepin-image-viewer
+  skip: null
+- id: test_deepin-image-viewer_003
+  file: 主菜单/test_deepin-image-viewer_003.yaml
+  name: 幻灯片-多张图片循环放映
+  description: '前置条件:
+
+
+    测试步骤:
+
+    1. 使用看图打开多张本地图片
+
+    2. 在图片查看任意区域点击鼠标右键
+
+    3. 点击【幻灯片放映】选项
+
+    4. 等待幻灯片循环播放
+
+
+    预期结果:
+
+    1.
+
+    2. 唤起右键菜单
+
+    3. 进入幻灯片放映
+
+    4. 所有图片按照顺序循环播放
+
+    '
+  module: 灯幻片放映
+  feature: ''
+  tags:
+  - L1
+  app: deepin-image-viewer
+  skip: null
+- id: test_deepin-image-viewer_004
+  file: 主菜单/test_deepin-image-viewer_004.yaml
+  name: 幻灯片-ESC退出幻灯片放映
+  description: '前置条件:
+
+
+    测试步骤:
+
+    1. 使用快捷键【ESC】
+
+
+    预期结果:
+
+    1. 退出播放，回到看图界面
+
+    '
+  module: 灯幻片放映
+  feature: ''
+  tags:
+  - L2
+  app: deepin-image-viewer
+  skip: null
+- id: test_deepin-image-viewer_005
+  file: 主菜单/test_deepin-image-viewer_005.yaml
+  name: 壁纸-窗口下不能设置壁纸
+  description: '前置条件:
+
+
+    测试步骤:
+
+    1. 使用看图打开任意不支持设置壁纸的图片，如：svg格式
+
+    2. 在图片查看区域点击【鼠标右键】
+
+
+    预期结果:
+
+    1.
+
+    2. 唤起右键菜单，右键菜单中没有“设置壁纸”这个选项
+
+    '
+  module: 设为壁纸
+  feature: ''
+  tags:
+  - L2
+  app: deepin-image-viewer
+  skip: null
+- id: test_deepin-image-viewer_006
+  file: 主菜单/test_deepin-image-viewer_006.yaml
+  name: 打印预览-图片右键唤起打印
+  description: '前置条件:
+
+
+    测试步骤:
+
+    1. 使用看图打开任意一张本地图片
+
+    2. 在图片查看任意区域点击鼠标右键
+
+    3. 点击【打印】选项
+
+    4. 查看图像设置的默认显示方式
+
+
+    预期结果:
+
+    1. 打开成功
+
+    2. 唤起右键菜单
+
+    3. 调起打印预览窗口
+
+    4. 图像设置的默认显示方式为“图像适应页面”
+
+    '
+  module: 打印
+  feature: ''
+  tags:
+  - L3
+  app: deepin-image-viewer
+  skip: null
+- id: test_deepin-image-viewer_007
+  file: 主菜单/test_deepin-image-viewer_007.yaml
+  name: '[026][acp1][smoke]主菜单-帮助'
+  description: '前置条件:
+
+
+    测试步骤:
+
+    1. 启动看图
+
+    2. 点击看图窗口右上角的【主菜单】按钮
+
+    3. 点击【帮助】
+
+
+    预期结果:
+
+    1.
+
+    2. 唤起主菜单
+
+    3. 打开帮助文档
+
+    '
+  module: 主菜单
+  feature: ''
+  tags:
+  - L1
+  app: deepin-image-viewer
+  skip: null
+- id: test_deepin-image-viewer_008
+  file: 主菜单/test_deepin-image-viewer_008.yaml
+  name: 壁纸-窗口下设置壁纸
+  description: '前置条件:
+
+
+    测试步骤:
+
+    1. 使用看图打开任意支持设置壁纸的图片，如：jpg格式
+
+    2. 在图片查看区域点击【鼠标右键】
+
+    3. 点击选择右键菜单中的【设为壁纸】选项
+
+
+    预期结果:
+
+    1. 可以正常打开
+
+    2. 唤起右键菜单
+
+    3. 当前图片被设置为桌面壁纸
+
+    '
+  module: 设为壁纸
+  feature: ''
+  tags:
+  - L1
+  app: deepin-image-viewer
+  skip: null
+- id: test_deepin-image-viewer_009
+  file: 主菜单/test_deepin-image-viewer_009.yaml
+  name: 复制-右键菜单复制
+  description: '前置条件:
+
+
+    测试步骤:
+
+    1. 使用看图打开任意一张本地图片
+
+    2. 在图片查看任意区域点击鼠标右键
+
+    3. 点击【复制】选项
+
+    4. 在文件管理器任意目录中进行粘贴
+
+
+    预期结果:
+
+    1.
+
+    2. 唤起右键菜单
+
+    3. 复制当前图片
+
+    4. 粘贴图片到文管中，且图片与原图一致
+
+    '
+  module: 复制
+  feature: ''
+  tags:
+  - L1
+  app: deepin-image-viewer
+  skip: null
+- id: test_deepin-image-viewer_010
+  file: 主菜单/test_deepin-image-viewer_010.yaml
+  name: '[229][acp1][smoke]主菜单-多窗口退出'
+  description: '前置条件:
+
+
+    测试步骤:
+
+    1. 启动多个看图
+
+    2. 选择任意一个看图窗口，点击右上角【主菜单】按钮
+
+    3. 点击【退出】选项
+
+
+    预期结果:
+
+    1.
+
+    2. 展开主菜单
+
+    3. 退出当前看图应用，其他看图窗口不受影响
+
+    '
+  module: 主菜单
+  feature: ''
+  tags:
+  - L3
+  app: deepin-image-viewer
+  skip: null
+- id: test_deepin-image-viewer_011
+  file: 主菜单/test_deepin-image-viewer_011.yaml
+  name: 主菜单-关于看图应用
+  description: '前置条件:
+
+
+    测试步骤:
+
+    1. 点击主菜单中关于菜单
+
+    2. 查看关于窗口内容
+
+
+    预期结果:
+
+    1. 弹出关于窗口
+
+    2. 显示应用名字、版本，关于等相关信息
+
+    '
+  module: 看图
+  feature: ''
+  tags:
+  - L3
+  app: deepin-image-viewer
+  skip: null
+- id: test_deepin-image-viewer_012
+  file: 全屏/test_deepin-image-viewer_012.yaml
+  name: 工具栏-全屏旋转按钮
+  description: '前置条件:
+
+
+    测试步骤:
+
+    1. 移动鼠标至底部
+
+    2. 点击工具栏的【顺时针旋转/逆时针旋转】按钮
+
+
+    预期结果:
+
+    1.
+
+    2. 图片顺时针或逆时针旋转90度
+
+    '
+  module: 工具栏
+  feature: ''
+  tags:
+  - L3
+  app: deepin-image-viewer
+  skip: null
+- id: test_deepin-image-viewer_013
+  file: 全屏/test_deepin-image-viewer_013.yaml
+  name: 工具栏-全屏唤出工具栏
+  description: '前置条件:
+
+
+    测试步骤:
+
+    1. 看图打开图片，双击看图全屏，将鼠标移动到图片下方
+
+    2. 鼠标移出工具栏
+
+
+    预期结果:
+
+    1. 工具栏以鼠标移入区域方式唤出工具栏
+
+    2. 工具栏收起
+
+    '
+  module: 工具栏
+  feature: ''
+  tags:
+  - L3
+  app: deepin-image-viewer
+  skip: null
+- id: test_deepin-image-viewer_014
+  file: 全屏/test_deepin-image-viewer_014.yaml
+  name: '[216][core][acp1]旋转-全屏右键菜单逆时针旋转'
+  description: '前置条件:
+
+
+    测试步骤:
+
+    1. 打开支持旋转格式且可读写的图片
+
+    2. 双击图片查看区域
+
+    3. 在任意图片查看区域点击【鼠标右键】
+
+    4. 点击【逆时针旋转】选项
+
+
+    预期结果:
+
+    1.
+
+    2. 切换至全屏展示
+
+    3. 唤起右键菜单
+
+    4. 当前图片逆时针旋转，操作图片或等待2S后自动保存旋转状态
+
+    '
+  module: 旋转
+  feature: ''
+  tags:
+  - L3
+  app: deepin-image-viewer
+  skip: null
+- id: test_deepin-image-viewer_015
+  file: 全屏/test_deepin-image-viewer_015.yaml
+  name: 键鼠交互-快捷键F11全屏切换
+  description: '前置条件:
+
+
+    测试步骤:
+
+    1. 使用快捷键【F11】
+
+
+    预期结果:
+
+    1. 切换至全屏
+
+    '
+  module: 键鼠交互
+  feature: ''
+  tags:
+  - L3
+  app: deepin-image-viewer
+  skip: null
+- id: test_deepin-image-viewer_016
+  file: 全屏/test_deepin-image-viewer_016.yaml
+  name: 文管打开-全屏下右键菜单在文管中显示
+  description: '前置条件:
+
+
+    测试步骤:
+
+    1. 双击图片查看区域
+
+    2. 在任意图片查看区域点击【鼠标右键】
+
+    3. 点击【在文件管理器中显示】选项
+
+
+    预期结果:
+
+    1. 切换为全屏展示
+
+    2. 唤起右键菜单
+
+    3. 调起文件管理器，并定位选中当前看图查看图片
+
+    '
+  module: 文件管理器打开
+  feature: ''
+  tags:
+  - L3
+  app: deepin-image-viewer
+  skip: null
+- id: test_deepin-image-viewer_017
+  file: 全屏/test_deepin-image-viewer_017.yaml
+  name: '[214][smoke][acp1]旋转-全屏快捷键顺时针旋转'
+  description: '前置条件:
+
+
+    测试步骤:
+
+    1. 双击图片查看区域
+
+    2. 使用快捷键【Ctrl+R】
+
+
+    预期结果:
+
+    1. 看图切换为全屏展示
+
+    2. 图片顺时针旋转90度
+
+    '
+  module: 旋转
+  feature: ''
+  tags:
+  - L2
+  app: deepin-image-viewer
+  skip: null
+- id: test_deepin-image-viewer_018
+  file: 全屏/test_deepin-image-viewer_018.yaml
+  name: '[046][smoke][acp1]全屏-快捷键退出全屏'
+  description: '前置条件:
+
+
+    测试步骤:
+
+    1. 使用快捷键【F11】
+
+    2. 使用快捷键【ESC】
+
+
+    预期结果:
+
+    1. 切换为全屏
+
+    2. 切换为窗口
+
+    '
+  module: 全屏
+  feature: ''
+  tags:
+  - L3
+  app: deepin-image-viewer
+  skip: null
+- id: test_deepin-image-viewer_019
+  file: 全屏/test_deepin-image-viewer_019.yaml
+  name: '[043][smoke][acp1]全屏-右键菜单退出全屏'
+  description: '前置条件:
+
+
+    测试步骤:
+
+    1. 在图片查看区域点击【鼠标右键】
+
+    2. 点击选择右键菜单中的【退出全屏】选项
+
+
+    预期结果:
+
+    1. 唤起右键菜单
+
+    2. 切换为窗口展示
+
+    '
+  module: 全屏
+  feature: ''
+  tags:
+  - L2
+  app: deepin-image-viewer
+  skip: null
+- id: test_deepin-image-viewer_020
+  file: 全屏/test_deepin-image-viewer_020.yaml
+  name: '[044\074重复][acp1]全屏-双击图片全屏'
+  description: '前置条件:
+
+
+    测试步骤:
+
+    1. 双击看图界面
+
+
+    预期结果:
+
+    1. 全屏显示该图，且隐藏工具栏
+
+    '
+  module: 全屏
+  feature: ''
+  tags:
+  - L1
+  app: deepin-image-viewer
+  skip: null
+- id: test_deepin-image-viewer_021
+  file: 公共能力/test_deepin-image-viewer_021.yaml
+  name: 系统事件响应-使用看图时关机
+  description: '前置条件:
+
+
+    测试步骤:
+
+    1. 使用看图打开任意图片
+
+    2. 点击dock栏右侧的【电源】按钮
+
+    3. 点击【关机】
+
+
+    预期结果:
+
+    1.
+
+    2. 进入电源界面
+
+    3. 系统正常关机
+
+    '
+  module: 系统事件响应机制
+  feature: ''
+  tags:
+  - L4
+  app: deepin-image-viewer
+  skip: null
+- id: test_deepin-image-viewer_022
+  file: 公共能力/test_deepin-image-viewer_022.yaml
+  name: 公共能力-相册右键菜单添加到相册
+  description: '前置条件:
+
+
+    测试步骤:
+
+    1. 相册调用看图打开任意图片
+
+    2. 在图片查看区域任意位置点击鼠标右键
+
+    3. 点击【添加到相册】
+
+    4. 点击任意自建的相册
+
+
+    预期结果:
+
+    1.
+
+    2. 唤起右键菜单
+
+    3. 打开添加到相册的二级菜单，从上至下一次为新建相册、以及各相册名
+
+    4. 图片添加至指定相册，且底部出现【成功添加到“XXX相册”】的提示语
+
+    '
+  module: 公共能力
+  feature: ''
+  tags:
+  - L3
+  app: deepin-image-viewer
+  skip: null
+- id: test_deepin-image-viewer_023
+  file: 公共能力/test_deepin-image-viewer_023.yaml
+  name: 公共能力-相册右键菜单收藏
+  description: '前置条件:
+
+
+    测试步骤:
+
+    1. 相册调用看图打开任意图片
+
+    2. 在图片查看区域任意位置点击鼠标右键
+
+    3. 点击【收藏】
+
+
+    预期结果:
+
+    1.
+
+    2. 唤起右键菜单
+
+    3. 收藏当前图片，且工具栏的收藏按钮变为“红心”状态
+
+    '
+  module: 公共能力
+  feature: ''
+  tags:
+  - L3
+  app: deepin-image-viewer
+  skip: null
+- id: test_deepin-image-viewer_024
+  file: 公共能力/test_deepin-image-viewer_024.yaml
+  name: 公共能力-相册调用看图查看多页图
+  description: '前置条件:
+
+
+    测试步骤:
+
+    1. 相册调用看图打开任意多页图片
+
+
+    预期结果:
+
+    1. 多页图支持与看图一致（可参考tif多页图用例）
+
+    '
+  module: 公共能力
+  feature: ''
+  tags:
+  - L3
+  app: deepin-image-viewer
+  skip: null
+- id: test_deepin-image-viewer_025
+  file: 公共能力/test_deepin-image-viewer_025.yaml
+  name: 系统事件响应-使用看图时重启
+  description: '前置条件:
+
+
+    测试步骤:
+
+    1. 使用看图打开任意图片
+
+    2. 点击dock栏右侧的【电源】按钮
+
+    3. 点击【重启】
+
+
+    预期结果:
+
+    1.
+
+    2. 进入电源界面
+
+    3. 系统正常重启
+
+    '
+  module: 系统事件响应机制
+  feature: ''
+  tags:
+  - L4
+  app: deepin-image-viewer
+  skip: null
+- id: test_deepin-image-viewer_026
+  file: 公共能力/test_deepin-image-viewer_026.yaml
+  name: 公共能力-相册查看图片格式支持
+  description: '前置条件:
+
+
+    测试步骤:
+
+    1. 相册调用看图打开第一张
+
+    2. 逐张切换图片，检查各图片支持的情况
+
+
+    预期结果:
+
+    1.
+
+    2. 各图片支持情况与看图保持一致（可参考看图支持格式用例）
+
+    '
+  module: 公共能力
+  feature: ''
+  tags:
+  - L2
+  app: deepin-image-viewer
+  skip: null
+- id: test_deepin-image-viewer_028
+  file: 公共能力/test_deepin-image-viewer_028.yaml
+  name: 公共能力-相册调用看图右键菜单检查
+  description: '前置条件:
+
+
+    测试步骤:
+
+    1. 相册调用看图打开任意图片
+
+    2. 在图片查看区域任意位置点击鼠标右键
+
+
+    预期结果:
+
+    1.
+
+    2. 右键菜单中增加：添加到相册（二级菜单为新建菜单、各相册名）、导出、收藏、从相册中移除（需要从已有相册进入）
+
+    '
+  module: 公共能力
+  feature: ''
+  tags:
+  - L2
+  app: deepin-image-viewer
+  skip: null
+- id: test_deepin-image-viewer_029
+  file: 公共能力/test_deepin-image-viewer_029.yaml
+  name: 公共能力-键盘交互
+  description: '前置条件:
+
+
+    测试步骤:
+
+    1. 相册调用看图打开任意图片
+
+    2. 检查键盘交互支持
+
+
+    预期结果:
+
+    1.
+
+    2. 键盘交互与看图一致（可参考键盘交互用例）
+
+    '
+  module: 公共能力
+  feature: ''
+  tags:
+  - L3
+  app: deepin-image-viewer
+  skip: null
+- id: test_deepin-image-viewer_030
+  file: 公共能力/test_deepin-image-viewer_030.yaml
+  name: 用户场景-格式支持
+  description: '前置条件:
+
+
+    测试步骤:
+
+    1. 打开看图应用
+
+    2. 点击打开图片按钮，依次打开png、bmp、trf、trff、heic、avif格式的图片，检查能否打开，打开后是否可以正常浏览查看
+
+
+    预期结果:
+
+    1.
+
+    2. 图片都可以正常被打开，浏览查看正常
+
+    '
+  module: 用户场景
+  feature: ''
+  tags:
+  - L3
+  app: deepin-image-viewer
+  skip: null
+- id: test_deepin-image-viewer_031
+  file: 公共能力/test_deepin-image-viewer_031.yaml
+  name: 公共能力-相册调用看图的导航窗口检查
+  description: '前置条件:
+
+
+    测试步骤:
+
+    1. 相册调用看图打开任意图片
+
+    2. 来回缩放图片，检查导航窗口
+
+
+    预期结果:
+
+    1.
+
+    2. 缩放窗口展示与看图一致（可参考导航窗口用例）
+
+    '
+  module: 公共能力
+  feature: ''
+  tags:
+  - L2
+  app: deepin-image-viewer
+  skip: null
+- id: test_deepin-image-viewer_032
+  file: 公共能力/test_deepin-image-viewer_032.yaml
+  name: 公共能力-相册调用看图工具栏多张图片检查
+  description: '前置条件:
+
+
+    测试步骤:
+
+    1. 相册应用调调用看图打开多张图片，检查工具栏
+
+
+    预期结果:
+
+    1. 工具栏增加：返回、收藏/取消收藏按钮，删除为将图片删除至相册的最近删除中
+
+    '
+  module: 公共能力
+  feature: ''
+  tags:
+  - L3
+  app: deepin-image-viewer
+  skip: null
+- id: test_deepin-image-viewer_033
+  file: 公共能力/test_deepin-image-viewer_033.yaml
+  name: 公共能力-看图工具栏单张图片检查
+  description: '前置条件:
+
+
+    测试步骤:
+
+    1. 使用看图打开单张图片，检查工具栏
+
+
+    预期结果:
+
+    1. 工具栏状态与原来保持一致（可参考工具栏用例）
+
+    '
+  module: 公共能力
+  feature: ''
+  tags:
+  - L2
+  app: deepin-image-viewer
+  skip: null
+- id: test_deepin-image-viewer_034
+  file: 公共能力/test_deepin-image-viewer_034.yaml
+  name: 公共能力-相册调用看图工具栏单张图片检查
+  description: '前置条件:
+
+
+    测试步骤:
+
+    1. 相册调用看图打开单张图片，检查工具栏
+
+
+    预期结果:
+
+    1. 工具栏增加：返回、收藏/取消收藏按钮，删除为将图片删除至相册的最近删除中
+
+    '
+  module: 公共能力
+  feature: ''
+  tags:
+  - L3
+  app: deepin-image-viewer
+  skip: null
+- id: test_deepin-image-viewer_035
+  file: 公共能力/test_deepin-image-viewer_035.yaml
+  name: 公共能力-看图自有窗口属性
+  description: '前置条件:
+
+
+    测试步骤:
+
+    1. 使用看图打开多张图片，检查看图窗口展示
+
+
+    预期结果:
+
+    1. 看图窗口与UI图保持一致，顶部标题栏从左到右为看图logo、图片名称、最小化、最大化/还原、关闭，底部工具栏从左至右为上一张、下一张、1:1视图、适应窗口、识别文字、逆时针旋转、顺时针旋转、缩略图、删除，多页图在窗口右侧中部有上一页、下一页的翻页按钮
+
+    '
+  module: 公共能力
+  feature: ''
+  tags:
+  - L2
+  app: deepin-image-viewer
+  skip: null
+- id: test_deepin-image-viewer_036
+  file: 公共能力/test_deepin-image-viewer_036.yaml
+  name: 公共能力-看图工具栏多张图片检查
+  description: '前置条件:
+
+
+    测试步骤:
+
+    1. 使用看图打开多张图片，检查工具栏
+
+
+    预期结果:
+
+    1. 工具栏状态与原来保持一致（可参考工具栏用例）
+
+    '
+  module: 公共能力
+  feature: ''
+  tags:
+  - L2
+  app: deepin-image-viewer
+  skip: null
+- id: test_deepin-image-viewer_037
+  file: 公共能力/test_deepin-image-viewer_037.yaml
+  name: 公共能力-相册右键菜单取消收藏
+  description: '前置条件:
+
+
+    测试步骤:
+
+    1. 相册调用看图打开任意已收藏的图片
+
+    2. 在图片查看区域任意位置点击鼠标右键
+
+    3. 点击【取消收藏】
+
+
+    预期结果:
+
+    1.
+
+    2. 唤起右键菜单
+
+    3. 取消当前收藏图片，且工具栏的收藏按钮变为“空心”状态
+
+    '
+  module: 公共能力
+  feature: ''
+  tags:
+  - L3
+  app: deepin-image-viewer
+  skip: null
+- id: test_deepin-image-viewer_038
+  file: 公共能力/test_deepin-image-viewer_038.yaml
+  name: 公共能力-相册右键菜单导出
+  description: '前置条件:
+
+
+    测试步骤:
+
+    1. 相册调用看图打开任意图片
+
+    2. 在图片查看区域任意位置点击鼠标右键
+
+    3. 点击【导出】
+
+
+    预期结果:
+
+    1.
+
+    2. 唤起右键菜单
+
+    3. 唤起相册的导出窗口，且可成功导出图片
+
+    '
+  module: 公共能力
+  feature: ''
+  tags:
+  - L3
+  app: deepin-image-viewer
+  skip: null
+- id: test_deepin-image-viewer_039
+  file: 公共能力/test_deepin-image-viewer_039.yaml
+  name: 公共能力-跟随第三方应用调整窗口尺寸
+  description: '前置条件:
+
+
+    测试步骤:
+
+    1. 打开相册中的任意图片
+
+    2. 调整看图窗口大小
+
+    3. 点击工具栏的【返回】按钮
+
+
+    预期结果:
+
+    1.
+
+    2. 看图窗口可以随意修改大小
+
+    3. 返回相册后，相册窗口大小与调整的看图窗口大小保持一致
+
+    '
+  module: 公共能力
+  feature: ''
+  tags:
+  - L3
+  app: deepin-image-viewer
+  skip: null
+- id: test_deepin-image-viewer_040
+  file: 公共能力/test_deepin-image-viewer_040.yaml
+  name: 公共能力-看图窗口与第三方应用调用看图窗口
+  description: '前置条件:
+
+
+    测试步骤:
+
+    1. 在相册中，使用看图打开任意图片
+
+    2. 在文管中找到步骤1中的图片，使用看图打开
+
+    3. 在相册的看图窗口中顺时针旋转图片
+
+    4. 在看图中顺时针旋转图片
+
+
+    预期结果:
+
+    1. 调起看图打开此图片
+
+    2. 看图也可正常打开此图片
+
+    3. 图片顺时针旋转90度
+
+    4. 图片再次顺时针旋转90度，较原图旋转了180度
+
+    '
+  module: 公共能力
+  feature: ''
+  tags:
+  - L2
+  app: deepin-image-viewer
+  skip: null
+- id: test_deepin-image-viewer_041
+  file: 公共能力/test_deepin-image-viewer_041.yaml
+  name: 公共能力-相册右键菜单新建菜单
+  description: '前置条件:
+
+
+    测试步骤:
+
+    1. 相册调用看图打开任意图片
+
+    2. 在图片查看区域任意位置点击鼠标右键
+
+    3. 点击【添加到相册】
+
+    4. 点击【新建菜单】
+
+
+    预期结果:
+
+    1.
+
+    2. 唤起右键菜单
+
+    3. 打开添加到相册的二级菜单
+
+    4. 弹出新建相册对话框
+
+    '
+  module: 公共能力
+  feature: ''
+  tags:
+  - L3
+  app: deepin-image-viewer
+  skip: null
+- id: test_deepin-image-viewer_042
+  file: 公共能力/test_deepin-image-viewer_042.yaml
+  name: 公共能力-看图右键菜单检查
+  description: '前置条件:
+
+
+    测试步骤:
+
+    1. 使用看图打开任意图片
+
+    2. 在图片查看区域任意位置点击鼠标右键
+
+
+    预期结果:
+
+    1.
+
+    2. 右键菜单与原来保持一致（可参考右键菜单用例）
+
+    '
+  module: 公共能力
+  feature: ''
+  tags:
+  - L2
+  app: deepin-image-viewer
+  skip: null
+- id: test_deepin-image-viewer_043
+  file: 公共能力/test_deepin-image-viewer_043.yaml
+  name: 公共能力-自适应第三方窗口尺寸
+  description: '前置条件:
+
+
+    测试步骤:
+
+    1. 调整相册尺寸，然后打开任意图片
+
+    2. 关闭看图后，重复步骤1
+
+
+    预期结果:
+
+    1. 调起的看图窗口与相册窗口大小保持一致
+
+    2. 调起的看图窗口始终与当前相册窗口大小保持一致
+
+    '
+  module: 公共能力
+  feature: ''
+  tags:
+  - L2
+  app: deepin-image-viewer
+  skip: null
+- id: test_deepin-image-viewer_044
+  file: 关闭/test_deepin-image-viewer_044.yaml
+  name: 导航窗口-右键菜单唤起或关闭
+  description: '前置条件:
+
+
+    测试步骤:
+
+    1. 在图片查看区域点击鼠标右键
+
+    2. 点击右键菜单中的【隐藏导航窗口】
+
+    3. 在图片查看区域点击鼠标右键
+
+    4. 点击右键菜单中的【显示导航窗口】
+
+
+    预期结果:
+
+    1.
+
+    2.
+
+    3.
+
+    4. 唤起导航窗口
+
+    '
+  module: 导航窗口
+  feature: ''
+  tags:
+  - L3
+  app: deepin-image-viewer
+  skip: null
+- id: test_deepin-image-viewer_045
+  file: 关闭/test_deepin-image-viewer_045.yaml
+  name: 关闭-窗口关闭按钮
+  description: '前置条件:
+
+
+    测试步骤:
+
+    1. 启动看图
+
+    2. 点击看图窗口右上角的【X】关闭按钮
+
+
+    预期结果:
+
+    1.
+
+    2. 关闭当前看图窗口
+
+    '
+  module: 关闭
+  feature: ''
+  tags:
+  - L3
+  app: deepin-image-viewer
+  skip: null
+- id: test_deepin-image-viewer_046
+  file: 关闭/test_deepin-image-viewer_046.yaml
+  name: 看图动效-导航窗口开启关闭
+  description: '前置条件:
+
+
+    测试步骤:
+
+    1. 开启导航窗口
+
+    2. 关闭导航窗口
+
+
+    预期结果:
+
+    1. 导航窗口由窗口下方为起点（导航窗口下方与看图窗口最下方齐平），由小到大淡入，大小30%-100%，透明度0-100,持续时间366ms，速度加速-平缓
+
+    2. 窗口由大到小淡出（导航窗口下方与看图窗口最下方齐平），大小100%-30%，透明度100%-30%，持续时间366ms,速度加速-平缓
+
+    '
+  module: 看图动效
+  feature: 【变更】【新增】看图动效(#36401)
+  tags:
+  - L3
+  app: deepin-image-viewer
+  skip: null
+- id: test_deepin-image-viewer_047
+  file: 关闭/test_deepin-image-viewer_047.yaml
+  name: 导航窗口-按钮关闭导航窗口
+  description: '前置条件:
+
+
+    测试步骤:
+
+    1. 点击导航窗口右上角的【关闭】按钮
+
+
+    预期结果:
+
+    1. 导航窗口关闭
+
+    '
+  module: 导航窗口
+  feature: ''
+  tags:
+  - L2
+  app: deepin-image-viewer
+  skip: null
+- id: test_deepin-image-viewer_048
+  file: 兼容/test_deepin-image-viewer_048.yaml
+  name: 版本兼容-文案语言翻译检查
+  description: '前置条件:
+
+
+    测试步骤:
+
+    1. 检查看图界面文案翻译
+
+    2. 检查界面控件、按钮、下拉框、鼠标悬浮态提示语、弹框语言翻译的对应性
+
+    3. 检查翻译后的文案UI展示正常美观
+
+    4. 检查帮助文档
+
+
+    预期结果:
+
+    1. 均翻译正确
+
+    2. 控件、悬浮框等翻译正常
+
+    3. UI展示正常
+
+    4. 帮助文档与当前系统语言相同，藏语、维语的帮助文档为简体中文
+
+    '
+  module: 版本兼容
+  feature: ''
+  tags:
+  - L2
+  app: deepin-image-viewer
+  skip: null
+- id: test_deepin-image-viewer_049
+  file: 删除/test_deepin-image-viewer_049.yaml
+  name: '[018][smoke][acp1]删除-右键菜单删除'
+  description: '前置条件:
+
+
+    测试步骤:
+
+    1. 在图片查看区域点击【鼠标右键】
+
+    2. 点击选择右键菜单中的【删除】选项
+
+
+    预期结果:
+
+    1. 唤起右键菜单
+
+    2. 该图片被删除，自动切换到下一张
+
+    '
+  module: 删除
+  feature: ''
+  tags:
+  - L2
+  app: deepin-image-viewer
+  skip: null
+- id: test_deepin-image-viewer_050
+  file: 删除/test_deepin-image-viewer_050.yaml
+  name: '[038][acp1][core]删除-只读权限图片删除检查'
+  description: '前置条件:
+
+
+    测试步骤:
+
+    1. 使用看图打开任意只读图片
+
+    2. 使用快捷键【Delete】
+
+    3. 在图片查看区域点击【鼠标右键】
+
+
+    预期结果:
+
+    1. 可以正常查看只读图片，工具栏旋转、删除按钮置灰
+
+    2. 无响应，不会删除当前图片
+
+    3. 唤起右键菜单，右键菜单中没有删除选项
+
+    '
+  module: 工具栏
+  feature: ''
+  tags:
+  - L3
+  app: deepin-image-viewer
+  skip: null
+- id: test_deepin-image-viewer_051
+  file: 删除/test_deepin-image-viewer_051.yaml
+  name: '[011][acp1][smoke]工具栏-删除按钮检查'
+  description: '前置条件:
+
+
+    测试步骤:
+
+    1. 点击工具栏的【删除】按钮
+
+
+    预期结果:
+
+    1. 图片被删除至回收站中，看图不再展示此图
+
+    '
+  module: 工具栏
+  feature: ''
+  tags:
+  - L2
+  app: deepin-image-viewer
+  skip: null
+- id: test_deepin-image-viewer_052
+  file: 删除/test_deepin-image-viewer_052.yaml
+  name: '[087][smoke][acp1]删除-删除单张图片后看图界面展示'
+  description: '前置条件:
+
+
+    测试步骤:
+
+    1. 使用快捷键【Delete】
+
+
+    预期结果:
+
+    1. 单张图片删除后，直接返回看图首页
+
+    '
+  module: 删除
+  feature: ''
+  tags:
+  - L1
+  app: deepin-image-viewer
+  skip: null
+- id: test_deepin-image-viewer_053
+  file: 动效/test_deepin-image-viewer_053.yaml
+  name: 看图动效-缩略图
+  description: '前置条件:
+
+
+    测试步骤:
+
+    1. 拖动缩略图，缩略图左右滑动,拖动缩略图滑动后松开
+
+    2. 点击缩略图，切换选中缩略图
+
+    3. 点击选中后面的缩略图，查看预览区图片切换效果
+
+    4. 点击选中前面的缩略图
+
+
+    预期结果:
+
+    1. 期间阅览区图片不变化，选中的缩略图不变化
+
+    2. 预览区图片切换，缩略图条滑动
+
+    3. 当前图向左快速移出消失（向左移动至左侧窗口边缘消失，透明度100-0变化），后一张向左快速移入出现（由右侧窗口边缘移入，透明度0-100变化），图片移进移出的范围不超过窗口（图片左侧移动至左侧窗口消失，图片右侧由右侧窗口边缘移入），持续时间366ms，速度加速-平缓
+
+    4. 预览区图片切换效果同上，方向为向右
+
+    '
+  module: 看图动效
+  feature: 【变更】【新增】看图动效(#36401)
+  tags:
+  - L3
+  app: deepin-image-viewer
+  skip: null
+- id: test_deepin-image-viewer_054
+  file: 动效/test_deepin-image-viewer_054.yaml
+  name: 看图动效-图片切换
+  description: '前置条件:
+
+
+    测试步骤:
+
+    1. 看图中，点击下一张
+
+    2. 看图中，点击上一张
+
+    3. 切换时查看移出
+
+    4. 查看缩略图变化
+
+
+    预期结果:
+
+    1. 当前图片向左快速移出消失（向左移动至左侧窗口边缘消失，透明度100-0变化），下一张图片向左快速移入出现（由右侧窗口边缘移入，透明度0-100变化）
+
+    2. 当前图片向右快速移出消失（向右移动至右侧窗口边缘消失，透明度100-0变化），上一张图向右快速移入出现（由左侧窗口边缘移入，透明度0-100变化）
+
+    3. 图片移进移出的范围不超过窗口，持续时间366ms，速度加速-平缓
+
+    4. 图片替换，选中图由小到大淡入，大小30*40px-58*58px，透明度0-100，持续时间366ms
+
+    '
+  module: 看图动效
+  feature: 【变更】【新增】看图动效(#36401)
+  tags:
+  - L3
+  app: deepin-image-viewer
+  skip: null
+- id: test_deepin-image-viewer_055
+  file: 动效/test_deepin-image-viewer_055.yaml
+  name: 看图动效-图片显示方式（1:1显示 适应窗口）
+  description: '前置条件:
+
+
+    测试步骤:
+
+    1. 看图中，点击1：1显示
+
+    2. 看图中，点击适应窗口
+
+
+    预期结果:
+
+    1. 图片放大缩小至原图大小，持续时间366ms，速度加速-平缓
+
+    2. 图片放大缩小至上方持平工具栏下方，持续时间366ms，速度加速-平缓
+
+    '
+  module: 看图动效
+  feature: 【变更】【新增】看图动效(#36401)
+  tags:
+  - L3
+  app: deepin-image-viewer
+  skip: null
+- id: test_deepin-image-viewer_056
+  file: 图片格式/test_deepin-image-viewer_056.yaml
+  name: tif多页图-播放幻灯片
+  description: '前置条件:
+
+
+    测试步骤:
+
+    1. 多次点击看图查看图片区域右侧的【下一页】按钮
+
+    2. 使用快捷键【F5】
+
+    3. 双击幻灯片区域
+
+
+    预期结果:
+
+    1. 切换当前多页图
+
+    2. 开始播放幻灯片
+
+    3. 退出幻灯片放映
+
+    '
+  module: tif多页图
+  feature: ''
+  tags:
+  - L2
+  app: deepin-image-viewer
+  skip: null
+- id: test_deepin-image-viewer_057
+  file: 图片格式/test_deepin-image-viewer_057.yaml
+  name: '[090]tif多页图-切换页后检查缩略'
+  description: '前置条件:
+
+
+    测试步骤:
+
+    1. 点击工具栏的【下一页】按钮
+
+
+    预期结果:
+
+    1. 切换至多页图的下一页图片，缩略图不变
+
+    '
+  module: 工具栏
+  feature: ''
+  tags:
+  - L2
+  app: deepin-image-viewer
+  skip: null
+- id: test_deepin-image-viewer_058
+  file: 图片格式/test_deepin-image-viewer_058.yaml
+  name: 图片格式-图片支持检查
+  description: '前置条件:
+
+
+    测试步骤:
+
+    1. 打开此目录中第一张图片
+
+    2. 逐张切换图片，检查这些图片是否均支持打开，没有撕裂图
+
+
+    预期结果:
+
+    1.
+
+    2. 都可以正常打开并渲染图片，且缩略图跟随变化
+
+    '
+  module: 图片格式
+  feature: ''
+  tags:
+  - L1
+  app: deepin-image-viewer
+  skip: null
+- id: test_deepin-image-viewer_059
+  file: 图片格式/test_deepin-image-viewer_059.yaml
+  name: 键鼠切换-tif多页图检查图片切换功能
+  description: '前置条件:
+
+
+    测试步骤:
+
+    1. 点击看图右侧的【下一页】按钮
+
+    2. 移动鼠标至图片预览区域上
+
+    3. 按住快捷键【Ctrl】，同时滚动鼠标滚轮
+
+
+    预期结果:
+
+    1. 切换至tif的第二页图
+
+    2. 鼠标在图片预览区域上
+
+    3. 看图跟随鼠标滚动切换图片
+
+    '
+  module: 工具栏
+  feature: ''
+  tags:
+  - L3
+  app: deepin-image-viewer
+  skip: null
+- id: test_deepin-image-viewer_060
+  file: 图片格式/test_deepin-image-viewer_060.yaml
+  name: '[319]tif多页图-工具栏切换上一张图片'
+  description: '前置条件:
+
+
+    测试步骤:
+
+    1. 点击工具栏的【上一张】按钮
+
+
+    预期结果:
+
+    1. 切换至上一张图片，缩略图不变
+
+    '
+  module: 工具栏
+  feature: ''
+  tags:
+  - L1
+  app: deepin-image-viewer
+  skip: null
+- id: test_deepin-image-viewer_061
+  file: 图片格式/test_deepin-image-viewer_061.yaml
+  name: 图片格式-支持设置壁纸格式图片检查
+  description: '前置条件:
+
+    有包含jpeg、png、bmp格式图片的文件夹
+
+
+    测试步骤:
+
+    1. 点击查看包含jpeg、png、bmp格式图片的文件夹
+
+    2. 使用快捷键【Ctrl+F9】，检查桌面壁纸，然后切换至下一张，重复此步骤
+
+
+    预期结果:
+
+    1. 文件夹被打开，每张图片都可以正常查看
+
+    2. 每一张都可以成功设置为桌面壁纸
+
+    '
+  module: 图片格式
+  feature: ''
+  tags:
+  - L2
+  app: deepin-image-viewer
+  skip: null
+- id: test_deepin-image-viewer_062
+  file: 图片格式/test_deepin-image-viewer_062.yaml
+  name: 工具栏-tif多页图-缩略图切换图片
+  description: '前置条件:
+
+
+    测试步骤:
+
+    1. 任意点击缩略图
+
+
+    预期结果:
+
+    1. 看图界面切换至所点击的缩略图图片
+
+    '
+  module: 工具栏
+  feature: ''
+  tags:
+  - L1
+  app: deepin-image-viewer
+  skip: null
+- id: test_deepin-image-viewer_063
+  file: 图片格式/test_deepin-image-viewer_063.yaml
+  name: 图片格式-右键菜单检查
+  description: '前置条件:
+
+
+    测试步骤:
+
+    1. 进入此目录
+
+    2. 使用快捷键【Ctrl+A】
+
+    3. 从第一张图片开始，每张图片均点击【鼠标右键】，查看右键菜单展示情况
+
+
+    预期结果:
+
+    1.
+
+    2. 全选了所有图片
+
+    3. 每一张图片的右键菜单展示正常，打开和打开方式均未置灰
+
+    '
+  module: 图片格式
+  feature: ''
+  tags:
+  - L2
+  app: deepin-image-viewer
+  skip: null
+- id: test_deepin-image-viewer_064
+  file: 基础操作/test_deepin-image-viewer_064.yaml
+  name: 缩放-最小缩小倍数检查
+  description: '前置条件:
+
+
+    测试步骤:
+
+    1. 一直使用快捷键【down】
+
+
+    预期结果:
+
+    1. 图片一直缩小，直至缩小为2%
+
+    '
+  module: 基础操作
+  feature: ''
+  tags:
+  - L3
+  app: deepin-image-viewer
+  skip: null
+- id: test_deepin-image-viewer_065
+  file: 基础操作/test_deepin-image-viewer_065.yaml
+  name: '[256][smoke]键鼠切换-鼠标滚动缩放图片过程中按下ctrl键'
+  description: '前置条件:
+
+
+    测试步骤:
+
+    1. 在图片预览区域来回滚动鼠标滚轮
+
+    2. 在滚动过程中按下快捷键【Ctrl】
+
+
+    预期结果:
+
+    1. 图片来回缩放
+
+    2. 看图响应切换图片，开始切换图片
+
+    '
+  module: 工具栏
+  feature: ''
+  tags:
+  - L2
+  app: deepin-image-viewer
+  skip: null
+- id: test_deepin-image-viewer_066
+  file: 基础操作/test_deepin-image-viewer_066.yaml
+  name: 缩放-最大放大倍数检查
+  description: '前置条件:
+
+
+    测试步骤:
+
+    1. 一直使用快捷键【up】
+
+
+    预期结果:
+
+    1. 图片一直放大，直至放大为2000%
+
+    '
+  module: 基础操作
+  feature: ''
+  tags:
+  - L3
+  app: deepin-image-viewer
+  skip: null
+- id: test_deepin-image-viewer_067
+  file: 外部交互/test_deepin-image-viewer_067.yaml
+  name: 外部交互-复制图片到WPS中
+  description: '前置条件:
+
+
+    测试步骤:
+
+    1. 使用看图打开任意一张本地图片
+
+    2. 在图片查看任意区域点击鼠标右键
+
+    3. 点击【复制】选项
+
+    4. 在WPS中进行粘贴
+
+
+    预期结果:
+
+    1.
+
+    2. 唤起右键菜单
+
+    3. 复制当前图片
+
+    4. 粘贴图片到WPS中
+
+    '
+  module: 其他应用
+  feature: ''
+  tags:
+  - L2
+  app: deepin-image-viewer
+  skip: null
+- id: test_deepin-image-viewer_068
+  file: 外部交互/test_deepin-image-viewer_068.yaml
+  name: 用户场景-卸载截图后看图OCR识别成功
+  description: '前置条件:
+
+
+    测试步骤:
+
+    1. 打开编辑器, 输入“欢迎使用统信UOS“
+
+    2. 截取编辑器窗口并保存截图到桌面
+
+    3. 卸载截图
+
+    4. 双击打开保存的图片
+
+    5. 点击OCR识别按钮
+
+
+    预期结果:
+
+    1. 编辑器正常打开, 主窗口显示“欢迎使用统信UOS“
+
+    2. 桌面上出现截取的图片
+
+    3. 卸载成功
+
+    4. 截取的图片在看图中正常显示
+
+    5. 识别到“欢迎使用统信UOS“
+
+    '
+  module: 用户场景
+  feature: ''
+  tags:
+  - L2
+  app: deepin-image-viewer
+  skip: null
+- id: test_deepin-image-viewer_069
+  file: 外部交互/test_deepin-image-viewer_069.yaml
+  name: 外部交互-与常用软件交互
+  description: '前置条件:
+
+
+    测试步骤:
+
+    1. 在使用wps编辑文字、表格等情况的时候，使用看图查看图片、播放幻灯片、设置壁纸等
+
+    2. 在使用多种日常软件时，使用看图查看图片、播放幻灯片、设置壁纸等
+
+
+    预期结果:
+
+    1. 看图和wps都可正常独立操作，且功能正常互不影响，看图复制图片可以正常粘贴在WPS中
+
+    2. 看图和其他软件可正常独立操作，且功能正常互不影响
+
+    '
+  module: 其他应用
+  feature: ''
+  tags:
+  - L3
+  app: deepin-image-viewer
+  skip: null
+- id: test_deepin-image-viewer_070
+  file: 外部交互/test_deepin-image-viewer_070.yaml
+  name: 用户场景-OCR识别长图成功
+  description: '前置条件:
+
+
+    测试步骤:
+
+    1. 打开test.docx文档, 使用截图工具滚动截取长图并保存到桌面
+
+    2. 双击打开保存的图片
+
+    3. 点击OCR识别按钮
+
+    4. 打开看图, 拖动截图保存的文件到看图窗口
+
+    5. 点击OCR识别按钮
+
+
+    预期结果:
+
+    1. 桌面上出现截取的图片
+
+    2. 截取的图片在看图中正常显示
+
+    3. 识别结果与test.docx中的文字内容一致, 识别时间不超过5分钟
+
+    4. 截取的图片在看图中正常显示
+
+    5. 识别结果与test.docx中的文字内容一致, 识别时间不超过5分钟
+
+    '
+  module: 用户场景
+  feature: ''
+  tags:
+  - L2
+  app: deepin-image-viewer
+  skip: null
+- id: test_deepin-image-viewer_071
+  file: 外部交互/test_deepin-image-viewer_071.yaml
+  name: OCR-入口检查-窗口下点击工具栏按钮
+  description: '前置条件:
+
+
+    测试步骤:
+
+    1. 点击工具栏【识别文字】按钮
+
+
+    预期结果:
+
+    1. 调起OCR识别窗口
+
+    '
+  module: OCR
+  feature: ''
+  tags:
+  - L1
+  app: deepin-image-viewer
+  skip: null
+- id: test_deepin-image-viewer_072
+  file: 外部交互/test_deepin-image-viewer_072.yaml
+  name: 外部交互-与压缩文件交互
+  description: '前置条件:
+
+
+    测试步骤:
+
+    1. 选择压缩包中的任意图片使用看图打开
+
+    2. 任意操作图片（旋转、删除、重命名等）
+
+    3. 点击【确认】
+
+
+    预期结果:
+
+    1. 可以正常打开选择的图片（单张或多张），不会打开压缩包中未选中的图片
+
+    2. 若有读写权限则可以进行（旋转、删除、重命名等）操作，且会提示是否更新到压缩包中
+
+    3. 图片更新压缩包中的状态
+
+    '
+  module: 其他应用
+  feature: ''
+  tags:
+  - L4
+  app: deepin-image-viewer
+  skip: null
+- id: test_deepin-image-viewer_073
+  file: 外部交互/test_deepin-image-viewer_073.yaml
+  name: 外部交互-与外界挂载设备交互
+  description: '前置条件:
+
+
+    测试步骤:
+
+    1. 使用看图打开U盘中的任意图片
+
+    2. 移除U盘
+
+
+    预期结果:
+
+    1. 可以正常打开并加载U盘中的图片
+
+    2. 若打开为多张图片，则看图界面显示图片的缩略图，并显示“没有发现图片文件”的提示；若打开为单张照片，看图直接返回初始界面
+
+    '
+  module: 其他应用
+  feature: ''
+  tags:
+  - L3
+  app: deepin-image-viewer
+  skip: null
+- id: test_deepin-image-viewer_074
+  file: 导航/test_deepin-image-viewer_074.yaml
+  name: 导航窗口-移动显示区域
+  description: '前置条件:
+
+
+    测试步骤:
+
+    1. 点击拖拽移动看图展示区域
+
+
+    预期结果:
+
+    1. 图片展示区域移动，导航窗口定位器跟随图片实时更新位置
+
+    '
+  module: 导航窗口
+  feature: ''
+  tags:
+  - L1
+  app: deepin-image-viewer
+  skip: null
+- id: test_deepin-image-viewer_075
+  file: 工具栏/test_deepin-image-viewer_075.yaml
+  name: 键鼠切换-切换过程中移动鼠标至工具栏区域
+  description: '前置条件:
+
+
+    测试步骤:
+
+    1. 在图片预览区域按住快捷键【Ctrl】，同时不停的来回快速滚动鼠标滚轮
+
+    2. 在滚动过程中，移动鼠标至工具栏区域
+
+    3. 再次将鼠标移动至图片预览区域
+
+
+    预期结果:
+
+    1. 看图正常切换图片
+
+    2. 当鼠标移动到工具栏上时，看图立马停止切换图片
+
+    3. 看图继续切换图片
+
+    '
+  module: 工具栏
+  feature: ''
+  tags:
+  - L3
+  app: deepin-image-viewer
+  skip: null
+- id: test_deepin-image-viewer_076
+  file: 工具栏/test_deepin-image-viewer_076.yaml
+  name: 工具栏-键鼠切换-打开自然滚动后切换下一张
+  description: '前置条件:
+
+
+    测试步骤:
+
+    1. 在图片预览区域按住快捷键【Ctrl】，同时向前滚动鼠标滚轮
+
+
+    预期结果:
+
+    1. 看图切换至下一张图片，与开启自然滚动前切换方向相反
+
+    '
+  module: 工具栏
+  feature: ''
+  tags:
+  - L3
+  app: deepin-image-viewer
+  skip: null
+- id: test_deepin-image-viewer_077
+  file: 工具栏/test_deepin-image-viewer_077.yaml
+  name: 工具栏-键鼠切换-快速切换大量图片
+  description: '前置条件:
+
+
+    测试步骤:
+
+    1. 在图片预览区域按住快捷键【Ctrl】，同时不停的来回快速滚动鼠标滚轮
+
+
+    预期结果:
+
+    1. 看图始终响应正常，始终可以正常切换图片
+
+    '
+  module: 工具栏
+  feature: ''
+  tags:
+  - L3
+  app: deepin-image-viewer
+  skip: null
+- id: test_deepin-image-viewer_078
+  file: 工具栏/test_deepin-image-viewer_078.yaml
+  name: 工具栏-键鼠切换-标题栏隐藏时光标在标题栏区域检查图片切换功能
+  description: '前置条件:
+
+
+    测试步骤:
+
+    1. 滚动鼠标滚轮，放大当前查看的图片超过当前看图窗口
+
+    2. 移动鼠标至标题栏隐藏前的区域
+
+    3. 按住快捷键【Ctrl】，同时滚动鼠标滚轮
+
+
+    预期结果:
+
+    1. 标题栏和工具栏隐藏，看图整个窗口只展示图片
+
+    2. 唤起标题栏和工具栏
+
+    3. 看图无响应，不会切换图片或缩放图片
+
+    '
+  module: 工具栏
+  feature: ''
+  tags:
+  - L3
+  app: deepin-image-viewer
+  skip: null
+- id: test_deepin-image-viewer_079
+  file: 工具栏/test_deepin-image-viewer_079.yaml
+  name: '[006][acp1][smoke]工具栏-上一张按钮'
+  description: '前置条件:
+
+
+    测试步骤:
+
+    1. 点击工具栏的【上一张】按钮
+
+
+    预期结果:
+
+    1. 正常切换到上一张图片
+
+    '
+  module: 工具栏
+  feature: ''
+  tags:
+  - L3
+  app: deepin-image-viewer
+  skip: null
+- id: test_deepin-image-viewer_080
+  file: 工具栏/test_deepin-image-viewer_080.yaml
+  name: 键鼠切换-光标在工具栏缩略图区域时检查图片切换功能
+  description: '前置条件:
+
+
+    测试步骤:
+
+    1. 移动光标至工具栏缩略图区域任意位置
+
+    2. 按住快捷键【Ctrl】，同时滚动鼠标滚轮
+
+
+    预期结果:
+
+    1. 鼠标移动至工具栏任意缩略图区域
+
+    2. 看图无响应，不会切换图片或缩放图片
+
+    '
+  module: 工具栏
+  feature: ''
+  tags:
+  - L3
+  app: deepin-image-viewer
+  skip: null
+- id: test_deepin-image-viewer_081
+  file: 工具栏/test_deepin-image-viewer_081.yaml
+  name: 工具栏-键鼠切换-连续切换图片过程中松开ctrl键
+  description: '前置条件:
+
+
+    测试步骤:
+
+    1. 在图片预览区域按住快捷键【Ctrl】，同时不停的来回快速滚动鼠标滚轮
+
+    2. 在滚动过程中，立马松开快捷键【Ctrl】
+
+
+    预期结果:
+
+    1. 看图始终响应正常，始终可以正常切换图片
+
+    2. 看图在松开ctrl的瞬间，立马停止切换图片，只会响应鼠标滚动的缩放指令
+
+    '
+  module: 工具栏
+  feature: ''
+  tags:
+  - L2
+  app: deepin-image-viewer
+  skip: null
+- id: test_deepin-image-viewer_082
+  file: 工具栏/test_deepin-image-viewer_082.yaml
+  name: '[002][acp1][smoke]工具栏-下一张按钮'
+  description: '前置条件:
+
+
+    测试步骤:
+
+    1. 点击工具栏的【下一张】按钮
+
+
+    预期结果:
+
+    1. 正常切换到下一张图片
+
+    '
+  module: 工具栏
+  feature: ''
+  tags:
+  - L3
+  app: deepin-image-viewer
+  skip: null
+- id: test_deepin-image-viewer_083
+  file: 工具栏/test_deepin-image-viewer_083.yaml
+  name: 工具栏-单张可读写图片按钮展示
+  description: '前置条件:
+
+
+    测试步骤:
+
+    1. 使用看图打开此图片，观察工具栏
+
+
+    预期结果:
+
+    1. 不展示”上一张”、“下一张”切图按钮
+
+    '
+  module: 工具栏
+  feature: ''
+  tags:
+  - L3
+  app: deepin-image-viewer
+  skip: null
+- id: test_deepin-image-viewer_084
+  file: 工具栏/test_deepin-image-viewer_084.yaml
+  name: 工具栏-横图适应窗口
+  description: '前置条件:
+
+
+    测试步骤:
+
+    1. 打开较小分辨【600*200】横图片
+
+    2. 点击工具栏【适应窗口】按钮
+
+
+    预期结果:
+
+    1.
+
+    2. 图片放大，直到左右两头紧挨软件的左右两边为止
+
+    '
+  module: 工具栏
+  feature: ''
+  tags:
+  - L3
+  app: deepin-image-viewer
+  skip: null
+- id: test_deepin-image-viewer_085
+  file: 工具栏/test_deepin-image-viewer_085.yaml
+  name: 工具栏-键鼠切换-工具栏隐藏时光标在工具栏区域检查图片切换功能
+  description: '前置条件:
+
+
+    测试步骤:
+
+    1. 滚动鼠标滚轮，放大当前查看的图片超过当前看图窗口
+
+    2. 移动鼠标至工具栏隐藏前的区域
+
+    3. 按住快捷键【Ctrl】，同时滚动鼠标滚轮
+
+
+    预期结果:
+
+    1. 标题栏和工具栏隐藏，看图整个窗口只展示图片
+
+    2. 唤起标题栏和工具栏
+
+    3. 看图无响应，不会切换图片或缩放图片
+
+    '
+  module: 工具栏
+  feature: ''
+  tags:
+  - L3
+  app: deepin-image-viewer
+  skip: null
+- id: test_deepin-image-viewer_086
+  file: 工具栏/test_deepin-image-viewer_086.yaml
+  name: 工具栏-图源不存在时恢复图源
+  description: '前置条件:
+
+
+    测试步骤:
+
+    1. 使用快捷键【Alt+D】
+
+    2. 使用快捷键【Delete】
+
+    3. 返回看图界面
+
+    4. 打开回收站并还原之前删除的图片
+
+    5. 返回看图界面
+
+    6. 点击工具栏的【下一张】按钮
+
+    7. 点击工具栏的【上一张】按钮
+
+
+    预期结果:
+
+    1. 唤起文件管理器并会选中当前看图查看图片
+
+    2. 删除当前图片
+
+    3. 看图界面提示“未发现图片文件”，缩略图展示正常，工具栏只有上一张和下一张高亮
+
+    4. 图片从回收站还原
+
+    5. 看图界面仍然提示“未发现图片文件”
+
+    6. 切换至下一张图片
+
+    7. 切换至上一张原图，看图界面正常展示图片
+
+    '
+  module: 工具栏
+  feature: ''
+  tags:
+  - L3
+  app: deepin-image-viewer
+  skip: null
+- id: test_deepin-image-viewer_087
+  file: 工具栏/test_deepin-image-viewer_087.yaml
+  name: '[156][acp1][smoke]工具栏-多张图片时检查工具栏'
+  description: '前置条件:
+
+
+    测试步骤:
+
+    1. 使用看图打开多张图片，检查工具栏展示
+
+
+    预期结果:
+
+    1. 图片适应窗口，工具栏居中，上一张（首张置灰）、下一张（尾张置灰）、1：1视图、适应窗口、旋转（只读或不支持旋转格式置灰）、缩略图显示、删除（只读图片置灰）
+
+    '
+  module: 工具栏
+  feature: ''
+  tags:
+  - L1
+  app: deepin-image-viewer
+  skip: null
+- id: test_deepin-image-viewer_088
+  file: 工具栏/test_deepin-image-viewer_088.yaml
+  name: 工具栏-竖图适应窗口
+  description: '前置条件:
+
+
+    测试步骤:
+
+    1. 打开较小分辨率【200*400】的图片
+
+    2. 点击工具栏【适应窗口】按钮
+
+
+    预期结果:
+
+    1.
+
+    2. 图片放大，直到上下两头紧挨软件上下边框为止
+
+    '
+  module: 工具栏
+  feature: ''
+  tags:
+  - L3
+  app: deepin-image-viewer
+  skip: null
+- id: test_deepin-image-viewer_089
+  file: 工具栏/test_deepin-image-viewer_089.yaml
+  name: 工具栏-键鼠切换-打开自然滚动后切换上一张
+  description: '前置条件:
+
+
+    测试步骤:
+
+    1. 在图片预览区域按住快捷键【Ctrl】，同时向后滚动鼠标滚轮
+
+
+    预期结果:
+
+    1. 看图切换至上一张图片，与开启自然滚动前切换方向相反
+
+    '
+  module: 工具栏
+  feature: ''
+  tags:
+  - L3
+  app: deepin-image-viewer
+  skip: null
+- id: test_deepin-image-viewer_090
+  file: 工具栏/test_deepin-image-viewer_090.yaml
+  name: 图片信息-工具栏切换图片展示
+  description: '前置条件:
+
+
+    测试步骤:
+
+    1. 使用快捷键【Ctrl+I】
+
+    2. 点击工具栏的【上一张/下一张】按钮
+
+
+    预期结果:
+
+    1. 弹出图片信息弹窗
+
+    2. 切换图片，图片信息跟随切换
+
+    '
+  module: 图片信息
+  feature: ''
+  tags:
+  - L2
+  app: deepin-image-viewer
+  skip: null
+- id: test_deepin-image-viewer_091
+  file: 工具栏/test_deepin-image-viewer_091.yaml
+  name: 工具栏-键鼠切换-连续切换高分辨率图片
+  description: '前置条件:
+
+
+    测试步骤:
+
+    1. 在图片预览区域按住快捷键【Ctrl】，同时不停的来回快速滚动鼠标滚轮
+
+
+    预期结果:
+
+    1. 看图始终响应正常，始终可以正常切换图片
+
+    '
+  module: 工具栏
+  feature: ''
+  tags:
+  - L3
+  app: deepin-image-viewer
+  skip: null
+- id: test_deepin-image-viewer_092
+  file: 工具栏/test_deepin-image-viewer_092.yaml
+  name: 键鼠切换-光标在工具栏非缩略图区域时检查图片切换功能
+  description: '前置条件:
+
+
+    测试步骤:
+
+    1. 移动光标至工具栏非缩略图区域任意位置
+
+    2. 按住快捷键【Ctrl】，同时滚动鼠标滚轮
+
+
+    预期结果:
+
+    1. 鼠标移动至工具栏任意非缩略图区域
+
+    2. 看图无响应，不会切换图片或缩放图片
+
+    '
+  module: 工具栏
+  feature: ''
+  tags:
+  - L3
+  app: deepin-image-viewer
+  skip: null
+- id: test_deepin-image-viewer_093
+  file: 打开/test_deepin-image-viewer_093.yaml
+  name: '[062][smoke][acp1]加载图片-拖拽图片到桌面看图图标处打开'
+  description: '前置条件:
+
+
+    测试步骤:
+
+    1. 拖拽目录中的任意图片至桌面看图应用图标上
+
+
+    预期结果:
+
+    1. 正常使用看图打开图片
+
+    '
+  module: 打开
+  feature: ''
+  tags:
+  - L2
+  app: deepin-image-viewer
+  skip: null
+- id: test_deepin-image-viewer_094
+  file: 打开/test_deepin-image-viewer_094.yaml
+  name: '[015\063\109重复][smoke][acp1]加载图片-拖拽图片到dock栏看图打开'
+  description: '前置条件:
+
+
+    测试步骤:
+
+    1. 拖拽目录中的任意图片至dock栏看图应用图标上
+
+
+    预期结果:
+
+    1. 正常使用看图打开图片
+
+    '
+  module: 打开
+  feature: ''
+  tags:
+  - L2
+  app: deepin-image-viewer
+  skip: null
+- id: test_deepin-image-viewer_095
+  file: 打开/test_deepin-image-viewer_095.yaml
+  name: '[014][smoke][acp1]加载图片-桌面双击打开图片'
+  description: '前置条件:
+
+
+    测试步骤:
+
+    1. 在桌面上，双击任意看图支持格式图片
+
+
+    预期结果:
+
+    1. 正常使用看图打开图片
+
+    '
+  module: 打开
+  feature: ''
+  tags:
+  - L1
+  app: deepin-image-viewer
+  skip: null
+- id: test_deepin-image-viewer_096
+  file: 打开/test_deepin-image-viewer_096.yaml
+  name: '[067][core][acp1]加载图片-连续拖动图片到看图窗口'
+  description: '前置条件:
+
+
+    测试步骤:
+
+    1. 启动看图
+
+    2. 快速选中目录中的任意数量的图片拖动到看图窗口中
+
+    3. 快速且多次重复步骤2（至少15到20次）
+
+
+    预期结果:
+
+    1.
+
+    2. 看图正常加载图片
+
+    3. 看图始终可以正常加载图片
+
+    '
+  module: 打开
+  feature: ''
+  tags:
+  - L2
+  app: deepin-image-viewer
+  skip: null
+- id: test_deepin-image-viewer_097
+  file: 打开/test_deepin-image-viewer_097.yaml
+  name: 文管打开-窗口下右键菜单在文管中显示
+  description: '前置条件:
+
+
+    测试步骤:
+
+    1. 在任意图片查看区域点击【鼠标右键】
+
+    2. 点击【在文件管理器中显示】选项
+
+
+    预期结果:
+
+    1. 唤起右键菜单
+
+    2. 调起文件管理器，并定位选中当前看图查看图片
+
+    '
+  module: 文件管理器打开
+  feature: ''
+  tags:
+  - L2
+  app: deepin-image-viewer
+  skip: null
+- id: test_deepin-image-viewer_098
+  file: 打开/test_deepin-image-viewer_098.yaml
+  name: 键鼠交互-快捷键Ctrl+O打开图片窗口
+  description: '前置条件:
+
+
+    测试步骤:
+
+    1. 使用快捷键【Ctrl+O】
+
+
+    预期结果:
+
+    1. 打开文管选择图片窗口
+
+    '
+  module: 键鼠交互
+  feature: ''
+  tags:
+  - L3
+  app: deepin-image-viewer
+  skip: null
+- id: test_deepin-image-viewer_099
+  file: 打开/test_deepin-image-viewer_099.yaml
+  name: 图片信息-右键菜单打开图片信息
+  description: '前置条件:
+
+
+    测试步骤:
+
+    1. 在图片查看区域点击【鼠标右键】
+
+    2. 点击选择右键菜单中的【图片信息】选项
+
+    3. 点击图片信息上【X】按钮
+
+
+    预期结果:
+
+    1.
+
+    2. 弹出图片信息弹窗
+
+    3. 图片信息弹窗关闭
+
+    '
+  module: 图片信息
+  feature: ''
+  tags:
+  - L1
+  app: deepin-image-viewer
+  skip: null
+- id: test_deepin-image-viewer_100
+  file: 打开/test_deepin-image-viewer_100.yaml
+  name: '[155][smoke][acp1]加载图片-文管中双击图片'
+  description: '前置条件:
+
+
+    测试步骤:
+
+    1. 在文件管理器中，双击任意看图支持格式图片
+
+
+    预期结果:
+
+    1. 正常使用看图打开图片
+
+    '
+  module: 打开
+  feature: ''
+  tags:
+  - L1
+  app: deepin-image-viewer
+  skip: null
+- id: test_deepin-image-viewer_101
+  file: 旋转/test_deepin-image-viewer_101.yaml
+  name: 图片格式-支持旋转格式图片检查
+  description: '前置条件:
+
+
+    测试步骤:
+
+    1. 打开此目录中第一张图片
+
+    2. 点击工具栏旋转按钮或右键菜单旋转或快捷键旋转，旋转后切换至下一张，重复此步骤
+
+
+    预期结果:
+
+    1.
+
+    2. 每一张图片都可以旋转，且保存旋转状态
+
+    '
+  module: 图片格式
+  feature: ''
+  tags:
+  - L2
+  app: deepin-image-viewer
+  skip: null
+- id: test_deepin-image-viewer_102
+  file: 旋转/test_deepin-image-viewer_102.yaml
+  name: 看图动效-图片旋转
+  description: '前置条件:
+
+
+    测试步骤:
+
+    1. 看图中，点击逆时针旋转
+
+    2. 看图中，点击顺时针旋转
+
+
+    预期结果:
+
+    1. 图片逆时针旋转90度，持续时间366ms，速度加速-平缓
+
+    2. 图片顺时针旋转90度，持续时间366ms，速度加速-平缓
+
+    '
+  module: 看图动效
+  feature: 【变更】【新增】看图动效(#36401)
+  tags:
+  - L3
+  app: deepin-image-viewer
+  skip: null
+- id: test_deepin-image-viewer_103
+  file: 旋转/test_deepin-image-viewer_103.yaml
+  name: 用户场景-视图切换、放大、旋转、翻转
+  description: '前置条件:
+
+
+    测试步骤:
+
+    1. 点击左右切换按钮，切换图片
+
+    2. 滚动鼠标滚轮，放大和缩小图片
+
+    3. 点击旋转按钮，对图片进行旋转
+
+    4. 点击翻转按钮，对图片进行翻转
+
+    5. 点击1：1视图按钮
+
+    6. 点击适应窗口按钮
+
+
+    预期结果:
+
+    1. 图片可以正常左右切换
+
+    2. 图片被正常放大和缩小
+
+    3. 图片被正常旋转
+
+    4. 图片被正常翻转
+
+    5. 图片进行1：1视图展示
+
+    6. 图片进行自适应窗口展示
+
+    '
+  module: 用户场景
+  feature: ''
+  tags:
+  - L3
+  app: deepin-image-viewer
+  skip: null
+- id: test_deepin-image-viewer_104
+  file: 玲珑/test_deepin-image-viewer_104.yaml
+  name: 玲珑-安装玲珑应用
+  description: '前置条件:
+
+
+    测试步骤:
+
+    1. 在终端执行命令：ll-cli install deepin-image-viewer
+
+
+    预期结果:
+
+    1. 等待一段时间后，【看图】安装完成(如果有多个版本，默认安装最高版本)，可以使用命令查看信息：ll-cli info org.deepin.calculator
+
+    '
+  module: 看图
+  feature: SR-01196：【玲珑】【看图】构建玲珑包(#35845)
+  tags:
+  - L2
+  app: deepin-image-viewer
+  skip: null
+- id: test_deepin-image-viewer_105
+  file: 玲珑/test_deepin-image-viewer_105.yaml
+  name: 玲珑-卸载玲珑应用
+  description: '前置条件:
+
+    1. 已经安装玲珑应用
+
+
+    测试步骤:
+
+    1. 在终端执行命令：ll-cli uninstall org.deepin.image.viewer
+
+    2. 在终端执行命令：ll-cli info org.deepin.image.viewer
+
+
+    预期结果:
+
+    1. 【看图】玲珑应用卸载成功
+
+    2. 没有玲珑应用【看图】的应用信息
+
+    '
+  module: 看图
+  feature: SR-01196：【玲珑】【看图】构建玲珑包(#35845)
+  tags:
+  - L2
+  app: deepin-image-viewer
+  skip: null
+- id: test_deepin-image-viewer_106
+  file: 玲珑/test_deepin-image-viewer_106.yaml
+  name: 玲珑-查看玲珑应用信息
+  description: '前置条件:
+
+
+    测试步骤:
+
+    1. 在终端执行命令：ll-cli info deepin-image-viewer
+
+
+    预期结果:
+
+    1. 展示玲珑应用(看图)的应用信息；
+
+    PS: 没有安装则不展示应用信息
+
+    '
+  module: 看图
+  feature: SR-01196：【玲珑】【看图】构建玲珑包(#35845)
+  tags:
+  - L2
+  app: deepin-image-viewer
+  skip: null
+- id: test_deepin-image-viewer_107
+  file: 玲珑/test_deepin-image-viewer_107.yaml
+  name: 玲珑-玲珑应用基本功能测试
+  description: '前置条件:
+
+    1. 已经运行玲珑应用
+
+
+    测试步骤:
+
+    1. 【看图】应用，打开运行
+
+    2. 打开图片，点击上一张/下一章
+
+    3. 重命名操作
+
+    4. 复制图片，旋转图片、设置为壁纸
+
+    5. 操作基本功能项
+
+
+    预期结果:
+
+    1. 功能正常
+
+    2. 功能正常
+
+    3. 功能正常
+
+    4. 功能正常
+
+    5. 功能正常
+
+    '
+  module: 看图
+  feature: SR-01196：【玲珑】【看图】构建玲珑包(#35845)
+  tags:
+  - L2
+  app: deepin-image-viewer
+  skip: null
+- id: test_deepin-image-viewer_108
+  file: 玲珑/test_deepin-image-viewer_108.yaml
+  name: 玲珑-更新玲珑应用
+  description: '前置条件:
+
+    1. 已经安装过旧版本的玲珑应用
+
+
+    测试步骤:
+
+    1. 在终端执行命令：ll-cli upgrade deepin-image-viewer
+
+    2. 在终端执行命令：ll-cli run deepin-image-viewer
+
+
+    预期结果:
+
+    1. 【看图】升级成功，默认升级到最新版本，可以使用命令查看信息：ll-cli info deepin-image-viewer
+
+    2. 【看图】打开运行成功，版本为升级后的版本
+
+    '
+  module: 看图
+  feature: SR-01196：【玲珑】【看图】构建玲珑包(#35845)
+  tags:
+  - L2
+  app: deepin-image-viewer
+  skip: null
+- id: test_deepin-image-viewer_109
+  file: 玲珑/test_deepin-image-viewer_109.yaml
+  name: 玲珑-运行玲珑应用
+  description: '前置条件:
+
+
+    测试步骤:
+
+    1. 在终端执行命令：ll-cli run deepin-image-viewer
+
+
+    预期结果:
+
+    1. 打开运行【看图】应用
+
+    '
+  module: 看图
+  feature: SR-01196：【玲珑】【看图】构建玲珑包(#35845)
+  tags:
+  - L2
+  app: deepin-image-viewer
+  skip: null
+- id: test_deepin-image-viewer_110
+  file: 重命名/test_deepin-image-viewer_110.yaml
+  name: 重命名-修改图片名称较长时检查省略号展示
+  description: '前置条件:
+
+
+    测试步骤:
+
+    1. 使用快捷键【F2】
+
+    2. 点击名称编辑框右侧的【X】清除按钮
+
+    3. 输入图片名称为【任意名称】至少包含40个字符长度
+
+    4. 点击【确定】按钮
+
+    5. 再次使用快捷键【F2】
+
+
+    预期结果:
+
+    1. 唤起重命名窗口
+
+    2. 清空当前名称编辑框
+
+    3. 输入名称成功
+
+    4. 文件名修改成功
+
+    5. 名称展示形式为：XXX···XXXXX
+
+    '
+  module: 重命名
+  feature: ''
+  tags:
+  - L3
+  app: deepin-image-viewer
+  skip: null
+- id: test_deepin-image-viewer_111
+  file: 重命名/test_deepin-image-viewer_111.yaml
+  name: 重命名-修改名称与非同格式图片重名检查
+  description: '前置条件:
+
+
+    测试步骤:
+
+    1. 使用快捷键【F2】
+
+    2. 点击名称编辑框右侧的【X】清除按钮
+
+    3. 输入图片名称为【其他不同格式图片的文件名称】，比如：bbb，检查重命名窗口展示
+
+    4. 点击【确认】按钮
+
+
+    预期结果:
+
+    1. 唤起重命名窗口
+
+    2. 清空当前名称编辑框
+
+    3. 确定按钮高亮
+
+    4. 名称保存成功，看图顶部窗口展示名称为修改后的名称
+
+    '
+  module: 重命名
+  feature: ''
+  tags:
+  - L3
+  app: deepin-image-viewer
+  skip: null
+- id: test_deepin-image-viewer_112
+  file: 重命名/test_deepin-image-viewer_112.yaml
+  name: 重命名-修改U盘中图片的名称
+  description: '前置条件:
+
+
+    测试步骤:
+
+    1. 使用快捷键【F2】
+
+    2. 点击名称编辑框右侧的【X】清除按钮
+
+    3. 输入图片名称为【任意名称】（比如：aaa）
+
+    4. 点击重命名窗口的【确认】按钮
+
+
+    预期结果:
+
+    1. 唤起重命名窗口
+
+    2. 清空当前名称编辑框
+
+    3. 名称为新输入的名称，比如：aaa
+
+    4. 名称保存成功，看图顶部展示更改后的名称
+
+    '
+  module: 重命名
+  feature: ''
+  tags:
+  - L3
+  app: deepin-image-viewer
+  skip: null
+- id: test_deepin-image-viewer_113
+  file: 重命名/test_deepin-image-viewer_113.yaml
+  name: 重命名-文件名字符长度检查
+  description: '前置条件:
+
+
+    测试步骤:
+
+    1. 输入任意名称，且输入229个字符
+
+    2. 点击【确定】按钮
+
+
+    预期结果:
+
+    1. 第229个字符无法输入，最大长度为228个字符
+
+    2. 文件名修改成功
+
+    '
+  module: 重命名
+  feature: ''
+  tags:
+  - L4
+  app: deepin-image-viewer
+  skip: null
+- id: test_deepin-image-viewer_114
+  file: 重命名/test_deepin-image-viewer_114.yaml
+  name: 重命名-文件名字符类型检查
+  description: '前置条件:
+
+
+    测试步骤:
+
+    1. 输入任意名称，包含所有的大小写字母、数字、符号、特殊符号、空格等
+
+    2. 点击【确定】按钮
+
+
+    预期结果:
+
+    1. 文件名可以输入大小写字母、数字、符号、特殊符号、空格等内容
+
+    2. 文件名修改成功
+
+    '
+  module: 重命名
+  feature: ''
+  tags:
+  - L3
+  app: deepin-image-viewer
+  skip: null
+- id: test_deepin-image-viewer_115
+  file: 重命名/test_deepin-image-viewer_115.yaml
+  name: 重命名-修改smb中图片的名称
+  description: '前置条件:
+
+
+    测试步骤:
+
+    1. 使用快捷键【F2】
+
+    2. 点击名称编辑框右侧的【X】清除按钮
+
+    3. 输入图片名称为【任意名称】（比如：aaa）
+
+    4. 点击重命名窗口的【确认】按钮
+
+
+    预期结果:
+
+    1. 唤起重命名窗口
+
+    2. 清空当前名称编辑框
+
+    3. 名称为新输入的名称，比如：aaa
+
+    4. 名称保存成功，看图顶部展示更改后的名称
+
+    '
+  module: 重命名
+  feature: ''
+  tags:
+  - L4
+  app: deepin-image-viewer
+  skip: null
+- id: test_deepin-image-viewer_116
+  file: 重命名/test_deepin-image-viewer_116.yaml
+  name: 重命名-读写图片重命名
+  description: '前置条件:
+
+
+    测试步骤:
+
+    1. 使用看图打开一张可读写的图片
+
+    2. 在图片查看任意区域点击【鼠标右键】
+
+    3. 点击【重命名】选项
+
+    4. 输入任意名称
+
+    5. 点击【确定】按钮
+
+
+    预期结果:
+
+    1.
+
+    2. 唤起右键菜单
+
+    3. 弹出重命名窗口
+
+    4. 修改为任意名称
+
+    5. 图片名称修改成功
+
+    '
+  module: 重命名
+  feature: ''
+  tags:
+  - L2
+  app: deepin-image-viewer
+  skip: null
+- id: test_deepin-image-viewer_117
+  file: 重命名/test_deepin-image-viewer_117.yaml
+  name: 键鼠交互-快捷键F2重命名图片
+  description: '前置条件:
+
+
+    测试步骤:
+
+    1. 使用快捷键【F2】
+
+    2. 输入任意名称并保存
+
+
+    预期结果:
+
+    1. 唤起重命名窗口
+
+    2. 修改图片名称成功
+
+    '
+  module: 键鼠交互
+  feature: ''
+  tags:
+  - L3
+  app: deepin-image-viewer
+  skip: null
+- id: test_deepin-image-viewer_118
+  file: 重命名/test_deepin-image-viewer_118.yaml
+  name: 重命名-只读图片重命名
+  description: '前置条件:
+
+
+    测试步骤:
+
+    1. 使用看图打开一张只读图片（图片上有个锁的标志）
+
+    2. 使用快捷键【F2】
+
+    3. 在图片查看任意区域点击【鼠标右键】
+
+
+    预期结果:
+
+    1.
+
+    2. 无响应
+
+    3. 右键菜单中无“重命名”选项
+
+    '
+  module: 重命名
+  feature: ''
+  tags:
+  - L3
+  app: deepin-image-viewer
+  skip: null
+- id: test_deepin-image-viewer_119
+  file: 键鼠交互/test_deepin-image-viewer_119.yaml
+  name: 键鼠交互-快捷键Down缩小图片
+  description: '前置条件:
+
+
+    测试步骤:
+
+    1. 使用快捷键【down】
+
+
+    预期结果:
+
+    1. 缩小图片，最小可缩小至2%
+
+    '
+  module: 键鼠交互
+  feature: ''
+  tags:
+  - L3
+  app: deepin-image-viewer
+  skip: null
+- id: test_deepin-image-viewer_120
+  file: 键鼠交互/test_deepin-image-viewer_120.yaml
+  name: '[339]键鼠切换-未发现图片文件页面检查图片切换功能'
+  description: '前置条件:
+
+
+    测试步骤:
+
+    1. 在文管中删除当前看图查看的图片
+
+    2. 返回看图应用
+
+    3. 按住快捷键【Ctrl】，同时滚动鼠标滚轮
+
+
+    预期结果:
+
+    1. 图片删除成功
+
+    2. 看图页面展示“未发现图片文件”的提示语
+
+    3. 看图跟随鼠标滚动切换图片
+
+    '
+  module: 工具栏
+  feature: ''
+  tags:
+  - L3
+  app: deepin-image-viewer
+  skip: null
+- id: test_deepin-image-viewer_121
+  file: 键鼠交互/test_deepin-image-viewer_121.yaml
+  name: 键鼠交互-快捷键Right切换下一张
+  description: '前置条件:
+
+
+    测试步骤:
+
+    1. 使用快捷键【right】
+
+
+    预期结果:
+
+    1. 切换至下一张图片
+
+    '
+  module: 键鼠交互
+  feature: ''
+  tags:
+  - L3
+  app: deepin-image-viewer
+  skip: null
+- id: test_deepin-image-viewer_122
+  file: 键鼠交互/test_deepin-image-viewer_122.yaml
+  name: 键鼠交互-快捷键Ctrl+I图片详细信息
+  description: '前置条件:
+
+
+    测试步骤:
+
+    1. 使用快捷键【Ctrl+I】
+
+
+    预期结果:
+
+    1. 唤起图片详细信息弹窗
+
+    '
+  module: 键鼠交互
+  feature: ''
+  tags:
+  - L3
+  app: deepin-image-viewer
+  skip: null
+- id: test_deepin-image-viewer_123
+  file: 键鼠交互/test_deepin-image-viewer_123.yaml
+  name: '[294][smoke]键鼠切换-光标在预览区域图片旁空白区域上时检查图片切换功能'
+  description: '前置条件:
+
+
+    测试步骤:
+
+    1. 移动光标至图片预览区域的图片旁的空白区域上
+
+    2. 按住快捷键【Ctrl】，同时滚动鼠标滚轮
+
+
+    预期结果:
+
+    1. 鼠标移动至图片旁的空白区域上
+
+    2. 看图响应切换图片，每滚动一格切换一张图片，当滚轮向前滚动时，看图切换至上一张，当滚轮向后滚动时，看图切换至下一张
+
+    '
+  module: 工具栏
+  feature: ''
+  tags:
+  - L2
+  app: deepin-image-viewer
+  skip: null
+- id: test_deepin-image-viewer_124
+  file: 键鼠交互/test_deepin-image-viewer_124.yaml
+  name: 键鼠交互-快捷键Ctrl+minus缩小图片
+  description: '前置条件:
+
+
+    测试步骤:
+
+    1. 使用快捷键【Ctrl+“-”】
+
+
+    预期结果:
+
+    1. 缩小图片
+
+    '
+  module: 键鼠交互
+  feature: ''
+  tags:
+  - L3
+  app: deepin-image-viewer
+  skip: null
+- id: test_deepin-image-viewer_125
+  file: 键鼠交互/test_deepin-image-viewer_125.yaml
+  name: 键鼠交互-快捷键Up放大图片
+  description: '前置条件:
+
+
+    测试步骤:
+
+    1. 使用快捷键【up】
+
+
+    预期结果:
+
+    1. 放大图片，最大可放大至2000%
+
+    '
+  module: 键鼠交互
+  feature: ''
+  tags:
+  - L3
+  app: deepin-image-viewer
+  skip: null
+- id: test_deepin-image-viewer_126
+  file: 键鼠交互/test_deepin-image-viewer_126.yaml
+  name: 键鼠交互-鼠标滚轮放大缩小图片
+  description: '前置条件:
+
+
+    测试步骤:
+
+    1. 使用【鼠标滚轮】
+
+
+    预期结果:
+
+    1. 来回放大缩小图片
+
+    '
+  module: 键鼠交互
+  feature: ''
+  tags:
+  - L3
+  app: deepin-image-viewer
+  skip: null
+- id: test_deepin-image-viewer_127
+  file: 键鼠交互/test_deepin-image-viewer_127.yaml
+  name: 键鼠交互-快捷键Left切换上一张
+  description: '前置条件:
+
+
+    测试步骤:
+
+    1. 使用快捷键【left】
+
+
+    预期结果:
+
+    1. 切换至上一张图片
+
+    '
+  module: 键鼠交互
+  feature: ''
+  tags:
+  - L3
+  app: deepin-image-viewer
+  skip: null
+- id: test_deepin-image-viewer_128
+  file: 键鼠交互/test_deepin-image-viewer_128.yaml
+  name: 键鼠交互-快捷键Alt+D文件管理器定位
+  description: '前置条件:
+
+
+    测试步骤:
+
+    1. 使用快捷键【Alt+D】
+
+
+    预期结果:
+
+    1. 调起文件管理器，并定位当前打开的图片
+
+    '
+  module: 键鼠交互
+  feature: ''
+  tags:
+  - L3
+  app: deepin-image-viewer
+  skip: null
+- id: test_deepin-image-viewer_129
+  file: 键鼠交互/test_deepin-image-viewer_129.yaml
+  name: 键鼠切换-光标在标题栏时检查图片切换功能
+  description: '前置条件:
+
+
+    测试步骤:
+
+    1. 移动光标至标题栏任意位置
+
+    2. 按住快捷键【Ctrl】，同时滚动鼠标滚轮
+
+
+    预期结果:
+
+    1. 鼠标移动至标题栏
+
+    2. 看图无响应，不会切换图片或缩放图片
+
+    '
+  module: 工具栏
+  feature: ''
+  tags:
+  - L3
+  app: deepin-image-viewer
+  skip: null
+- id: test_deepin-image-viewer_130
+  file: 键鼠交互/test_deepin-image-viewer_130.yaml
+  name: 键鼠切换-控制中心修改鼠标滚轮滚动速度后检查看图滚动切换图片的速度
+  description: '前置条件:
+
+
+    测试步骤:
+
+    1. 在图片预览区域按住快捷键【Ctrl】，同时滚动一格鼠标滚轮
+
+
+    预期结果:
+
+    1. 与滚轮速度没有关系，滚一次切一张
+
+    '
+  module: 工具栏
+  feature: ''
+  tags:
+  - L3
+  app: deepin-image-viewer
+  skip: null
+- id: test_deepin-image-viewer_131
+  file: 键鼠交互/test_deepin-image-viewer_131.yaml
+  name: 键鼠交互-快捷键Ctrl+Shift+slash快捷键预览
+  description: '前置条件:
+
+
+    测试步骤:
+
+    1. 打开看图
+
+    2. 使用快捷键【Ctrl+Shift+/】
+
+
+    预期结果:
+
+    1.
+
+    2. 显示快捷键预览
+
+    '
+  module: 键鼠交互
+  feature: ''
+  tags:
+  - L3
+  app: deepin-image-viewer
+  skip: null
+- id: test_deepin-image-viewer_132
+  file: 键鼠交互/test_deepin-image-viewer_132.yaml
+  name: 键鼠交互-快捷键Ctrl+F9设置壁纸
+  description: '前置条件:
+
+
+    测试步骤:
+
+    1. 使用快捷键【Ctrl+F9】
+
+
+    预期结果:
+
+    1. 设置当前图片为壁纸
+
+    '
+  module: 键鼠交互
+  feature: ''
+  tags:
+  - L3
+  app: deepin-image-viewer
+  skip: null
+- id: test_deepin-image-viewer_133
+  file: 键鼠交互/test_deepin-image-viewer_133.yaml
+  name: 键鼠交互-快捷键F1帮助窗口
+  description: '前置条件:
+
+
+    测试步骤:
+
+    1. 使用快捷键【F1】
+
+
+    预期结果:
+
+    1. 唤起帮助窗口
+
+    '
+  module: 键鼠交互
+  feature: ''
+  tags:
+  - L3
+  app: deepin-image-viewer
+  skip: null
+- id: test_deepin-image-viewer_134
+  file: 键鼠交互/test_deepin-image-viewer_134.yaml
+  name: 键鼠切换-切换过程中移动鼠标至标题栏区域
+  description: '前置条件:
+
+
+    测试步骤:
+
+    1. 在图片预览区域按住快捷键【Ctrl】，同时不停的来回快速滚动鼠标滚轮
+
+    2. 在滚动过程中，移动鼠标至标题栏区域
+
+    3. 再次将鼠标移动至图片预览区域
+
+
+    预期结果:
+
+    1. 看图正常切换图片
+
+    2. 当鼠标移动到标题栏上时，看图立马停止切换图片
+
+    3. 看图继续切换图片
+
+    '
+  module: 工具栏
+  feature: ''
+  tags:
+  - L3
+  app: deepin-image-viewer
+  skip: null
+- id: test_deepin-image-viewer_135
+  file: 键鼠交互/test_deepin-image-viewer_135.yaml
+  name: 键鼠交互-快捷键Ctrl+equal放大图片
+  description: '前置条件:
+
+
+    测试步骤:
+
+    1. 使用快捷键【Ctrl+“+”】
+
+
+    预期结果:
+
+    1. 放大图片
+
+    '
+  module: 键鼠交互
+  feature: ''
+  tags:
+  - L3
+  app: deepin-image-viewer
+  skip: null
+- id: test_deepin-image-viewer_136
+  file: 键鼠交互/test_deepin-image-viewer_136.yaml
+  name: '[295][smoke]键鼠切换-光标在预览区域图片上时检查图片切换功能'
+  description: '前置条件:
+
+
+    测试步骤:
+
+    1. 移动光标至图片预览区域的图片上
+
+    2. 按住快捷键【Ctrl】，同时滚动鼠标滚轮
+
+
+    预期结果:
+
+    1. 鼠标移动至图片上
+
+    2. 看图响应切换图片，每滚动一格切换一张图片，当滚轮向前滚动时，看图切换至上一张，当滚轮向后滚动时，看图切换至下一张
+
+    '
+  module: 工具栏
+  feature: ''
+  tags:
+  - L2
+  app: deepin-image-viewer
+  skip: null
+- id: test_deepin-image-viewer_137
+  file: 键鼠交互/test_deepin-image-viewer_137.yaml
+  name: 键鼠交互-鼠标侧键切换图片
+  description: '前置条件:
+
+
+    测试步骤:
+
+    1. 点击鼠标侧键
+
+
+    预期结果:
+
+    1. 能够对应切换上一张、下一张
+
+    '
+  module: 键鼠交互
+  feature: ''
+  tags:
+  - L4
+  app: deepin-image-viewer
+  skip: null
+- id: test_deepin-image-viewer_138
+  file: 键鼠交互/test_deepin-image-viewer_138.yaml
+  name: '[260][core]键鼠切换-撕裂图页面检查图片切换功能'
+  description: '前置条件:
+
+
+    测试步骤:
+
+    1. 移动光标至图片预览区域的图片上
+
+    2. 按住快捷键【Ctrl】，同时滚动鼠标滚轮
+
+
+    预期结果:
+
+    1. 鼠标移动至图片上
+
+    2. 看图跟随鼠标滚动切换图片
+
+    '
+  module: 工具栏
+  feature: ''
+  tags:
+  - L3
+  app: deepin-image-viewer
+  skip: null
+- id: test_deepin-image-viewer_139
+  file: 键鼠交互/test_deepin-image-viewer_139.yaml
+  name: '[259][core]键鼠切换-首张图时切换上一张'
+  description: '前置条件:
+
+
+    测试步骤:
+
+    1. 点击工具栏的【上一张】，直至切换至首张图片
+
+    2. 移动鼠标至图片预览区域上
+
+    3. 按住快捷键【Ctrl】，同时滚动鼠标滚轮
+
+
+    预期结果:
+
+    1. 切换至首张图片，工具栏的上一张按钮置灰
+
+    2. 鼠标在图片预览区域上
+
+    3. 看图不会向上切换图片，只可向下切换图片，不会循环切换图片
+
+    '
+  module: 工具栏
+  feature: ''
+  tags:
+  - L3
+  app: deepin-image-viewer
+  skip: null
+- id: test_deepin-image-viewer_140
+  file: 键鼠交互/test_deepin-image-viewer_140.yaml
+  name: 键鼠交互-快捷键Ctrl+C复制图片
+  description: '前置条件:
+
+
+    测试步骤:
+
+    1. 使用快捷键【Ctrl+C】
+
+
+    预期结果:
+
+    1. 复制当前查看图片
+
+    '
+  module: 键鼠交互
+  feature: ''
+  tags:
+  - L3
+  app: deepin-image-viewer
+  skip: null
+- id: test_deepin-image-viewer_141
+  file: 键鼠交互/test_deepin-image-viewer_141.yaml
+  name: 键鼠交互-快捷键F5播放幻灯片
+  description: '前置条件:
+
+
+    测试步骤:
+
+    1. 使用快捷键【F5】
+
+
+    预期结果:
+
+    1. 播放幻灯片
+
+    '
+  module: 键鼠交互
+  feature: ''
+  tags:
+  - L3
+  app: deepin-image-viewer
+  skip: null

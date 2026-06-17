@@ -1,0 +1,32 @@
+# UNSUPPORTED: 需要终端命令执行(ll-cli uninstall)，无法通过 AT-SPI 自动化
+name: "玲珑-卸载玲珑应用"
+app: deepin-image-viewer
+screenshot: true
+description: |
+  前置条件:
+  1. 已经安装玲珑应用
+
+  测试步骤:
+  1. 在终端执行命令：ll-cli uninstall org.deepin.image.viewer
+  2. 在终端执行命令：ll-cli info org.deepin.image.viewer
+
+  预期结果:
+  1. 【看图】玲珑应用卸载成功
+  2. 没有玲珑应用【看图】的应用信息
+module: 看图
+feature: 'SR-01196：【玲珑】【看图】构建玲珑包(#35845)'
+tags:
+  - L2
+
+vars:
+  XLSX_ID: "1705109"
+setup:
+  - action: session_start
+    command: "deepin-image-viewer ${TEST_FILES_DIR}/1.png"
+    wait: 1.0
+steps:
+  - name: "verify app starts"
+    action: wait
+    wait: 1.0
+teardown:
+  - action: session_stop

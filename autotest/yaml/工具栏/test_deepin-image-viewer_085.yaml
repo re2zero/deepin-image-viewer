@@ -1,0 +1,58 @@
+name: "工具栏-键鼠切换-工具栏隐藏时光标在工具栏区域检查图片切换功能"
+app: deepin-image-viewer
+screenshot: true
+description: |
+  前置条件:
+
+  测试步骤:
+  1. 滚动鼠标滚轮，放大当前查看的图片超过当前看图窗口
+  2. 移动鼠标至工具栏隐藏前的区域
+  3. 按住快捷键【Ctrl】，同时滚动鼠标滚轮
+
+  预期结果:
+  1. 标题栏和工具栏隐藏，看图整个窗口只展示图片
+  2. 唤起标题栏和工具栏
+  3. 看图无响应，不会切换图片或缩放图片
+module: 工具栏
+feature: ''
+tags:
+  - L3
+
+vars:
+  XLSX_ID: "1651977"
+setup:
+  - action: session_start
+    command: "deepin-image-viewer ${TEST_FILES_DIR}/1.png ${TEST_FILES_DIR}/2.png ${TEST_FILES_DIR}/3.png"
+    wait: 1.0
+steps:
+  - name: "滚动鼠标滚轮放大图片超过窗口"
+    action: mouse_scroll
+    direction: "up"
+    delta: 10
+    repeat: 5
+    wait_after: 500
+  - name: "移动鼠标至工具栏隐藏前的区域"
+    action: mouse_click
+    x: 500
+    y: 700
+    wait_after: 1000
+  - name: "noop-检查唤起标题栏和工具栏"
+    action: noop
+  - name: "按住Ctrl键"
+    action: keyboard_press
+    keys: "Ctrl_L"
+    hold: true
+  - name: "滚动鼠标滚轮"
+    action: mouse_scroll
+    direction: "up"
+    delta: 3
+    wait_after: 1000
+  - name: "松开Ctrl键"
+    action: keyboard_press
+    keys: "Ctrl_L"
+    release: true
+    wait_after: 500
+  - name: "noop-检查看图无响应，不会切换图片或缩放图片"
+    action: noop
+teardown:
+  - action: session_stop

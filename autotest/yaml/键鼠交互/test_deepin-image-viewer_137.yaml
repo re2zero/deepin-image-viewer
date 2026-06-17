@@ -1,0 +1,33 @@
+name: "键鼠交互-鼠标侧键切换图片"
+app: deepin-image-viewer
+screenshot: true
+description: |
+  前置条件:
+
+  测试步骤:
+  1. 点击鼠标侧键
+
+  预期结果:
+  1. 能够对应切换上一张、下一张
+module: 键鼠交互
+feature: ''
+tags:
+  - L4
+
+vars:
+  XLSX_ID: "1652665"
+setup:
+  - action: session_start
+    command: "deepin-image-viewer ${TEST_FILES_DIR}/1.png ${TEST_FILES_DIR}/2.png ${TEST_FILES_DIR}/3.png"
+    wait: 1.0
+steps:
+  - name: "点击鼠标左侧键切换上一张"
+    action: keyboard_press
+    keys: "Button4"
+    wait_after: 1000
+  - name: "点击鼠标右侧键切换下一张"
+    action: keyboard_press
+    keys: "Button5"
+    wait_after: 1000
+teardown:
+  - action: session_stop

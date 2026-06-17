@@ -1,0 +1,36 @@
+name: "重命名-修改U盘中图片的名称"
+app: deepin-image-viewer
+screenshot: true
+description: |
+  前置条件:
+
+  测试步骤:
+  1. 使用快捷键【F2】
+  2. 点击名称编辑框右侧的【X】清除按钮
+  3. 输入图片名称为【任意名称】（比如：aaa）
+  4. 点击重命名窗口的【确认】按钮
+
+  预期结果:
+  1. 唤起重命名窗口
+  2. 清空当前名称编辑框
+  3. 名称为新输入的名称，比如：aaa
+  4. 名称保存成功，看图顶部展示更改后的名称
+module: 重命名
+feature: ''
+tags:
+  - L3
+
+vars:
+  XLSX_ID: "1652297"
+UNSUPPORTED: true
+unsupported_reason: "U盘图片重命名需要外部U盘设备，无法在自动化环境中完成"
+setup:
+  - action: session_start
+    command: "deepin-image-viewer ${TEST_FILES_DIR}/1.png"
+    wait: 1.0
+steps:
+  - name: "UNSUPPORTED - 需要U盘设备"
+    action: noop
+    wait_after: 1000
+teardown:
+  - action: session_stop

@@ -1,0 +1,81 @@
+# UNSUPPORTED: 需要先通过ll-cli运行玲珑应用，无法通过 AT-SPI 自动化
+name: "玲珑-玲珑应用基本功能测试"
+app: deepin-image-viewer
+screenshot: true
+description: |
+  前置条件:
+  1. 已经运行玲珑应用
+
+  测试步骤:
+  1. 【看图】应用，打开运行
+  2. 打开图片，点击上一张/下一章
+  3. 重命名操作
+  4. 复制图片，旋转图片、设置为壁纸
+  5. 操作基本功能项
+
+  预期结果:
+  1. 功能正常
+  2. 功能正常
+  3. 功能正常
+  4. 功能正常
+  5. 功能正常
+module: 看图
+feature: 'SR-01196：【玲珑】【看图】构建玲珑包(#35845)'
+tags:
+  - L2
+
+vars:
+  XLSX_ID: "1705095"
+setup:
+  - action: session_start
+    command: "deepin-image-viewer ${TEST_FILES_DIR}/1.png ${TEST_FILES_DIR}/2.png ${TEST_FILES_DIR}/3.png"
+    wait: 1.0
+steps:
+  - name: "验证应用启动"
+    action: wait
+    wait: 1.0
+  - name: "切换至下一张图片"
+    action: keyboard_press
+    keys: "Right"
+    wait_after: 800
+    assert:
+      - type: screenshot_changed
+        negate: false
+  - name: "切换至上一张图片"
+    action: keyboard_press
+    keys: "Left"
+    wait_after: 800
+    assert:
+      - type: screenshot_changed
+        negate: false
+  - name: "重命名操作"
+    action: keyboard_press
+    keys: "F2"
+    wait_after: 500
+  - name: "输入新名称并确认"
+    action: keyboard_type
+    value: "test_rename"
+    wait_after: 500
+  - name: "确认重命名"
+    action: keyboard_press
+    keys: "Return"
+    wait_after: 1000
+  - name: "复制图片"
+    action: keyboard_press
+    keys: "Ctrl+C"
+    wait_after: 500
+  - name: "旋转图片"
+    action: keyboard_press
+    keys: "Ctrl+R"
+    wait_after: 800
+    assert:
+      - type: screenshot_changed
+        negate: false
+  - name: "右键菜单设置壁纸"
+    action: context_menu_comb
+    x: 960
+    y: 540
+    items: ["设为壁纸"]
+    wait_after: 2000
+teardown:
+  - action: session_stop

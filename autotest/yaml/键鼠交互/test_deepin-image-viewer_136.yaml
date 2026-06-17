@@ -1,0 +1,51 @@
+name: "[295][smoke]键鼠切换-光标在预览区域图片上时检查图片切换功能"
+app: deepin-image-viewer
+screenshot: true
+description: |
+  前置条件:
+
+  测试步骤:
+  1. 移动光标至图片预览区域的图片上
+  2. 按住快捷键【Ctrl】，同时滚动鼠标滚轮
+
+  预期结果:
+  1. 鼠标移动至图片上
+  2. 看图响应切换图片，每滚动一格切换一张图片，当滚轮向前滚动时，看图切换至上一张，当滚轮向后滚动时，看图切换至下一张
+module: 工具栏
+feature: ''
+tags:
+  - L2
+
+vars:
+  XLSX_ID: "1652095"
+setup:
+  - action: session_start
+    command: "deepin-image-viewer ${TEST_FILES_DIR}/1.png ${TEST_FILES_DIR}/2.png ${TEST_FILES_DIR}/3.png"
+    wait: 1.0
+steps:
+  - name: "将鼠标移动至图片预览区域"
+    action: mouse_click
+    selector:
+      role: "image"
+      name: "Image View"
+  - name: "按住Ctrl键"
+    action: keyboard_press
+    keys: "Control_L"
+  - name: "向后滚动鼠标滚轮一格"
+    action: mouse_scroll
+    direction: "down"
+    delta: 1
+    wait_after: 1000
+  - name: "验证切换到下一张图片"
+    action: wait
+    wait: 1.0
+  - name: "向前滚动鼠标滚轮一格"
+    action: mouse_scroll
+    direction: "up"
+    delta: 1
+    wait_after: 1000
+  - name: "验证切换到上一张图片"
+    action: wait
+    wait: 1.0
+teardown:
+  - action: session_stop

@@ -1,0 +1,32 @@
+name: "文管打开-窗口下右键菜单在文管中显示"
+app: deepin-image-viewer
+screenshot: true
+description: |
+  前置条件:
+
+  测试步骤:
+  1. 在任意图片查看区域点击【鼠标右键】
+  2. 点击【在文件管理器中显示】选项
+
+  预期结果:
+  1. 唤起右键菜单
+  2. 调起文件管理器，并定位选中当前看图查看图片
+module: 文件管理器打开
+feature: ''
+tags:
+  - L2
+
+vars:
+  XLSX_ID: "1652237"
+UNSUPPORTED: true
+unsupported_reason: "文件管理器打开属于外部应用交互，无法在看图自动化环境中验证文管窗口"
+setup:
+  - action: session_start
+    command: "deepin-image-viewer ${TEST_FILES_DIR}/1.png"
+    wait: 1.0
+steps:
+  - name: "UNSUPPORTED - 外部应用（文件管理器）交互"
+    action: noop
+    wait_after: 1000
+teardown:
+  - action: session_stop

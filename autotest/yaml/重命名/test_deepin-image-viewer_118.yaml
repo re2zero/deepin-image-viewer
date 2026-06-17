@@ -1,0 +1,34 @@
+name: "重命名-只读图片重命名"
+app: deepin-image-viewer
+screenshot: true
+description: |
+  前置条件:
+
+  测试步骤:
+  1. 使用看图打开一张只读图片（图片上有个锁的标志）
+  2. 使用快捷键【F2】
+  3. 在图片查看任意区域点击【鼠标右键】
+
+  预期结果:
+  1.
+  2. 无响应
+  3. 右键菜单中无“重命名”选项
+module: 重命名
+feature: ''
+tags:
+  - L3
+
+vars:
+  XLSX_ID: "1652283"
+UNSUPPORTED: true
+unsupported_reason: "只读图片重命名需要预先准备只读权限的图片文件，无法在标准自动化环境中完成"
+setup:
+  - action: session_start
+    command: "deepin-image-viewer ${TEST_FILES_DIR}/1.png"
+    wait: 1.0
+steps:
+  - name: "UNSUPPORTED - 需要只读权限图片"
+    action: noop
+    wait_after: 1000
+teardown:
+  - action: session_stop

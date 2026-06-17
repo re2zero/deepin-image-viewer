@@ -1,0 +1,35 @@
+# UNSUPPORTED: 版本兼容-文案语言翻译检查需要切换系统语言环境（藏语、维语等），无法在自动化测试中模拟多语言环境切换
+name: "版本兼容-文案语言翻译检查"
+app: deepin-image-viewer
+screenshot: true
+description: |
+  前置条件:
+
+  测试步骤:
+  1. 检查看图界面文案翻译
+  2. 检查界面控件、按钮、下拉框、鼠标悬浮态提示语、弹框语言翻译的对应性
+  3. 检查翻译后的文案UI展示正常美观
+  4. 检查帮助文档
+
+  预期结果:
+  1. 均翻译正确
+  2. 控件、悬浮框等翻译正常
+  3. UI展示正常
+  4. 帮助文档与当前系统语言相同，藏语、维语的帮助文档为简体中文
+module: 版本兼容
+feature: ''
+tags:
+  - L2
+
+vars:
+  XLSX_ID: "1652709"
+setup:
+  - action: session_start
+    command: "deepin-image-viewer ${TEST_FILES_DIR}/1.png"
+    wait: 1.0
+steps:
+  - name: "SKIP-文案语言翻译检查"
+    action: noop
+    wait_after: 1000
+teardown:
+  - action: session_stop

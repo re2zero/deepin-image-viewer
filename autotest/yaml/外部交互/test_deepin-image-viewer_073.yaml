@@ -1,0 +1,31 @@
+# UNSUPPORTED: 需要U盘挂载设备交互，无法通过 AT-SPI 自动化
+name: "外部交互-与外界挂载设备交互"
+app: deepin-image-viewer
+screenshot: true
+description: |
+  前置条件:
+
+  测试步骤:
+  1. 使用看图打开U盘中的任意图片
+  2. 移除U盘
+
+  预期结果:
+  1. 可以正常打开并加载U盘中的图片
+  2. 若打开为多张图片，则看图界面显示图片的缩略图，并显示“没有发现图片文件”的提示；若打开为单张照片，看图直接返回初始界面
+module: 其他应用
+feature: ''
+tags:
+  - L3
+
+vars:
+  XLSX_ID: "1652763"
+setup:
+  - action: session_start
+    command: "deepin-image-viewer ${TEST_FILES_DIR}/1.png"
+    wait: 1.0
+steps:
+  - name: "verify app starts"
+    action: wait
+    wait: 1.0
+teardown:
+  - action: session_stop

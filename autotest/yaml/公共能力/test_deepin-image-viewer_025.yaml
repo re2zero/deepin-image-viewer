@@ -1,0 +1,32 @@
+# UNSUPPORTED: 需要系统重启操作，无法通过 AT-SPI 自动化
+name: "系统事件响应-使用看图时重启"
+app: deepin-image-viewer
+screenshot: true
+description: |
+  前置条件:
+
+  测试步骤:
+  1. 使用看图打开任意图片
+  2. 点击dock栏右侧的【电源】按钮
+  3. 点击【重启】
+
+  预期结果:
+  1.
+  2. 进入电源界面
+  3. 系统正常重启
+module: 系统事件响应机制
+feature: ''
+tags:
+  - L4
+
+vars:
+  XLSX_ID: "1652769"
+setup:
+  - action: session_start
+    command: "deepin-image-viewer ${TEST_FILES_DIR}/1.png"
+    wait: 1.0
+steps:
+  - name: "UNSUPPORTED-系统重启操作无法自动化"
+    action: noop
+teardown:
+  - action: session_stop

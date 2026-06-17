@@ -1,0 +1,43 @@
+name: "[216][core][acp1]旋转-全屏右键菜单逆时针旋转"
+app: deepin-image-viewer
+screenshot: true
+description: |
+  前置条件:
+
+  测试步骤:
+  1. 打开支持旋转格式且可读写的图片
+  2. 双击图片查看区域
+  3. 在任意图片查看区域点击【鼠标右键】
+  4. 点击【逆时针旋转】选项
+
+  预期结果:
+  1.
+  2. 切换至全屏展示
+  3. 唤起右键菜单
+  4. 当前图片逆时针旋转，操作图片或等待2S后自动保存旋转状态
+module: 旋转
+feature: ''
+tags:
+  - L3
+
+vars:
+  XLSX_ID: "1652245"
+setup:
+  - action: session_start
+    command: "deepin-image-viewer ${TEST_FILES_DIR}/1.png"
+    wait: 1.0
+steps:
+  - name: "双击图片查看区域进入全屏"
+    action: mouse_double_click
+    x: 960
+    y: 540
+    wait_after: 1000
+  - name: "右键菜单点击逆时针旋转"
+    action: context_menu_comb
+    items:
+      - "逆时针旋转"
+    x: 960
+    y: 540
+    wait_after: 2000
+teardown:
+  - action: session_stop

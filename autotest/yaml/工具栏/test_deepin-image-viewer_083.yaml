@@ -1,0 +1,30 @@
+name: "工具栏-单张可读写图片按钮展示"
+app: deepin-image-viewer
+screenshot: true
+description: |
+  前置条件:
+
+  测试步骤:
+  1. 使用看图打开此图片，观察工具栏
+
+  预期结果:
+  1. 不展示”上一张”、“下一张”切图按钮
+module: 工具栏
+feature: ''
+tags:
+  - L3
+
+vars:
+  XLSX_ID: "1651981"
+setup:
+  - action: session_start
+    command: "deepin-image-viewer ${TEST_FILES_DIR}/1.png"
+    wait: 1.0
+steps:
+  - name: "等待工具栏加载"
+    action: wait
+    wait: 1.0
+  - name: "noop-检查不展示上一张下一张切图按钮"
+    action: noop
+teardown:
+  - action: session_stop

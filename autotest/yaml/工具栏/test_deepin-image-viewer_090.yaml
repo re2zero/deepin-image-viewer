@@ -1,0 +1,47 @@
+name: "图片信息-工具栏切换图片展示"
+app: deepin-image-viewer
+screenshot: true
+description: |
+  前置条件:
+
+  测试步骤:
+  1. 使用快捷键【Ctrl+I】
+  2. 点击工具栏的【上一张/下一张】按钮
+
+  预期结果:
+  1. 弹出图片信息弹窗
+  2. 切换图片，图片信息跟随切换
+module: 图片信息
+feature: ''
+tags:
+  - L2
+
+vars:
+  XLSX_ID: "1652225"
+setup:
+  - action: session_start
+    command: "deepin-image-viewer ${TEST_FILES_DIR}/1.png"
+    wait: 1.0
+steps:
+  - name: "Ctrl+I打开图片信息"
+    action: keyboard_press
+    keys: "Control+I"
+    wait_after: 1500
+  - name: "点击工具栏上一张按钮"
+    action: element_action
+    selector:
+      role: "push button"
+      name: "上一张"
+    wait_after: 1000
+  - name: "noop-检查切换图片，图片信息跟随切换"
+    action: noop
+  - name: "点击工具栏下一张按钮"
+    action: element_action
+    selector:
+      role: "push button"
+      name: "下一张"
+    wait_after: 1000
+  - name: "noop-检查切换图片，图片信息跟随切换"
+    action: noop
+teardown:
+  - action: session_stop

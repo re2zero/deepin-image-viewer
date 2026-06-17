@@ -1,0 +1,47 @@
+name: "重命名-修改名称与非同格式图片重名检查"
+app: deepin-image-viewer
+screenshot: true
+description: |
+  前置条件:
+
+  测试步骤:
+  1. 使用快捷键【F2】
+  2. 点击名称编辑框右侧的【X】清除按钮
+  3. 输入图片名称为【其他不同格式图片的文件名称】，比如：bbb，检查重命名窗口展示
+  4. 点击【确认】按钮
+
+  预期结果:
+  1. 唤起重命名窗口
+  2. 清空当前名称编辑框
+  3. 确定按钮高亮
+  4. 名称保存成功，看图顶部窗口展示名称为修改后的名称
+module: 重命名
+feature: ''
+tags:
+  - L3
+
+vars:
+  XLSX_ID: "1652307"
+setup:
+  - action: session_start
+    command: "deepin-image-viewer ${TEST_FILES_DIR}/1.png"
+    wait: 1.0
+steps:
+  - name: "使用F2唤起重命名窗口"
+    action: keyboard_press
+    keys: "F2"
+    wait_after: 1500
+  - name: "清除当前名称"
+    action: keyboard_press
+    keys: "Control+A"
+    wait_after: 200
+  - name: "输入其他不同格式图片的名称"
+    action: keyboard_type
+    value: "2"
+    wait_after: 500
+  - name: "点击确认"
+    action: keyboard_press
+    keys: "Return"
+    wait_after: 1000
+teardown:
+  - action: session_stop

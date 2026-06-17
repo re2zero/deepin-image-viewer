@@ -1,0 +1,30 @@
+name: "导航窗口-按钮关闭导航窗口"
+app: deepin-image-viewer
+screenshot: true
+description: |
+  前置条件:
+
+  测试步骤:
+  1. 点击导航窗口右上角的【关闭】按钮
+
+  预期结果:
+  1. 导航窗口关闭
+module: 导航窗口
+feature: ''
+tags:
+  - L2
+
+vars:
+  XLSX_ID: "1651939"
+setup:
+  - action: session_start
+    command: "deepin-image-viewer ${TEST_FILES_DIR}/4k150.png"
+    wait: 1.0
+steps:
+  - name: "点击导航窗口右上角的关闭按钮"
+    action: mouse_click
+    x: 1150
+    y: 50
+    wait_after: 1000
+teardown:
+  - action: session_stop

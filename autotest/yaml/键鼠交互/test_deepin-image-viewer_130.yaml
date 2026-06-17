@@ -1,0 +1,40 @@
+name: "键鼠切换-控制中心修改鼠标滚轮滚动速度后检查看图滚动切换图片的速度"
+app: deepin-image-viewer
+screenshot: true
+description: |
+  前置条件:
+
+  测试步骤:
+  1. 在图片预览区域按住快捷键【Ctrl】，同时滚动一格鼠标滚轮
+
+  预期结果:
+  1. 与滚轮速度没有关系，滚一次切一张
+module: 工具栏
+feature: ''
+tags:
+  - L3
+
+vars:
+  XLSX_ID: "1652129"
+setup:
+  - action: session_start
+    command: "deepin-image-viewer ${TEST_FILES_DIR}/1.png ${TEST_FILES_DIR}/2.png ${TEST_FILES_DIR}/3.png"
+    wait: 1.0
+steps:
+  - name: "将鼠标移动至图片预览区域"
+    action: mouse_click
+    selector:
+      role: "image"
+      name: "Image View"
+  - name: "在图片预览区域按住Ctrl键"
+    action: keyboard_press
+    keys: "Control_L"
+  - name: "同时滚动一格鼠标滚轮"
+    action: mouse_scroll
+    direction: "down"
+    delta: 1
+  - name: "验证切换一张图片"
+    action: wait
+    wait: 1.0
+teardown:
+  - action: session_stop

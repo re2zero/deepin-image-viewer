@@ -1,0 +1,41 @@
+name: "看图动效-导航窗口开启关闭"
+app: deepin-image-viewer
+screenshot: true
+description: |
+  前置条件:
+
+  测试步骤:
+  1. 开启导航窗口
+  2. 关闭导航窗口
+
+  预期结果:
+  1. 导航窗口由窗口下方为起点（导航窗口下方与看图窗口最下方齐平），由小到大淡入，大小30%-100%，透明度0-100,持续时间366ms，速度加速-平缓
+  2. 窗口由大到小淡出（导航窗口下方与看图窗口最下方齐平），大小100%-30%，透明度100%-30%，持续时间366ms,速度加速-平缓
+module: 看图动效
+feature: '【变更】【新增】看图动效(#36401)'
+tags:
+  - L3
+
+vars:
+  XLSX_ID: "1695359"
+setup:
+  - action: session_start
+    command: "deepin-image-viewer ${TEST_FILES_DIR}/1.png"
+    wait: 1.0
+steps:
+  - name: "开启导航窗口"
+    action: keyboard_press
+    keys: "Ctrl+T"
+    wait_after: 800
+    assert:
+      - type: screenshot_changed
+        negate: false
+  - name: "关闭导航窗口"
+    action: keyboard_press
+    keys: "Ctrl+T"
+    wait_after: 800
+    assert:
+      - type: screenshot_changed
+        negate: false
+teardown:
+  - action: session_stop

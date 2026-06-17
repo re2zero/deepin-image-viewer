@@ -1,0 +1,29 @@
+name: "键鼠交互-快捷键Ctrl+C复制图片"
+app: deepin-image-viewer
+screenshot: true
+description: |
+  前置条件:
+
+  测试步骤:
+  1. 使用快捷键【Ctrl+C】
+
+  预期结果:
+  1. 复制当前查看图片
+module: 键鼠交互
+feature: ''
+tags:
+  - L3
+
+vars:
+  XLSX_ID: "1652655"
+setup:
+  - action: session_start
+    command: "deepin-image-viewer ${TEST_FILES_DIR}/1.png ${TEST_FILES_DIR}/2.png ${TEST_FILES_DIR}/3.png"
+    wait: 1.0
+steps:
+  - name: "按下Ctrl+C复制当前查看图片"
+    action: keyboard_press
+    keys: "ctrl+c"
+    wait_after: 1000
+teardown:
+  - action: session_stop

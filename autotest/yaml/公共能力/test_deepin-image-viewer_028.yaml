@@ -1,0 +1,31 @@
+# UNSUPPORTED: 相册调用看图右键菜单需要启动相册应用并从相册中打开图片，无法直接通过看图命令行模拟
+name: "公共能力-相册调用看图右键菜单检查"
+app: deepin-image-viewer
+screenshot: true
+description: |
+  前置条件:
+
+  测试步骤:
+  1. 相册调用看图打开任意图片
+  2. 在图片查看区域任意位置点击鼠标右键
+
+  预期结果:
+  1.
+  2. 右键菜单中增加：添加到相册（二级菜单为新建菜单、各相册名）、导出、收藏、从相册中移除（需要从已有相册进入）
+module: 公共能力
+feature: ''
+tags:
+  - L2
+
+vars:
+  XLSX_ID: "1652415"
+setup:
+  - action: session_start
+    command: "deepin-image-viewer ${TEST_FILES_DIR}/1.png"
+    wait: 1.0
+steps:
+  - name: "SKIP-相册调用看图右键菜单检查"
+    action: noop
+    wait_after: 1000
+teardown:
+  - action: session_stop

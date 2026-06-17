@@ -1,0 +1,28 @@
+name: "公共能力-看图自有窗口属性"
+app: deepin-image-viewer
+screenshot: true
+description: |
+  前置条件:
+
+  测试步骤:
+  1. 使用看图打开多张图片，检查看图窗口展示
+
+  预期结果:
+  1. 看图窗口与UI图保持一致，顶部标题栏从左到右为看图logo、图片名称、最小化、最大化/还原、关闭，底部工具栏从左至右为上一张、下一张、1:1视图、适应窗口、识别文字、逆时针旋转、顺时针旋转、缩略图、删除，多页图在窗口右侧中部有上一页、下一页的翻页按钮
+module: 公共能力
+feature: ''
+tags:
+  - L2
+
+vars:
+  XLSX_ID: "1652433"
+setup:
+  - action: session_start
+    command: "deepin-image-viewer ${TEST_FILES_DIR}/1.png ${TEST_FILES_DIR}/2.png ${TEST_FILES_DIR}/3.png"
+    wait: 1.0
+steps:
+  - name: "检查窗口标题栏和工具栏布局"
+    action: noop
+    wait_after: 1000
+teardown:
+  - action: session_stop

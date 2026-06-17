@@ -1,0 +1,31 @@
+name: "公共能力-看图右键菜单检查"
+app: deepin-image-viewer
+screenshot: true
+description: |
+  前置条件:
+
+  测试步骤:
+  1. 使用看图打开任意图片
+  2. 在图片查看区域任意位置点击鼠标右键
+
+  预期结果:
+  1.
+  2. 右键菜单与原来保持一致（可参考右键菜单用例）
+module: 公共能力
+feature: ''
+tags:
+  - L2
+
+vars:
+  XLSX_ID: "1652413"
+setup:
+  - action: session_start
+    command: "deepin-image-viewer ${TEST_FILES_DIR}/1.png"
+    wait: 1.0
+steps:
+  - name: "在图片区域点击鼠标右键唤起右键菜单"
+    action: context_menu_comb
+    value: "right"
+    wait_after: 1000
+teardown:
+  - action: session_stop

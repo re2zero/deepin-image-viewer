@@ -1,0 +1,33 @@
+# UNSUPPORTED: 跟随第三方应用调整窗口尺寸需要启动相册应用并从相册中打开图片后调整窗口，无法直接模拟
+name: "公共能力-跟随第三方应用调整窗口尺寸"
+app: deepin-image-viewer
+screenshot: true
+description: |
+  前置条件:
+
+  测试步骤:
+  1. 打开相册中的任意图片
+  2. 调整看图窗口大小
+  3. 点击工具栏的【返回】按钮
+
+  预期结果:
+  1.
+  2. 看图窗口可以随意修改大小
+  3. 返回相册后，相册窗口大小与调整的看图窗口大小保持一致
+module: 公共能力
+feature: ''
+tags:
+  - L3
+
+vars:
+  XLSX_ID: "1652409"
+setup:
+  - action: session_start
+    command: "deepin-image-viewer ${TEST_FILES_DIR}/1.png"
+    wait: 1.0
+steps:
+  - name: "SKIP-跟随第三方应用调整窗口尺寸"
+    action: noop
+    wait_after: 1000
+teardown:
+  - action: session_stop

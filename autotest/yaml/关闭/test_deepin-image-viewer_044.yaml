@@ -1,0 +1,43 @@
+name: "导航窗口-右键菜单唤起或关闭"
+app: deepin-image-viewer
+screenshot: true
+description: |
+  前置条件:
+
+  测试步骤:
+  1. 在图片查看区域点击鼠标右键
+  2. 点击右键菜单中的【隐藏导航窗口】
+  3. 在图片查看区域点击鼠标右键
+  4. 点击右键菜单中的【显示导航窗口】
+
+  预期结果:
+  1.
+  2.
+  3.
+  4. 唤起导航窗口
+module: 导航窗口
+feature: ''
+tags:
+  - L3
+
+vars:
+  XLSX_ID: "1651933"
+setup:
+  - action: session_start
+    command: "deepin-image-viewer ${TEST_FILES_DIR}/4k150.png"
+    wait: 1.0
+steps:
+  - name: "在图片查看区域点击鼠标右键"
+    action: context_menu_comb
+    x: 960
+    y: 540
+    items: ["隐藏导航窗口"]
+    wait_after: 1500
+  - name: "在图片查看区域点击鼠标右键"
+    action: context_menu_comb
+    x: 960
+    y: 540
+    items: ["显示导航窗口"]
+    wait_after: 1500
+teardown:
+  - action: session_stop

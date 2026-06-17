@@ -1,0 +1,44 @@
+name: "幻灯片-多张图片循环放映"
+app: deepin-image-viewer
+screenshot: true
+description: |
+  前置条件:
+
+  测试步骤:
+  1. 使用看图打开多张本地图片
+  2. 在图片查看任意区域点击鼠标右键
+  3. 点击【幻灯片放映】选项
+  4. 等待幻灯片循环播放
+
+  预期结果:
+  1.
+  2. 唤起右键菜单
+  3. 进入幻灯片放映
+  4. 所有图片按照顺序循环播放
+module: 灯幻片放映
+feature: ''
+tags:
+  - L1
+
+vars:
+  XLSX_ID: "1652159"
+setup:
+  - action: session_start
+    command: "deepin-image-viewer ${TEST_FILES_DIR}/1.png"
+    wait: 1.0
+steps:
+  - name: "右键菜单启动幻灯片放映"
+    action: context_menu_comb
+    x: 960
+    y: 540
+    items: ["幻灯片放映"]
+    wait_after: 3000
+  - name: "等待幻灯片循环播放"
+    action: wait
+    wait: 8000
+  - name: "按ESC退出"
+    action: keyboard_press
+    keys: "Escape"
+    wait_after: 2000
+teardown:
+  - action: session_stop

@@ -1,0 +1,42 @@
+name: "键鼠切换-光标在工具栏缩略图区域时检查图片切换功能"
+app: deepin-image-viewer
+screenshot: true
+description: |
+  前置条件:
+
+  测试步骤:
+  1. 移动光标至工具栏缩略图区域任意位置
+  2. 按住快捷键【Ctrl】，同时滚动鼠标滚轮
+
+  预期结果:
+  1. 鼠标移动至工具栏任意缩略图区域
+  2. 看图无响应，不会切换图片或缩放图片
+module: 工具栏
+feature: ''
+tags:
+  - L3
+
+vars:
+  XLSX_ID: "1652081"
+setup:
+  - action: session_start
+    command: "deepin-image-viewer ${TEST_FILES_DIR}/1.png ${TEST_FILES_DIR}/2.png ${TEST_FILES_DIR}/3.png"
+    wait: 1.0
+steps:
+  - name: "将鼠标移动至工具栏缩略图区域"
+    action: mouse_click
+    selector:
+      role: "panel"
+      name: "缩略图"
+  - name: "按住Ctrl键"
+    action: keyboard_press
+    keys: "Control_L"
+  - name: "滚动鼠标滚轮"
+    action: mouse_scroll
+    direction: "down"
+    delta: 1
+    wait_after: 1000
+  - name: "noop-验证看图无响应不会切换图片"
+    action: noop
+teardown:
+  - action: session_stop

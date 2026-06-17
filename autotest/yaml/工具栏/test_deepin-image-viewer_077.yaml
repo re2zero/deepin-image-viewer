@@ -1,0 +1,48 @@
+name: "工具栏-键鼠切换-快速切换大量图片"
+app: deepin-image-viewer
+screenshot: true
+description: |
+  前置条件:
+
+  测试步骤:
+  1. 在图片预览区域按住快捷键【Ctrl】，同时不停的来回快速滚动鼠标滚轮
+
+  预期结果:
+  1. 看图始终响应正常，始终可以正常切换图片
+module: 工具栏
+feature: ''
+tags:
+  - L3
+
+vars:
+  XLSX_ID: "1652047"
+setup:
+  - action: session_start
+    command: "deepin-image-viewer ${TEST_FILES_DIR}/1.png ${TEST_FILES_DIR}/2.png ${TEST_FILES_DIR}/3.png ${TEST_FILES_DIR}/4.png ${TEST_FILES_DIR}/5.png ${TEST_FILES_DIR}/6.png ${TEST_FILES_DIR}/7.png"
+    wait: 1.0
+steps:
+  - name: "按住Ctrl键"
+    action: keyboard_press
+    keys: "Ctrl_L"
+    hold: true
+  - name: "快速来回滚动鼠标滚轮切换图片"
+    action: mouse_scroll
+    direction: "up"
+    delta: 5
+    repeat: 10
+    wait_after: 100
+  - name: "反向快速滚动"
+    action: mouse_scroll
+    direction: "down"
+    delta: 5
+    repeat: 10
+    wait_after: 100
+  - name: "松开Ctrl键"
+    action: keyboard_press
+    keys: "Ctrl_L"
+    release: true
+    wait_after: 500
+  - name: "noop-检查看图始终响应正常"
+    action: noop
+teardown:
+  - action: session_stop

@@ -1,0 +1,47 @@
+name: "看图动效-图片旋转"
+app: deepin-image-viewer
+screenshot: true
+description: |
+  前置条件:
+
+  测试步骤:
+  1. 看图中，点击逆时针旋转
+  2. 看图中，点击顺时针旋转
+
+  预期结果:
+  1. 图片逆时针旋转90度，持续时间366ms，速度加速-平缓
+  2. 图片顺时针旋转90度，持续时间366ms，速度加速-平缓
+module: 看图动效
+feature: '【变更】【新增】看图动效(#36401)'
+tags:
+  - L3
+
+vars:
+  XLSX_ID: "1695357"
+setup:
+  - action: session_start
+    command: "deepin-image-viewer ${TEST_FILES_DIR}/1.png"
+    wait: 1.0
+steps:
+  - name: "验证图片正常显示"
+    action: noop
+    assert:
+      - type: screenshot_changed
+        negate: false
+    wait_after: 1000
+  - name: "逆时针旋转图片"
+    action: keyboard_press
+    keys: "Ctrl+Shift+R"
+    wait_after: 800
+    assert:
+      - type: screenshot_changed
+        negate: false
+  - name: "顺时针旋转图片"
+    action: keyboard_press
+    keys: "Ctrl+R"
+    wait_after: 800
+    assert:
+      - type: screenshot_changed
+        negate: false
+teardown:
+  - action: session_stop

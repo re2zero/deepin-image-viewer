@@ -1,0 +1,33 @@
+name: "缩放-最大放大倍数检查"
+app: deepin-image-viewer
+screenshot: true
+description: |
+  前置条件:
+
+  测试步骤:
+  1. 一直使用快捷键【up】
+
+  预期结果:
+  1. 图片一直放大，直至放大为2000%
+module: 基础操作
+feature: ''
+tags:
+  - L3
+
+vars:
+  XLSX_ID: "1652137"
+setup:
+  - action: session_start
+    command: "deepin-image-viewer ${TEST_FILES_DIR}/1.png"
+    wait: 1.0
+steps:
+  - name: "持续按Up键放大图片"
+    action: keyboard_press
+    keys: "Up"
+    repeat: 20
+    wait_after: 500
+  - name: "截图验证最大放大倍数"
+    action: noop
+    wait_after: 1000
+teardown:
+  - action: session_stop

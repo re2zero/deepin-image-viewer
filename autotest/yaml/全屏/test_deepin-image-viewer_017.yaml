@@ -1,0 +1,36 @@
+name: "[214][smoke][acp1]旋转-全屏快捷键顺时针旋转"
+app: deepin-image-viewer
+screenshot: true
+description: |
+  前置条件:
+
+  测试步骤:
+  1. 双击图片查看区域
+  2. 使用快捷键【Ctrl+R】
+
+  预期结果:
+  1. 看图切换为全屏展示
+  2. 图片顺时针旋转90度
+module: 旋转
+feature: ''
+tags:
+  - L2
+
+vars:
+  XLSX_ID: "1652255"
+setup:
+  - action: session_start
+    command: "deepin-image-viewer ${TEST_FILES_DIR}/1.png"
+    wait: 1.0
+steps:
+  - name: "双击图片查看区域进入全屏"
+    action: mouse_double_click
+    x: 960
+    y: 540
+    wait_after: 1000
+  - name: "按下Ctrl+R顺时针旋转"
+    action: keyboard_press
+    keys: "ctrl+r"
+    wait_after: 1000
+teardown:
+  - action: session_stop

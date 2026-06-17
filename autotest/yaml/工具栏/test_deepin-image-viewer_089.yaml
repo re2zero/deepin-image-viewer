@@ -1,0 +1,41 @@
+name: "工具栏-键鼠切换-打开自然滚动后切换上一张"
+app: deepin-image-viewer
+screenshot: true
+description: |
+  前置条件:
+
+  测试步骤:
+  1. 在图片预览区域按住快捷键【Ctrl】，同时向后滚动鼠标滚轮
+
+  预期结果:
+  1. 看图切换至上一张图片，与开启自然滚动前切换方向相反
+module: 工具栏
+feature: ''
+tags:
+  - L3
+
+vars:
+  XLSX_ID: "1652041"
+setup:
+  - action: session_start
+    command: "deepin-image-viewer ${TEST_FILES_DIR}/1.png ${TEST_FILES_DIR}/2.png ${TEST_FILES_DIR}/3.png"
+    wait: 1.0
+steps:
+  - name: "按住Ctrl键"
+    action: keyboard_press
+    keys: "Ctrl_L"
+    hold: true
+  - name: "向后滚动鼠标滚轮"
+    action: mouse_scroll
+    direction: "down"
+    delta: 3
+    wait_after: 1000
+  - name: "松开Ctrl键"
+    action: keyboard_press
+    keys: "Ctrl_L"
+    release: true
+    wait_after: 500
+  - name: "noop-检查切换至上一张图片，方向与自然滚动前相反"
+    action: noop
+teardown:
+  - action: session_stop

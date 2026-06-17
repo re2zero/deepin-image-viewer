@@ -1,0 +1,34 @@
+name: "[011][acp1][smoke]工具栏-删除按钮检查"
+app: deepin-image-viewer
+screenshot: true
+description: |
+  前置条件:
+
+  测试步骤:
+  1. 点击工具栏的【删除】按钮
+
+  预期结果:
+  1. 图片被删除至回收站中，看图不再展示此图
+module: 工具栏
+feature: ''
+tags:
+  - L2
+
+vars:
+  XLSX_ID: "1652105"
+setup:
+  - action: session_start
+    command: "deepin-image-viewer ${TEST_FILES_DIR}/1.png ${TEST_FILES_DIR}/2.png ${TEST_FILES_DIR}/3.png"
+    wait: 1.0
+steps:
+  - name: "点击工具栏删除按钮"
+    action: element_action
+    selector:
+      role: "push button"
+      name: "删除"
+    wait_after: 1000
+  - name: "验证图片被删除"
+    action: wait
+    wait: 1.0
+teardown:
+  - action: session_stop

@@ -1,0 +1,33 @@
+# UNSUPPORTED: 没有tif多页图测试文件，无法通过 AT-SPI 自动化
+name: "tif多页图-播放幻灯片"
+app: deepin-image-viewer
+screenshot: true
+description: |
+  前置条件:
+
+  测试步骤:
+  1. 多次点击看图查看图片区域右侧的【下一页】按钮
+  2. 使用快捷键【F5】
+  3. 双击幻灯片区域
+
+  预期结果:
+  1. 切换当前多页图
+  2. 开始播放幻灯片
+  3. 退出幻灯片放映
+module: tif多页图
+feature: ''
+tags:
+  - L2
+
+vars:
+  XLSX_ID: "1651905"
+setup:
+  - action: session_start
+    command: "deepin-image-viewer ${TEST_FILES_DIR}/1.png"
+    wait: 1.0
+steps:
+  - name: "verify app starts"
+    action: wait
+    wait: 1.0
+teardown:
+  - action: session_stop

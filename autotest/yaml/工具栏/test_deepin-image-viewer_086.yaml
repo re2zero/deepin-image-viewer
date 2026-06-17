@@ -1,0 +1,77 @@
+name: "工具栏-图源不存在时恢复图源"
+app: deepin-image-viewer
+screenshot: true
+description: |
+  前置条件:
+
+  测试步骤:
+  1. 使用快捷键【Alt+D】
+  2. 使用快捷键【Delete】
+  3. 返回看图界面
+  4. 打开回收站并还原之前删除的图片
+  5. 返回看图界面
+  6. 点击工具栏的【下一张】按钮
+  7. 点击工具栏的【上一张】按钮
+
+  预期结果:
+  1. 唤起文件管理器并会选中当前看图查看图片
+  2. 删除当前图片
+  3. 看图界面提示“未发现图片文件”，缩略图展示正常，工具栏只有上一张和下一张高亮
+  4. 图片从回收站还原
+  5. 看图界面仍然提示“未发现图片文件”
+  6. 切换至下一张图片
+  7. 切换至上一张原图，看图界面正常展示图片
+module: 工具栏
+feature: ''
+tags:
+  - L3
+
+vars:
+  XLSX_ID: "1652017"
+setup:
+  - action: session_start
+    command: "deepin-image-viewer ${TEST_FILES_DIR}/1.png ${TEST_FILES_DIR}/2.png ${TEST_FILES_DIR}/3.png"
+    wait: 1.0
+steps:
+  - name: "使用快捷键Alt+D唤起文件管理器"
+    action: keyboard_press
+    keys: "Alt+D"
+    wait_after: 1000
+  - name: "使用快捷键Delete删除当前图片"
+    action: keyboard_press
+    keys: "Delete"
+    wait_after: 1000
+  - name: "返回看图界面"
+    action: keyboard_press
+    keys: "Alt+Tab"
+    wait_after: 1000
+  - name: "noop-检查看图界面提示未发现图片文件"
+    action: noop
+    wait_after: 2000
+  - name: "打开回收站还原图片（需手动操作，此处等待）"
+    action: wait
+    wait: 5.0
+  - name: "返回看图界面"
+    action: keyboard_press
+    keys: "Alt+Tab"
+    wait_after: 1000
+  - name: "noop-检查看图界面仍然提示未发现图片文件"
+    action: noop
+  - name: "点击工具栏下一张按钮"
+    action: element_action
+    selector:
+      role: "push button"
+      name: "下一张"
+    wait_after: 1000
+  - name: "noop-检查切换至下一张图片"
+    action: noop
+  - name: "点击工具栏上一张按钮"
+    action: element_action
+    selector:
+      role: "push button"
+      name: "上一张"
+    wait_after: 1000
+  - name: "noop-检查切换至上一张原图，看图界面正常展示"
+    action: noop
+teardown:
+  - action: session_stop

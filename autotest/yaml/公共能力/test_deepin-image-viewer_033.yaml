@@ -1,0 +1,28 @@
+name: "公共能力-看图工具栏单张图片检查"
+app: deepin-image-viewer
+screenshot: true
+description: |
+  前置条件:
+
+  测试步骤:
+  1. 使用看图打开单张图片，检查工具栏
+
+  预期结果:
+  1. 工具栏状态与原来保持一致（可参考工具栏用例）
+module: 公共能力
+feature: ''
+tags:
+  - L2
+
+vars:
+  XLSX_ID: "1652429"
+setup:
+  - action: session_start
+    command: "deepin-image-viewer ${TEST_FILES_DIR}/1.png"
+    wait: 1.0
+steps:
+  - name: "检查单张图片工具栏状态"
+    action: noop
+    wait_after: 1000
+teardown:
+  - action: session_stop

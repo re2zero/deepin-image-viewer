@@ -1,0 +1,45 @@
+name: "看图动效-图片切换"
+app: deepin-image-viewer
+screenshot: true
+description: |
+  前置条件:
+
+  测试步骤:
+  1. 看图中，点击下一张
+  2. 看图中，点击上一张
+  3. 切换时查看移出
+  4. 查看缩略图变化
+
+  预期结果:
+  1. 当前图片向左快速移出消失（向左移动至左侧窗口边缘消失，透明度100-0变化），下一张图片向左快速移入出现（由右侧窗口边缘移入，透明度0-100变化）
+  2. 当前图片向右快速移出消失（向右移动至右侧窗口边缘消失，透明度100-0变化），上一张图向右快速移入出现（由左侧窗口边缘移入，透明度0-100变化）
+  3. 图片移进移出的范围不超过窗口，持续时间366ms，速度加速-平缓
+  4. 图片替换，选中图由小到大淡入，大小30*40px-58*58px，透明度0-100，持续时间366ms
+module: 看图动效
+feature: '【变更】【新增】看图动效(#36401)'
+tags:
+  - L3
+
+vars:
+  XLSX_ID: "1695353"
+setup:
+  - action: session_start
+    command: "deepin-image-viewer ${TEST_FILES_DIR}/1.png"
+    wait: 1.0
+steps:
+  - name: "切换至下一张图片"
+    action: keyboard_press
+    keys: "Right"
+    wait_after: 800
+    assert:
+      - type: screenshot_changed
+        negate: false
+  - name: "切换至上一张图片"
+    action: keyboard_press
+    keys: "Left"
+    wait_after: 800
+    assert:
+      - type: screenshot_changed
+        negate: false
+teardown:
+  - action: session_stop

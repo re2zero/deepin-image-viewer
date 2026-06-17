@@ -1,0 +1,38 @@
+name: "工具栏-横图适应窗口"
+app: deepin-image-viewer
+screenshot: true
+description: |
+  前置条件:
+
+  测试步骤:
+  1. 打开较小分辨【600*200】横图片
+  2. 点击工具栏【适应窗口】按钮
+
+  预期结果:
+  1.
+  2. 图片放大，直到左右两头紧挨软件的左右两边为止
+module: 工具栏
+feature: ''
+tags:
+  - L3
+
+vars:
+  XLSX_ID: "1651973"
+setup:
+  - action: session_start
+    command: "deepin-image-viewer ${TEST_FILES_DIR}/125good.png"
+    wait: 1.0
+steps:
+  - name: "等待图片加载完成"
+    action: wait
+    wait: 1.0
+  - name: "点击工具栏适应窗口按钮"
+    action: element_action
+    selector:
+      role: "push button"
+      name: "适应窗口"
+    wait_after: 1000
+  - name: "noop-检查图片放大直到左右两头紧挨软件左右两边"
+    action: noop
+teardown:
+  - action: session_stop

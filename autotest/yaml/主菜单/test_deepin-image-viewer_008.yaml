@@ -1,0 +1,35 @@
+name: "壁纸-窗口下设置壁纸"
+app: deepin-image-viewer
+screenshot: true
+description: |
+  前置条件:
+
+  测试步骤:
+  1. 使用看图打开任意支持设置壁纸的图片，如：jpg格式
+  2. 在图片查看区域点击【鼠标右键】
+  3. 点击选择右键菜单中的【设为壁纸】选项
+
+  预期结果:
+  1. 可以正常打开
+  2. 唤起右键菜单
+  3. 当前图片被设置为桌面壁纸
+module: 设为壁纸
+feature: ''
+tags:
+  - L1
+
+vars:
+  XLSX_ID: "1652217"
+setup:
+  - action: session_start
+    command: "deepin-image-viewer ${TEST_FILES_DIR}/2025-11-22上班.jpg"
+    wait: 1.0
+steps:
+  - name: "右键菜单选择设为壁纸"
+    action: context_menu_comb
+    x: 960
+    y: 540
+    items: ["设为壁纸"]
+    wait_after: 2000
+teardown:
+  - action: session_stop

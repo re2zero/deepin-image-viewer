@@ -1,0 +1,41 @@
+name: "[229][acp1][smoke]主菜单-多窗口退出"
+app: deepin-image-viewer
+screenshot: true
+description: |
+  前置条件:
+
+  测试步骤:
+  1. 启动多个看图
+  2. 选择任意一个看图窗口，点击右上角【主菜单】按钮
+  3. 点击【退出】选项
+
+  预期结果:
+  1.
+  2. 展开主菜单
+  3. 退出当前看图应用，其他看图窗口不受影响
+module: 主菜单
+feature: ''
+tags:
+  - L3
+
+vars:
+  XLSX_ID: "1652353"
+setup:
+  - action: session_start
+    command: "deepin-image-viewer ${TEST_FILES_DIR}/1.png"
+    wait: 1.0
+steps:
+  - name: "open a second image viewer instance"
+    action: session_start
+    command: "deepin-image-viewer ${TEST_FILES_DIR}/2.png"
+    wait: 1.0
+  - name: "click exit from main menu of second instance"
+    action: main_menu_comb
+    items:
+      - "退出"
+    wait_after: 2000
+  - name: "verify first instance still running"
+    action: wait
+    wait: 1.0
+teardown:
+  - action: session_stop

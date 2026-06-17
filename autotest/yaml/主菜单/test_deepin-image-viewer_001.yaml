@@ -1,0 +1,43 @@
+name: "主菜单-关于与看图窗口关闭后打开交互"
+app: deepin-image-viewer
+screenshot: true
+description: |
+  前置条件:
+
+  测试步骤:
+  1. 点击看图右上角的【X】关闭按钮
+  2. 再次启动看图
+
+  预期结果:
+  1. 关于弹窗跟随看图关闭
+  2. 看图正常启动，不会展示关于弹窗
+module: 主菜单
+feature: ''
+tags:
+  - L4
+
+vars:
+  XLSX_ID: "1652359"
+setup:
+  - action: session_start
+    command: "deepin-image-viewer ${TEST_FILES_DIR}/1.png"
+    wait: 1.0
+steps:
+  - name: "open about dialog via main menu"
+    action: main_menu_comb
+    items:
+      - "关于"
+    wait_after: 1000
+  - name: "close the image viewer window"
+    action: keyboard_press
+    keys: "Alt+F4"
+    wait_after: 500
+  - name: "restart image viewer"
+    action: session_start
+    command: "deepin-image-viewer ${TEST_FILES_DIR}/1.png"
+    wait: 1.0
+  - name: "verify app starts without about dialog"
+    action: wait
+    wait: 1.0
+teardown:
+  - action: session_stop
